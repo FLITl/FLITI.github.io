@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>FLITl的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="6.2.树的例子现在我们已经研究了线性数据结构，如栈和队列，并且有一些递归的经验，我们将看一个称为树的常见数据结构。树在计算机科学的许多领域中使用，包括操作系统，图形，数据库系统和计算机网络。树数据结构与他们的植物表亲有许多共同之处。树数据结构具有根，分支和叶。自然界中的树和计算机科学中的树之间的区别在于树数据结构的根在顶部，其叶在底部。 在我们开始研究树形数据结构之前，让我们来看几个常见的例子。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FLITl的博客">
+<meta property="og:url" content="http://jackfrued.top/2024/06/29/python-data-structure-cn/6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.2.%E6%A0%91%E7%9A%84%E4%BE%8B%E5%AD%90/README/index.html">
+<meta property="og:site_name" content="FLITl的博客">
+<meta property="og:description" content="6.2.树的例子现在我们已经研究了线性数据结构，如栈和队列，并且有一些递归的经验，我们将看一个称为树的常见数据结构。树在计算机科学的许多领域中使用，包括操作系统，图形，数据库系统和计算机网络。树数据结构与他们的植物表亲有许多共同之处。树数据结构具有根，分支和叶。自然界中的树和计算机科学中的树之间的区别在于树数据结构的根在顶部，其叶在底部。 在我们开始研究树形数据结构之前，让我们来看几个常见的例子。">
+<meta property="og:locale">
+<meta property="og:image" content="http://jackfrued.top/assets/6.2.%E6%A0%91%E7%9A%84%E4%BE%8B%E5%AD%90.figure1.png">
+<meta property="og:image" content="http://jackfrued.top/assets/6.2.%E6%A0%91%E7%9A%84%E4%BE%8B%E5%AD%90.figure2.png">
+<meta property="og:image" content="http://jackfrued.top/assets/6.2.%E6%A0%91%E7%9A%84%E4%BE%8B%E5%AD%90.figure3.png">
+<meta property="article:published_time" content="2024-06-29T02:14:12.972Z">
+<meta property="article:modified_time" content="2024-05-15T03:24:19.120Z">
+<meta property="article:author" content="FLITl">
+<meta property="article:tag" content="反思，技术，生活">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://jackfrued.top/assets/6.2.%E6%A0%91%E7%9A%84%E4%BE%8B%E5%AD%90.figure1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="FLITl的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">FLITl的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">天命之谓性；率性之谓道；修道之谓教。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://jackfrued.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-python-data-structure-cn/6.树和树的算法/6.2.树的例子/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.2.%E6%A0%91%E7%9A%84%E4%BE%8B%E5%AD%90/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.972Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="6-2-树的例子"><a href="#6-2-树的例子" class="headerlink" title="6.2.树的例子"></a>6.2.树的例子</h2><p>现在我们已经研究了线性数据结构，如栈和队列，并且有一些递归的经验，我们将看一个称为树的常见数据结构。树在计算机科学的许多领域中使用，包括操作系统，图形，数据库系统和计算机网络。树数据结构与他们的植物表亲有许多共同之处。树数据结构具有根，分支和叶。自然界中的树和计算机科学中的树之间的区别在于树数据结构的根在顶部，其叶在底部。</p>
+<p>在我们开始研究树形数据结构之前，让我们来看几个常见的例子。我们树的第一个例子是生物学的分类树。Figure 1 展示了一些动物的生物分类的实例。从这个简单的例子，我们可以了解树的几个属性。此示例演示的第一个属性是树是分层的。通过分层，我们的意思是树的层次结构，更接近顶部的是抽象的东西和底部附近是更具体的东西。层次结构的顶部是 <code>Kingdom</code>，树的下一层（上面的层的“Children”）是 <code>Phylum</code>，然后是 <code>Class</code>，等等。然而，无论我们在分类树中有多深，所有的生物仍然是 <code>animals</code>。</p>
+<p><img src="/assets/6.2.%E6%A0%91%E7%9A%84%E4%BE%8B%E5%AD%90.figure1.png" alt="6.2.树的例子.figure1"></p>
+<p><em>Figure 1</em></p>
+<p>注意，你可以从树的顶部开始，并沿着圆圈和箭头一直到底部的路径。在树的每一层，我们可能问自己一个问题，然后遵循与我们的答案一致的路径。例如，我们可能会问，“这个动物是Chordate(脊椎动物)还是Arthropod(节肢动物)？”如果答案是“Chordate”，那么我们遵循这条路径，问“这个Chordate是 Mammal(哺乳动物)吗？”如果不是，我们就卡住了这个简化的例子）。当我们在哺乳动物那层时，我们问“这个哺乳动物是Primate(灵长类动物)还是 Carnivore(食肉动物)？”我们可以遵循以下路径，直到我们到达树的最底部，在那里我们有共同的名字。</p>
+<p>树的第二个属性是一个节点的所有子节点独立于另一个节点的子节点。例如，Felis 有属于 Domestica 和 Leo 的孩子。Musca 也有一个名为 Domestica 的孩子，但它是一个不同的节点，并独立于 Felis 的 Domestica孩子。这意味着我们可以改变作为 Musca 的孩子的节点而不影响 Felis 的孩子。</p>
+<p>第三个属性是每个叶节点是唯一的。我们可以指定从树的根到唯一地识别动物王国中的每个物种的叶的路径;例如，Animalia→→Chordate→→Mammal→→Carnivora→→Felidae→→Felis→→Domestica。</p>
+<p>你可能每天使用的树结构的另一个示例是文件系统。在文件系统中，目录或文件夹被构造为树。Figure 2 说明了 Unix文件系统层次结构的一小部分。</p>
+<p><img src="/assets/6.2.%E6%A0%91%E7%9A%84%E4%BE%8B%E5%AD%90.figure2.png" alt="6.2.树的例子.figure2"></p>
+<p><em>Figure2</em></p>
+<p>文件系统树与生物分类树有很多共同之处。你可以遵循从根目录到任何目录的路径。 该路径将唯一标识该子目录（及其中的所有文件）。 树的另一个重要属性来源于它们的层次性质，你可以将树的整个部分（称为子树）移动到树中的不同位置，而不影响层次结构的较低级别。 例如，我们可以使用整个子树 &#x2F;etc&#x2F;，从根节点分离，并重新附加在 usr&#x2F; 下。 这将把 httpd 的唯一路径名从 &#x2F;etc&#x2F;httpd 更改为 &#x2F;usr&#x2F;etc&#x2F;httpd，但不会影响 httpd 目录的内容或任何子级。</p>
+<p>树的最后一个例子是网页。 以下是使用HTML编写的简单网页的示例。 Figure 3 展示了用于创建页面的每个 HTML 标记的树。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">xml:lang</span>=<span class="string">&quot;en&quot;</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">content</span>=<span class="string">&quot;text/html; charset=utf-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>simple<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>A simple web page<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>List item one<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>List item two<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.cs.luther.edu&quot;</span>&gt;</span>Luther CS <span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/assets/6.2.%E6%A0%91%E7%9A%84%E4%BE%8B%E5%AD%90.figure3.png" alt="6.2.树的例子.figure3"></p>
+<p><em>Figure 3</em></p>
+<p>HTML源代码和伴随源的树说明了另一个层次结构。请注意，树的每个级别都对应于HTML标记内的嵌套级别。源中的第一个标记是 <code>&lt;html&gt;</code>，最后一个是<code>&lt;/html&gt;</code> 页面中的所有其余标记都是成对的。 如果你检查，你会看到这个嵌套属性在树的所有级别都是 true。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.2.%E6%A0%91%E7%9A%84%E4%BE%8B%E5%AD%90/README/" data-id="clxzhp6k3002h1s8je5yc9zdx" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/06/29/python-data-structure-cn/6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.3.%E8%AF%8D%E6%B1%87%E5%92%8C%E5%AE%9A%E4%B9%89/README/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/06/29/python-data-structure-cn/6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.19.%E6%80%BB%E7%BB%93/README/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.9.%E5%AE%9E%E7%8E%B0%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.8.%E6%9E%84%E5%BB%BA%E5%AD%97%E6%A2%AF%E5%9B%BE/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.7.%E5%AD%97%E6%A2%AF%E7%9A%84%E9%97%AE%E9%A2%98/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.6.%E5%AE%9E%E7%8E%B0/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.5.%E9%82%BB%E6%8E%A5%E8%A1%A8/README/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 FLITl<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>FLITl的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="3.7.符号匹配上面显示的匹配括号问题是许多编程语言都会出现的一般情况的特定情况。匹配和嵌套不同种类的开始和结束符号的情况经常发生。例如，在 Python 中，方括号 [ 和 ] 用于列表，花括号 &#123; 和 &#125; 用于字典。括号 ( 和 ) 用于元组和算术表达式。只要每个符号都能保持自己的开始和结束关系，就可以混合符号。符号字符串如 12345&#123; &#123; ( [ ]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FLITl的博客">
+<meta property="og:url" content="http://jackfrued.top/2024/06/29/python-data-structure-cn/3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.7.%E7%AC%A6%E5%8F%B7%E5%8C%B9%E9%85%8D/README/index.html">
+<meta property="og:site_name" content="FLITl的博客">
+<meta property="og:description" content="3.7.符号匹配上面显示的匹配括号问题是许多编程语言都会出现的一般情况的特定情况。匹配和嵌套不同种类的开始和结束符号的情况经常发生。例如，在 Python 中，方括号 [ 和 ] 用于列表，花括号 &#123; 和 &#125; 用于字典。括号 ( 和 ) 用于元组和算术表达式。只要每个符号都能保持自己的开始和结束关系，就可以混合符号。符号字符串如 12345&#123; &#123; ( [ ]">
+<meta property="og:locale">
+<meta property="article:published_time" content="2024-06-29T02:14:12.627Z">
+<meta property="article:modified_time" content="2024-05-15T03:24:19.051Z">
+<meta property="article:author" content="FLITl">
+<meta property="article:tag" content="反思，技术，生活">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="FLITl的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">FLITl的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">天命之谓性；率性之谓道；修道之谓教。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://jackfrued.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-python-data-structure-cn/3.基本数据结构/3.7.符号匹配/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.7.%E7%AC%A6%E5%8F%B7%E5%8C%B9%E9%85%8D/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.627Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="3-7-符号匹配"><a href="#3-7-符号匹配" class="headerlink" title="3.7.符号匹配"></a>3.7.符号匹配</h2><p>上面显示的匹配括号问题是许多编程语言都会出现的一般情况的特定情况。匹配和嵌套不同种类的开始和结束符号的情况经常发生。例如，在 Python 中，方括号 <code>[</code> 和 <code>]</code> 用于列表，花括号 <code>&#123;</code> 和 <code>&#125;</code> 用于字典。括号 <code>(</code> 和 <code>)</code> 用于元组和算术表达式。只要每个符号都能保持自己的开始和结束关系，就可以混合符号。符号字符串如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123; &#123; ( [ ] [ ] ) &#125; ( ) &#125;</span><br><span class="line"></span><br><span class="line">[ [ &#123; &#123; ( ( ) ) &#125; &#125; ] ]</span><br><span class="line"></span><br><span class="line">[ ] [ ] [ ] ( ) &#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这些被恰当的匹配了，因为不仅每个开始符号都有对应的结束符号，而且符号的类型也匹配。</p>
+<p>相反这些字符串没法匹配：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">( [ ) ]</span><br><span class="line"></span><br><span class="line">( ( ( ) ] ) )</span><br><span class="line"></span><br><span class="line">[ &#123; ( ) ]</span><br></pre></td></tr></table></figure>
+
+<p>上节的简单括号检查程序可以轻松的扩展处理这些新类型的符号。回想一下，每个开始符号被简单的压入栈中，等待匹配的结束符号出现。当出现结束符号时，唯一的区别是我们必须检查确保它正确匹配栈顶部开始符号的类型。如果两个符号不匹配，则字符串不匹配。如果整个字符串都被处理完并且没有什么留在栈中，则字符串匹配。</p>
+<p>Python 程序见 ActiveCode 1。唯一的变化是 16 行，我们称之为辅助函数匹配。必须检查栈中每个删除的符号，以查看它是否与当前结束符号匹配。如果不匹配，则布尔变量 balanced 被设置为 False。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pythonds.basic.stack <span class="keyword">import</span> Stack</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">parChecker</span>(<span class="params">symbolString</span>):</span><br><span class="line">    s = Stack()</span><br><span class="line">    balanced = <span class="literal">True</span></span><br><span class="line">    index = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> index &lt; <span class="built_in">len</span>(symbolString) <span class="keyword">and</span> balanced:</span><br><span class="line">        symbol = symbolString[index]</span><br><span class="line">        <span class="keyword">if</span> symbol <span class="keyword">in</span> <span class="string">&quot;([&#123;&quot;</span>:</span><br><span class="line">            s.push(symbol)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> s.isEmpty():</span><br><span class="line">                balanced = <span class="literal">False</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                top = s.pop()</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> matches(top,symbol):</span><br><span class="line">                       balanced = <span class="literal">False</span></span><br><span class="line">        index = index + <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> balanced <span class="keyword">and</span> s.isEmpty():</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">matches</span>(<span class="params"><span class="built_in">open</span>,close</span>):</span><br><span class="line">    opens = <span class="string">&quot;([&#123;&quot;</span></span><br><span class="line">    closers = <span class="string">&quot;)]&#125;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> opens.index(<span class="built_in">open</span>) == closers.index(close)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(parChecker(<span class="string">&#x27;&#123;&#123;([][])&#125;()&#125;&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(parChecker(<span class="string">&#x27;[&#123;()]&#x27;</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><em>ActiveCode 1</em></p>
+<p>这两个例子表明，栈是计算机语言结构处理非常重要的数据结构。几乎你能想到的任何嵌套符号必须按照平衡匹配的顺序。栈还有其他重要的用途，我们将在接下来的部分讨论。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.7.%E7%AC%A6%E5%8F%B7%E5%8C%B9%E9%85%8D/README/" data-id="clxzhp6jt00111s8jdu9cfltk" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/06/29/python-data-structure-cn/3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.8.%E5%8D%81%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E6%88%90%E4%BA%8C%E8%BF%9B%E5%88%B6/README/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/06/29/python-data-structure-cn/3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.6.%E7%AE%80%E5%8D%95%E6%8B%AC%E5%8F%B7%E5%8C%B9%E9%85%8D/README/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.9.%E5%AE%9E%E7%8E%B0%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.8.%E6%9E%84%E5%BB%BA%E5%AD%97%E6%A2%AF%E5%9B%BE/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.7.%E5%AD%97%E6%A2%AF%E7%9A%84%E9%97%AE%E9%A2%98/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.6.%E5%AE%9E%E7%8E%B0/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.5.%E9%82%BB%E6%8E%A5%E8%A1%A8/README/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 FLITl<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

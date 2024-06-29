@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>FLITl的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="一些感想，一些技术，一些生活。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FLITl的博客">
+<meta property="og:url" content="http://jackfrued.top/page/7/index.html">
+<meta property="og:site_name" content="FLITl的博客">
+<meta property="og:description" content="一些感想，一些技术，一些生活。">
+<meta property="og:locale">
+<meta property="article:author" content="FLITl">
+<meta property="article:tag" content="反思，技术，生活">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="FLITl的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">FLITl的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">天命之谓性；率性之谓道；修道之谓教。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://jackfrued.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-python-data-structure-cn/4.递归/4.4.递归的三定律/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.4.%E9%80%92%E5%BD%92%E7%9A%84%E4%B8%89%E5%AE%9A%E5%BE%8B/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.698Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="4-4-递归的三定律"><a href="#4-4-递归的三定律" class="headerlink" title="4.4.递归的三定律"></a>4.4.递归的三定律</h2><p>像阿西莫夫机器人，所有递归算法必须服从三个重要的定律：</p>
+<ol>
+<li>递归算法必须具有基本情况。</li>
+<li>递归算法必须改变其状态并向基本情况靠近。</li>
+<li>递归算法必须以递归方式调用自身。</li>
+</ol>
+<p>让我们更详细地看看每一个定律，看看它如何在 <code>listsum</code> 算法中使用。首先，基本情况是算法停止递归的条件。基本情况通常是足够小以直接求解的问题。在<code>listsum</code> 算法中，基本情况是长度为 1 的列表。</p>
+<p>为了遵守第二定律，我们必须将算法向基本情况的状态改变。状态的改变意味着该算法正在使用的一些数据被修改。通常，表示问题的数据在某种程度上变小。在 <code>listsum</code> 算法中，我们的主要数据结构是一个列表，因此我们必须将我们的状态转换工作集中在列表上。因为基本情况是长度 1 的列表，所以朝向基本情况的自然进展是缩短列表。在 Activecode 2 第五行，我们调用 <code>listsum</code> 生成一个较短的列表。</p>
+<p>最后的法则是算法必须调用自身。这是递归的定义。递归对于许多新手程序员来说是一个混乱的概念。作为一个新手程序员，你已经知道函数是有益的，因为你可以将一个大问题分解成较小的问题。较小的问题可以通过编写一个函数来解决。我们用一个函数解决问题，但该函数通过调用自己解决问题！该逻辑不是循环;递归的逻辑是通过将问题分解成更小和更容易的问题来解决的优雅表达。</p>
+<p>在本章的剩余部分，我们将讨论更多递归的例子。在每种情况下，我们将集中于使用递归的三个定律来设计问题的解决方案。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.4.%E9%80%92%E5%BD%92%E7%9A%84%E4%B8%89%E5%AE%9A%E5%BE%8B/README/" data-id="clxzhp6ju00191s8jagkhf33k" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/4.递归/4.3.计算整数列表和/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.3.%E8%AE%A1%E7%AE%97%E6%95%B4%E6%95%B0%E5%88%97%E8%A1%A8%E5%92%8C/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.689Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="4-3-计算整数列表和"><a href="#4-3-计算整数列表和" class="headerlink" title="4.3.计算整数列表和"></a>4.3.计算整数列表和</h2><p>我们将以一个简单的问题开始，你已经知道如何不使用递归解决。 假设你想计算整数列表的总和，例如：<code>[1,3,5,7,9]</code>。 计算总和的迭代函数见ActiveCode 1。函数使用累加器变量（<code>theSum</code>）来计算列表中所有整数的和，从 0 开始，加上列表中的每个数字。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">listsum</span>(<span class="params">numList</span>):</span><br><span class="line">    theSum = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> numList:</span><br><span class="line">        theSum = theSum + i</span><br><span class="line">    <span class="keyword">return</span> theSum</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(listsum([<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>]))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><em>Activecode 1</em></p>
+<p>假设没有 <code>while</code> 循环或 <code>for</code> 循环。你将如何计算整数列表的总和？如果你是一个数学家，你可能开始回忆加法是一个函数，这个函数定义了两个整数类型的参数。故将列表和问题从加一个列表重新定义为加一对整数，我们可以把列表重写为一个完全括号表达式。如下所示：</p>
+<p>$$<br>((((1+3)+5)+7)+9)<br>$$</p>
+<p>我们也可以把表达式用另一种方式括起来</p>
+<p>$$<br>(1+(3+(5+(7+9))))<br>$$</p>
+<p>注意，最内层的括号（7 + 9）我们可以没有循环或任何特殊的结构来解决它。 事实上，我们可以使用以下的简化序列来计算最终的和。</p>
+<p>$$<br>\begin{aligned}<br>total&#x3D;(1+(3+(5+(7+9))))&amp;\<br>total&#x3D;(1+(3+(5+16)))&amp;\<br>total&#x3D;(1+(3+21))&amp;\<br>total&#x3D;(1+24)&amp;\<br>total&#x3D;25&amp;<br>\end{aligned}<br>$$</p>
+<p>我们如何能把这个想法变成一个 Python 程序？ 首先，让我们以 Python 列表的形式重述求和问题。 我们可以说列表 <code>numList</code> 的和是列表的第一个元素<code>numList[0]</code> 和列表其余部分<code>numList[1:]</code> 之和的总和。 以函数形式表述：</p>
+<p>$$<br>listSum(numList)&#x3D;first(numList)+listSum(numList)<br>$$</p>
+<p>在这个方程式中，<code>first(numList)</code> 返回列表的第一个元素，<code>rest(numList)</code> 返回除第一个元素之外的所有元素列表。这很容易在 Python 中表示，如 ActiveCode 2 中所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">listsum</span>(<span class="params">numList</span>):</span><br><span class="line">   <span class="keyword">if</span> <span class="built_in">len</span>(numList) == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> numList[<span class="number">0</span>]</span><br><span class="line">   <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> numList[<span class="number">0</span>] + listsum(numList[<span class="number">1</span>:])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(listsum([<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>]))</span><br></pre></td></tr></table></figure>
+
+<p><em>Active code 2</em></p>
+<p>在这个清单中有几个关键地方。 首先，在第 2 行，我们检查列表是否为一个元素。这个检查是至关重要的，是我们的函数的转折子句。 长度为 1 的列表和是微不足道的; 它只是列表中的数字。 第二，在第 5 行函数调用自己！ 这就是我们称 listum 算法递归的原因。递归函数是调用自身的函数。</p>
+<p>Figure 1 展示了对列表<code>[1,3,5,7,9]</code> 求和所需的一系列递归调用。 你应该把这一系列的调用想象成一系列的简化。 每次我们进行递归调用时，我们都会解决一个较小的问题，直到达到问题不能减小的程度。</p>
+<p><img src="/assets/4.3.%E8%AE%A1%E7%AE%97%E6%95%B4%E6%95%B0%E5%88%97%E8%A1%A8%E5%92%8C.figure1.png" alt="4.3.计算整数列表和.figure1"></p>
+<p><em>Figure 1</em></p>
+<p>当我们到达简单问题的点，我们开始拼凑每个小问题的答案，直到初始问题解决。Figure 2 展示了在 <code>listsum</code> 通过一系列调用返回的过程中执行的 add 操作。当 <code>listsum</code> 从最顶层返回时，我们就有了整个问题的答案。</p>
+<p><img src="/assets/4.3.%E8%AE%A1%E7%AE%97%E6%95%B4%E6%95%B0%E5%88%97%E8%A1%A8%E5%92%8C.figure2.png" alt="4.3.计算整数列表和.figure2"></p>
+<p><em>Figure 2</em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.3.%E8%AE%A1%E7%AE%97%E6%95%B4%E6%95%B0%E5%88%97%E8%A1%A8%E5%92%8C/README/" data-id="clxzhp6jv001c1s8j8l1s2nuy" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/4.递归/4.2.什么是递归/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.2.%E4%BB%80%E4%B9%88%E6%98%AF%E9%80%92%E5%BD%92/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.686Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="4-2-什么是递归"><a href="#4-2-什么是递归" class="headerlink" title="4.2.什么是递归"></a>4.2.什么是递归</h2><p><strong>递归</strong>是一种解决问题的方法，将问题分解为更小的子问题，直到得到一个足够小的问题可以被很简单的解决。通常递归涉及函数调用自身。递归允许我们编写优雅的解决方案，解决可能很难编程的问题。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.2.%E4%BB%80%E4%B9%88%E6%98%AF%E9%80%92%E5%BD%92/README/" data-id="clxzhp6ju00171s8j95pm9pb4" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/4.递归/4.13.总结/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.13.%E6%80%BB%E7%BB%93/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.682Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="4-13-总结"><a href="#4-13-总结" class="headerlink" title="4.13.总结"></a>4.13.总结</h2><p>在本章中，我们讨论了几个递归算法的例子。 选择这些算法来揭示几个不同的问题，其中递归是一种有效的问题解决技术。 本章要记住的要点如下：</p>
+<ul>
+<li>所有递归算法都必须具有基本情况。</li>
+<li>递归算法必须改变其状态并朝基本情况发展。</li>
+<li>递归算法必须调用自身（递归）。</li>
+<li>递归在某些情况下可以代替迭代。</li>
+<li>递归算法通常可以自然地映射到你尝试解决的问题的表达式。</li>
+<li>递归并不总是答案。有时，递归解决方案可能比迭代算法在计算上更昂贵。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.13.%E6%80%BB%E7%BB%93/README/" data-id="clxzhp6ju00181s8j5ssjhpdx" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/4.递归/4.12.动态规划/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.12.%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.670Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="4-12-动态规划"><a href="#4-12-动态规划" class="headerlink" title="4.12.动态规划"></a>4.12.动态规划</h2><p>计算机科学中的许多程序是为了优化一些值而编写的; 例如，找到两个点之间的最短路径，找到最适合一组点的线，或找到满足某些标准的最小对象集。计算机科学家使用许多策略来解决这些问题。本书的目标之一是向你展示几种不同的解决问题的策略。<code>动态规划</code> 是这些类型的优化问题的一个策略。</p>
+<p>优化问题的典型例子包括使用最少的硬币找零。假设你是一个自动售货机制造商的程序员。你的公司希望通过给每个交易最少硬币来简化工作。假设客户放入 1 美元的钞票并购买 37 美分的商品。你可以用来找零的最小数量的硬币是多少？答案是六个硬币：两个 25 美分，一个 10美分 和 三个一美分。我们如何得到六个硬币的答案？我们从最大的硬币（25 美分）开始，并尽可能多，然后我们去找下一个小点的硬币，并尽可能多的使用它们。这第一种方法被称为贪婪方法，因为我们试图尽快解决尽可能大的问题。</p>
+<p>当我们使用美国货币时，贪婪的方法工作正常，但是假设你的公司决定在埃尔博尼亚部署自动贩卖机，除了通常的 1，5，10 和 25 分硬币，他们还有一个 21 分硬币 。在这种情况下，我们的贪婪的方法找不到 63 美分的最佳解决方案。 随着加入 21分硬币，贪婪的方法仍然会找到解决方案是六个硬币。然而，最佳答案是三个 21 分。</p>
+<p>让我们看一个方法，我们可以确定会找到问题的最佳答案。由于这一节是关于递归的，你可能已经猜到我们将使用递归解决方案。让我们从基本情况开始，如果我们可以与我们硬币的价值相同的金额找零，答案很容易，一个硬币。</p>
+<p>如果金额不匹配，我们有几个选项。我们想要的是最低一个一分钱加上原始金额减去一分钱所需的硬币数量，或者一个 5 美分加上原始金额减去 5 美分所需的硬币数量，或者一个 10 美分加上原始金额减去 10 美分所需的硬币数量，等等。因此，需要对原始金额找零硬币数量可以根据下式计算：</p>
+<p><img src="/assets/4.12.%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.1.png" alt="4.12.动态规划.1"></p>
+<p>执行我们刚才描述的算法如 Listing 7 所示。在第 3 行，我们检查基本情况;也就是说，我们正试图支付硬币的确切金额。如果我们没有等于找零数量的硬币，我们递归调用每个小于找零额的不同的硬币值。第 6 行显示了我们如何使用列表推导将硬币列表过滤到小于当前找零的硬币列表。递归调用也减少了由所选硬币的值所需要的总找零量。递归调用在第 7 行。注意在同一行，我们将硬币数 <code>+1</code> ，以说明我们正在使用一个硬币的事实。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">recMC</span>(<span class="params">coinValueList,change</span>):</span><br><span class="line">   minCoins = change</span><br><span class="line">   <span class="keyword">if</span> change <span class="keyword">in</span> coinValueList:</span><br><span class="line">     <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">   <span class="keyword">else</span>:</span><br><span class="line">      <span class="keyword">for</span> i <span class="keyword">in</span> [c <span class="keyword">for</span> c <span class="keyword">in</span> coinValueList <span class="keyword">if</span> c &lt;= change]:</span><br><span class="line">         numCoins = <span class="number">1</span> + recMC(coinValueList,change-i)</span><br><span class="line">         <span class="keyword">if</span> numCoins &lt; minCoins:</span><br><span class="line">            minCoins = numCoins</span><br><span class="line">   <span class="keyword">return</span> minCoins</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(recMC([<span class="number">1</span>,<span class="number">5</span>,<span class="number">10</span>,<span class="number">25</span>],<span class="number">63</span>))</span><br></pre></td></tr></table></figure>
+
+<p><em>Listing 7</em></p>
+<p>Listing 7 中的算法是非常低效的。事实上，它需要 <code>67,716,925</code> 个递归调用来找到 4 个硬币的最佳解决 63 美分问题的方案。要理解我们方法中的致命缺陷，请参见 Figure 5，其中显示了 377 个函数调用所需的一小部分，找到支付 26 美分的最佳硬币。</p>
+<p>图中的每个节点对应于对 <code>recMC</code> 的调用。节点上的标签表示硬币数量的变化量。箭头上的标签表示我们刚刚使用的硬币。通过跟随图表，我们可以看到硬币的组合。主要的问题是我们重复做了太多的计算。例如，该图表示该算法重复计算了至少三次支付 15 美分。这些计算找到 15 美分的最佳硬币数量的步骤本身需要52个函数调用。显然，我们浪费了大量的时间和精力重新计算旧的结果。</p>
+<p><img src="/assets/4.12.%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.figure5.png" alt="4.12.动态规划.figure5"></p>
+<p><em>Figure 5</em></p>
+<p>减少我们工作量的关键是记住一些过去的结果，这样我们可以避免重新计算我们已经知道的结果。一个简单的解决方案是将最小数量的硬币的结果存储在表中。然后在计算新的最小值之前，我们首先检查表，看看结果是否已知。如果表中已有结果，我们使用表中的值，而不是重新计算。 ActiveCode 1 显示了一个修改的算法，以合并我们的表查找方案。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">recDC</span>(<span class="params">coinValueList,change,knownResults</span>):</span><br><span class="line">   minCoins = change</span><br><span class="line">   <span class="keyword">if</span> change <span class="keyword">in</span> coinValueList:</span><br><span class="line">      knownResults[change] = <span class="number">1</span></span><br><span class="line">      <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">   <span class="keyword">elif</span> knownResults[change] &gt; <span class="number">0</span>:</span><br><span class="line">      <span class="keyword">return</span> knownResults[change]</span><br><span class="line">   <span class="keyword">else</span>:</span><br><span class="line">       <span class="keyword">for</span> i <span class="keyword">in</span> [c <span class="keyword">for</span> c <span class="keyword">in</span> coinValueList <span class="keyword">if</span> c &lt;= change]:</span><br><span class="line">         numCoins = <span class="number">1</span> + recDC(coinValueList, change-i,</span><br><span class="line">                              knownResults)</span><br><span class="line">         <span class="keyword">if</span> numCoins &lt; minCoins:</span><br><span class="line">            minCoins = numCoins</span><br><span class="line">            knownResults[change] = minCoins</span><br><span class="line">   <span class="keyword">return</span> minCoins</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(recDC([<span class="number">1</span>,<span class="number">5</span>,<span class="number">10</span>,<span class="number">25</span>],<span class="number">63</span>,[<span class="number">0</span>]*<span class="number">64</span>))</span><br></pre></td></tr></table></figure>
+
+<p><em>ActiveCode 1</em></p>
+<p>注意，在第 6 行中，我们添加了一个测试，看看我们的列表是否包含此找零的最小硬币数量。如果没有，我们递归计算最小值，并将计算出的最小值存储在列表中。使用这个修改的算法减少了我们需要为四个硬币递归调用的数量，63美分问题只需 221 次调用！</p>
+<p>虽然 AcitveCode 1 中的算法是正确的。事实上，我们所做的不是动态规划，而是我们通过使用称为 <code>记忆化</code> 的技术来提高我们的程序的性能，或者更常见的叫做 <code>缓存</code>。</p>
+<p>一个真正的动态编程算法将采取更系统的方法来解决这个问题。我们的动态编程解决方案将从找零一分钱开始，并系统地找到我们需要的找零额。这保证我们在算法的每一步，已经知道为任何更小的数量进行找零所需的最小硬币数量。</p>
+<p>让我们看看如何找到 11 美分所需的最小找零数量。Figure 4 说明了该过程。我们从一分钱开始。唯一的解决方案是一个硬币（一分钱）。下一行显示一分和两分的最小值。再次，唯一的解决方案是两分钱。第五行事情变得有趣。现在我们有两个选择，五个一分钱或一个五分钱。我们如何决定哪个是最好的？我们查阅表，看到需要找零四美分的硬币数量是四，再加一个一分钱是五，等于五个硬币。或者我们可以尝试 0 分加一个五分，五分钱等于一个硬币。由于一和五最小的是一，我们在表中存储为一。再次快进到表的末尾，考虑 11 美分。Figure 5 展示了我们要考虑的三个选项：</p>
+<ol>
+<li>一个一分钱加上 <code>11-1 = 10分（1）</code> 的最小硬币数</li>
+<li>一个五分钱加上 <code>11-5 = 6分（2）</code>的最小硬币数</li>
+<li>一个十分钱加上 <code>11-10 = 1 分（1）</code>最小硬币数</li>
+</ol>
+<p>选项 1 或 3 总共需要两个硬币，这是 11 美分的最小硬币数。<br><img src="/assets/4.12.%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.figure6.png" alt="4.12.动态规划.figure6"></p>
+<p>Listing 8 用一个动态规划算法来解决我们的找零问题。 <code>dpMakeChange</code> 有三个参数：一个有效硬币值的列表，我们要求的找零额，以及一个包含每个值所需最小硬币数量的列表。 当函数完成时，<code>minCoins</code> 将包含从 0 到找零值的所有值的解。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">dpMakeChange</span>(<span class="params">coinValueList,change,minCoins</span>):</span><br><span class="line">   <span class="keyword">for</span> cents <span class="keyword">in</span> <span class="built_in">range</span>(change+<span class="number">1</span>):</span><br><span class="line">      coinCount = cents</span><br><span class="line">      <span class="keyword">for</span> j <span class="keyword">in</span> [c <span class="keyword">for</span> c <span class="keyword">in</span> coinValueList <span class="keyword">if</span> c &lt;= cents]:</span><br><span class="line">            <span class="keyword">if</span> minCoins[cents-j] + <span class="number">1</span> &lt; coinCount:</span><br><span class="line">               coinCount = minCoins[cents-j]+<span class="number">1</span></span><br><span class="line">      minCoins[cents] = coinCount</span><br><span class="line">   <span class="keyword">return</span> minCoins[change]</span><br></pre></td></tr></table></figure>
+
+<p><em>Listing 8</em></p>
+<p>注意，<code>dpMakeChange</code> 不是递归函数，即使我们开始使用递归解决这个问题。重要的是要意识到，你可以为问题写一个递归解决方案但并不意味着它是最好的或最有效的解决方案。在这个函数中的大部分工作是通过从第 4 行开始的循环来完成的。在这个循环中，我们考虑使用所有可能的硬币对指定的金额进行找零。就像我们上面的 11 分的例子，我们记住最小值，并将其存储在我们的 <code>minCoins</code> 列表。</p>
+<p>虽然我们的找零算法很好地找出最小数量的硬币，但它不帮助我们找零，因为我们不跟踪我们使用的硬币。我们可以轻松地扩展 <code>dpMakeChange</code> 来跟踪硬币使用，只需记住我们为每个条目添加的最后一个硬币到 <code>minCoins</code> 表。如果我们知道添加的最后一个硬币值，我们可以简单地减去硬币的值，在表中找到前一个条目，找到该金额的最后一个硬币。我们可以通过表继续跟踪，直到我们开始的位置。</p>
+<p>ActiveCode 2 展示了 <code>dpMakeChange</code> 算法修改为跟踪使用的硬币，以及一个函数 <code>printCoins</code> 通过表打印出使用的每个硬币的值。前两行主要设置要找零的金额，并创建使用的硬币列表。 接下来的两行创建了我们需要存储结果的列表。<code>coinsUsed</code> 是用于找零的硬币的列表，并且 <code>coinCount</code> 是与列表中的位置相对应进行找零的最小硬币数。</p>
+<p>注意，我们打印的硬币直接来自 <code>coinsUsed</code> 数组。对于第一次调用，我们从数组位置 <code>63</code> 开始，然后打印 <code>21</code>。然后我们取 <code>63-21 = 42</code>，看看列表的第 42 个元素。我们再次找到 21 存储在那里。 最后，数组第 21 个元素21 也包含 21，得到三个 21。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">dpMakeChange</span>(<span class="params">coinValueList,change,minCoins,coinsUsed</span>):</span><br><span class="line">   <span class="keyword">for</span> cents <span class="keyword">in</span> <span class="built_in">range</span>(change+<span class="number">1</span>):</span><br><span class="line">      coinCount = cents</span><br><span class="line">      newCoin = <span class="number">1</span></span><br><span class="line">      <span class="keyword">for</span> j <span class="keyword">in</span> [c <span class="keyword">for</span> c <span class="keyword">in</span> coinValueList <span class="keyword">if</span> c &lt;= cents]:</span><br><span class="line">            <span class="keyword">if</span> minCoins[cents-j] + <span class="number">1</span> &lt; coinCount:</span><br><span class="line">               coinCount = minCoins[cents-j]+<span class="number">1</span></span><br><span class="line">               newCoin = j</span><br><span class="line">      minCoins[cents] = coinCount</span><br><span class="line">      coinsUsed[cents] = newCoin</span><br><span class="line">   <span class="keyword">return</span> minCoins[change]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">printCoins</span>(<span class="params">coinsUsed,change</span>):</span><br><span class="line">   coin = change</span><br><span class="line">   <span class="keyword">while</span> coin &gt; <span class="number">0</span>:</span><br><span class="line">      thisCoin = coinsUsed[coin]</span><br><span class="line">      <span class="built_in">print</span>(thisCoin)</span><br><span class="line">      coin = coin - thisCoin</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    amnt = <span class="number">63</span></span><br><span class="line">    clist = [<span class="number">1</span>,<span class="number">5</span>,<span class="number">10</span>,<span class="number">21</span>,<span class="number">25</span>]</span><br><span class="line">    coinsUsed = [<span class="number">0</span>]*(amnt+<span class="number">1</span>)</span><br><span class="line">    coinCount = [<span class="number">0</span>]*(amnt+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Making change for&quot;</span>,amnt,<span class="string">&quot;requires&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(dpMakeChange(clist,amnt,coinCount,coinsUsed),<span class="string">&quot;coins&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;They are:&quot;</span>)</span><br><span class="line">    printCoins(coinsUsed,amnt)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;The used list is as follows:&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(coinsUsed)</span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
+
+<p><em>AcitveCode 2</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Making change <span class="keyword">for</span> <span class="number">63</span> requires</span><br><span class="line"><span class="number">3</span> coins</span><br><span class="line">They are:</span><br><span class="line"><span class="number">21</span></span><br><span class="line"><span class="number">21</span></span><br><span class="line"><span class="number">21</span></span><br><span class="line">The used <span class="built_in">list</span> <span class="keyword">is</span> <span class="keyword">as</span> follows:</span><br><span class="line">[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">10</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">10</span>, <span class="number">21</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">25</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">10</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">21</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">10</span>, <span class="number">21</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">25</span>, <span class="number">1</span>, <span class="number">10</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">10</span>, <span class="number">1</span>, <span class="number">10</span>, <span class="number">21</span>]</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.12.%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/README/" data-id="clxzhp6ju00161s8jb6i2bun0" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/4.递归/4.11.探索迷宫/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.11.%E6%8E%A2%E7%B4%A2%E8%BF%B7%E5%AE%AB/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.664Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="4-11-探索迷宫"><a href="#4-11-探索迷宫" class="headerlink" title="4.11.探索迷宫"></a>4.11.探索迷宫</h2><p>在这一节中，我们将讨论一个与扩展机器人世界相关的问题：你如何找到自己的迷宫？ 如果你在你的宿舍有一个扫地机器人（不是所有的大学生？）你希望你可以使用你在本节中学到的知识重新给它编程。 我们要解决的问题是帮助我们的乌龟在虚拟迷宫中找到出路。 迷宫问题的根源与希腊的神话有关，传说忒修斯被送入迷宫中以杀死人身牛头怪。忒修斯用了一卷线帮助他找到回去的退路，当他完成杀死野兽的任务。在我们的问题中，我们将假设我们的乌龟在迷宫中间的某处，必须找到出路。 看看 Figure 2，了解我们将在本节中做什么。</p>
+<p><img src="/assets/4.11.%E6%8E%A2%E7%B4%A2%E8%BF%B7%E5%AE%AB.figure2.png" alt="4.11.探索迷宫.figure2"></p>
+<p><em>Figure 2</em></p>
+<p>为了使问题容易些，我们假设我们的迷宫被分成“正方形”。迷宫的每个正方形是开放的或被一段墙壁占据。乌龟只能通过迷宫的空心方块。 如果乌龟撞到墙上，它必须尝试不同的方向。乌龟将需要一个程序，以找到迷宫的出路。这里是过程：</p>
+<ol>
+<li>从我们的起始位置，我们将首先尝试向北一格，然后从那里递归地尝试我们的程序。</li>
+<li>如果我们通过尝试向北作为第一步没有成功，我们将向南一格，并递归地重复我们的程序。</li>
+<li>如果向南也不行，那么我们将尝试向西一格，并递归地重复我们的程序。</li>
+<li>如果北，南和西都没有成功，则应用程序从当前位置递归向东。</li>
+<li>如果这些方向都没有成功，那么没有办法离开迷宫，我们失败。</li>
+</ol>
+<p>现在，这听起来很容易，但有几个细节先谈谈。假设我们第一步是向北走。按照我们的程序，我们的下一步也将是向北。但如果北面被一堵墙阻挡，我们必须看看程序的下一步，并试着向南。不幸的是，向南使我们回到原来的起点。如果我们从那里再次应用递归过程，我们将又回到向北一格，并陷入无限循环。所以，我们必须有一个策略来记住我们去过哪。在这种情况下，我们假设有一袋面包屑可以撒在我们走过的路上。如果我们沿某个方向迈出一步，发现那个位置上已经有面包屑，我们应该立即后退并尝试程序中的下一个方向。我们看看这个算法的代码，就像从递归函数调用返回一样简单。</p>
+<p>正如我们对所有递归算法所做的一样，让我们回顾一下基本情况。其中一些你可能已经根据前一段的描述猜到了。在这种算法中，有四种基本情况要考虑：</p>
+<ol>
+<li>乌龟撞到了墙。由于这一格被墙壁占据，不能进行进一步的探索。</li>
+<li>乌龟找到一个已经探索过的格。我们不想继续从这个位置探索，否则会陷入循环。</li>
+<li>我们发现了一个外边缘，没有被墙壁占据。换句话说，我们发现了迷宫的一个出口。</li>
+<li>我们探索了一格在四个方向上都没有成功。</li>
+</ol>
+<p>为了我们的程序工作，我们将需要有一种方式来表示迷宫。为了使这个更有趣，我们将使用 <code>turtle</code> 模块来绘制和探索我们的迷宫，以使我们看到这个算法的功能。迷宫对象将提供以下方法让我们在编写搜索算法时使用：</p>
+<ul>
+<li><code>__init__</code> 读取迷宫的数据文件，初始化迷宫的内部表示，并找到乌龟的起始位置。</li>
+<li><code>drawMaze</code> 在屏幕上的一个窗口中绘制迷宫。</li>
+<li><code>updatePosition</code> 更新迷宫的内部表示，并更改窗口中乌龟的位置。</li>
+<li><code>isExit</code> 检查当前位置是否是迷宫的退出位置。</li>
+</ul>
+<p>Maze 类还重载索引运算符 <code>[]</code> ，以便我们的算法可以轻松访问任何特定格的状态。</p>
+<p>让我们来查看称为 <code>searchFrom</code> 的搜索函数的代码。代码如 Listing 3 所示。请注意，此函数需要三个参数：迷宫对象，起始行和起始列。 这很重要，因为作为递归函数，搜索在每次递归调用时开始。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">searchFrom</span>(<span class="params">maze, startRow, startColumn</span>):</span><br><span class="line">    maze.updatePosition(startRow, startColumn)</span><br><span class="line">   <span class="comment">#  Check for base cases:</span></span><br><span class="line">   <span class="comment">#  1. We have run into an obstacle, return false</span></span><br><span class="line">   <span class="keyword">if</span> maze[startRow][startColumn] == OBSTACLE :</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="comment">#  2. We have found a square that has already been explored</span></span><br><span class="line">    <span class="keyword">if</span> maze[startRow][startColumn] == TRIED:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="comment"># 3. Success, an outside edge not occupied by an obstacle</span></span><br><span class="line">    <span class="keyword">if</span> maze.isExit(startRow,startColumn):</span><br><span class="line">        maze.updatePosition(startRow, startColumn, PART_OF_PATH)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    maze.updatePosition(startRow, startColumn, TRIED)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Otherwise, use logical short circuiting to try each</span></span><br><span class="line">    <span class="comment"># direction in turn (if needed)</span></span><br><span class="line">    found = searchFrom(maze, startRow-<span class="number">1</span>, startColumn) <span class="keyword">or</span> \</span><br><span class="line">            searchFrom(maze, startRow+<span class="number">1</span>, startColumn) <span class="keyword">or</span> \</span><br><span class="line">            searchFrom(maze, startRow, startColumn-<span class="number">1</span>) <span class="keyword">or</span> \</span><br><span class="line">            searchFrom(maze, startRow, startColumn+<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">if</span> found:</span><br><span class="line">        maze.updatePosition(startRow, startColumn, PART_OF_PATH)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        maze.updatePosition(startRow, startColumn, DEAD_END)</span><br><span class="line">    <span class="keyword">return</span> found</span><br></pre></td></tr></table></figure>
+
+<p><em>Listing 3</em></p>
+<p>你会看到代码的第一行（行 2）调用 <code>updatePosition</code>。这只是为了可视化算法，以便你可以看到乌龟如何探索通过迷宫。接下来算法检查四种基本情况中的前三种：乌龟是否碰到墙（行 5）？乌龟是否回到已经探索过的格子（行 8）？乌龟有没有到达出口（行 11）？如果这些条件都不为真，则我们继续递归搜索。</p>
+<p>你会注意到，在递归步骤中有四个对 <code>searchFrom</code> 的递归调用。很难预测将有多少个递归调用，因为它们都由 <code>or</code> 语句连接。如果对 <code>searchFrom</code> 的第一次调用返回 <code>True</code> ，则不需要最后三个调用。你可以理解这一步向 <code>(row-1,column)</code>（或北，如果你从地理位置上思考）是在迷宫的路径上。如果没有一个好的路径向北，那么尝试下一个向南的递归调用。如果向南失败，然后尝试向西，最后向东。如果所有四个递归调用返回 <code>False</code>，那么认为是一个死胡同。你应该下载或输入整个程序，并通过更改这些调用的顺序进行实验。</p>
+<p><code>Maze</code> 类的代码如 Listing 4，Listing 5 和 Listing 6 所示。<code>__init__</code> 方法将文件的名称作为其唯一参数。此文件是一个文本文件，通过使用 <code>+</code> 字符表示墙壁，空格表示空心方块，并使用字母 <code>S</code> 表示起始位置。Figure 3 是迷宫数据文件的示例。迷宫的内部表示是列表的列表。 <code>mazelist</code> 实例变量的每一行也是一个列表。此辅助列表使用上述字符，每格表示一个字符。Figure 3 中的数据文件，内部表示如下所示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[ [<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,...,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>],</span><br><span class="line">  [<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27; &#x27;</span>,...,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27; &#x27;</span>],</span><br><span class="line">  [<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27; &#x27;</span>,...,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>],</span><br><span class="line">  [<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27; &#x27;</span>,...,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>],</span><br><span class="line">  [<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27; &#x27;</span>,...,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;+&#x27;</span>],</span><br><span class="line">  [<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27; &#x27;</span>,...,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;+&#x27;</span>],</span><br><span class="line">  [<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,...,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;+&#x27;</span>],</span><br><span class="line">  [<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27; &#x27;</span>,...,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;+&#x27;</span>],</span><br><span class="line">  [<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,...,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;+&#x27;</span>],</span><br><span class="line">  [<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27; &#x27;</span>,...,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>],</span><br><span class="line">  [<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,...,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>]]</span><br></pre></td></tr></table></figure>
+
+<p><code>drawMaze</code> 方法使用这个内部表示在屏幕上绘制迷宫的初始视图。</p>
+<p>Figure 3：示例迷宫数据文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">++++++++++++++++++++++</span><br><span class="line">+   +   ++ ++     +</span><br><span class="line">+ +   +       +++ + ++</span><br><span class="line">+ + +  ++  ++++   + ++</span><br><span class="line">+++ ++++++    +++ +  +</span><br><span class="line">+          ++  ++    +</span><br><span class="line">+++++ ++++++   +++++ +</span><br><span class="line">+     +   +++++++  + +</span><br><span class="line">+ +++++++      S +   +</span><br><span class="line">+                + +++</span><br><span class="line">++++++++++++++++++ +++</span><br></pre></td></tr></table></figure>
+
+<p><em>Figure 3</em></p>
+<p>如 Listing 5 所示，<code>updatePosition</code> 方法使用相同的内部表示来查看乌龟是否遇到了墙。它还用 <code>.</code> 或 <code>-</code> 更新内部表示，以表示乌龟已经访问了特定格子或者格子是死角。 此外，<code>updatePosition</code> 方法使用两个辅助方法<code>moveTurtle</code> 和 <code>dropBreadCrumb</code> 来更新屏幕上的视图。</p>
+<p>最后，<code>isExit</code> 方法使用乌龟的当前位置来检测退出条件。退出条件是当乌龟已经到迷宫的边缘时，即行零或列零，或者在最右边列或底部行。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Maze</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,mazeFileName</span>):</span><br><span class="line">        rowsInMaze = <span class="number">0</span></span><br><span class="line">        columnsInMaze = <span class="number">0</span></span><br><span class="line">        self.mazelist = []</span><br><span class="line">        mazeFile = <span class="built_in">open</span>(mazeFileName,<span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">        rowsInMaze = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> mazeFile:</span><br><span class="line">            rowList = []</span><br><span class="line">            col = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> ch <span class="keyword">in</span> line[:-<span class="number">1</span>]:</span><br><span class="line">                rowList.append(ch)</span><br><span class="line">                <span class="keyword">if</span> ch == <span class="string">&#x27;S&#x27;</span>:</span><br><span class="line">                    self.startRow = rowsInMaze</span><br><span class="line">                    self.startCol = col</span><br><span class="line">                col = col + <span class="number">1</span></span><br><span class="line">            rowsInMaze = rowsInMaze + <span class="number">1</span></span><br><span class="line">            self.mazelist.append(rowList)</span><br><span class="line">            columnsInMaze = <span class="built_in">len</span>(rowList)</span><br><span class="line"></span><br><span class="line">        self.rowsInMaze = rowsInMaze</span><br><span class="line">        self.columnsInMaze = columnsInMaze</span><br><span class="line">        self.xTranslate = -columnsInMaze/<span class="number">2</span></span><br><span class="line">        self.yTranslate = rowsInMaze/<span class="number">2</span></span><br><span class="line">        self.t = Turtle(shape=<span class="string">&#x27;turtle&#x27;</span>)</span><br><span class="line">        setup(width=<span class="number">600</span>,height=<span class="number">600</span>)</span><br><span class="line">        setworldcoordinates(-(columnsInMaze-<span class="number">1</span>)/<span class="number">2</span>-<span class="number">.5</span>,</span><br><span class="line">                            -(rowsInMaze-<span class="number">1</span>)/<span class="number">2</span>-<span class="number">.5</span>,</span><br><span class="line">                            (columnsInMaze-<span class="number">1</span>)/<span class="number">2</span>+<span class="number">.5</span>,</span><br><span class="line">                            (rowsInMaze-<span class="number">1</span>)/<span class="number">2</span>+<span class="number">.5</span>)</span><br></pre></td></tr></table></figure>
+
+<p><em>Listing 4</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">drawMaze</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(self.rowsInMaze):</span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(self.columnsInMaze):</span><br><span class="line">            <span class="keyword">if</span> self.mazelist[y][x] == OBSTACLE:</span><br><span class="line">                self.drawCenteredBox(x+self.xTranslate,</span><br><span class="line">                                     -y+self.yTranslate,</span><br><span class="line">                                     <span class="string">&#x27;tan&#x27;</span>)</span><br><span class="line">    self.t.color(<span class="string">&#x27;black&#x27;</span>,<span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">drawCenteredBox</span>(<span class="params">self,x,y,color</span>):</span><br><span class="line">    tracer(<span class="number">0</span>)</span><br><span class="line">    self.t.up()</span><br><span class="line">    self.t.goto(x-<span class="number">.5</span>,y-<span class="number">.5</span>)</span><br><span class="line">    self.t.color(<span class="string">&#x27;black&#x27;</span>,color)</span><br><span class="line">    self.t.setheading(<span class="number">90</span>)</span><br><span class="line">    self.t.down()</span><br><span class="line">    self.t.begin_fill()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">        self.t.forward(<span class="number">1</span>)</span><br><span class="line">        self.t.right(<span class="number">90</span>)</span><br><span class="line">    self.t.end_fill()</span><br><span class="line">    update()</span><br><span class="line">    tracer(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">moveTurtle</span>(<span class="params">self,x,y</span>):</span><br><span class="line">    self.t.up()</span><br><span class="line">    self.t.setheading(self.t.towards(x+self.xTranslate,</span><br><span class="line">                                     -y+self.yTranslate))</span><br><span class="line">    self.t.goto(x+self.xTranslate,-y+self.yTranslate)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dropBreadcrumb</span>(<span class="params">self,color</span>):</span><br><span class="line">    self.t.dot(color)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">updatePosition</span>(<span class="params">self,row,col,val=<span class="literal">None</span></span>):</span><br><span class="line">    <span class="keyword">if</span> val:</span><br><span class="line">        self.mazelist[row][col] = val</span><br><span class="line">    self.moveTurtle(col,row)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> val == PART_OF_PATH:</span><br><span class="line">        color = <span class="string">&#x27;green&#x27;</span></span><br><span class="line">    <span class="keyword">elif</span> val == OBSTACLE:</span><br><span class="line">        color = <span class="string">&#x27;red&#x27;</span></span><br><span class="line">    <span class="keyword">elif</span> val == TRIED:</span><br><span class="line">        color = <span class="string">&#x27;black&#x27;</span></span><br><span class="line">    <span class="keyword">elif</span> val == DEAD_END:</span><br><span class="line">        color = <span class="string">&#x27;red&#x27;</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        color = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> color:</span><br><span class="line">        self.dropBreadcrumb(color)</span><br></pre></td></tr></table></figure>
+
+<p><em>Listing 5</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">isExit</span>(<span class="params">self,row,col</span>):</span><br><span class="line">     <span class="keyword">return</span> (row == <span class="number">0</span> <span class="keyword">or</span></span><br><span class="line">             row == self.rowsInMaze-<span class="number">1</span> <span class="keyword">or</span></span><br><span class="line">             col == <span class="number">0</span> <span class="keyword">or</span></span><br><span class="line">             col == self.columnsInMaze-<span class="number">1</span> )</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">__getitem__</span>(<span class="params">self,idx</span>):</span><br><span class="line">     <span class="keyword">return</span> self.mazelist[idx]</span><br></pre></td></tr></table></figure>
+
+<p><em>Listing 6</em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.11.%E6%8E%A2%E7%B4%A2%E8%BF%B7%E5%AE%AB/README/" data-id="clxzhp6ju00141s8jdrvv6pqh" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/4.递归/4.10.汉诺塔游戏/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.10.%E6%B1%89%E8%AF%BA%E5%A1%94%E6%B8%B8%E6%88%8F/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.657Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="4-10-汉诺塔游戏"><a href="#4-10-汉诺塔游戏" class="headerlink" title="4.10.汉诺塔游戏"></a>4.10.汉诺塔游戏</h2><p>汉诺塔是由法国数学家爱德华·卢卡斯在 1883 年发明的。他的灵感来自一个传说，有一个印度教寺庙，将谜题交给年轻的牧师。在开始的时候，牧师们被给予三根杆和一堆 64 个金碟，每个盘比它下面一个小一点。他们的任务是将所有 64 个盘子从三个杆中一个转移到另一个。有两个重要的约束，它们一次只能移动一个盘子，并且它们不能在较小的盘子顶部上放置更大的盘子。牧师日夜不停每秒钟移动一块盘子。当他们完成工作时，传说，寺庙会变成灰尘，世界将消失。</p>
+<p>虽然传说是有趣的，你不必担心世界不久的将来会消失。移动 64 个盘子的塔所需的步骤数是 <code>2^64 - 1 = 18,446,744,073,709,551,615264 - 1 = 18,446,744,073,709,551,615</code>。以每秒一次的速度，即 <code>584,942,417,355584,942,417,355</code> 年！。</p>
+<p>Figure 1 展示了在从第一杆移动到第三杆的过程中的盘的示例。请注意，如规则指定，每个杆上的盘子都被堆叠起来，以使较小的盘子始终位于较大盘的顶部。如果你以前没有尝试过解决这个难题，你现在应该尝试下。你不需要花哨的盘子，一堆书或纸张都可以。</p>
+<p><img src="/assets/4.10.%E6%B1%89%E8%AF%BA%E5%A1%94%E6%B8%B8%E6%88%8F.figure1.png" alt="4.10.汉诺塔游戏.figure1"></p>
+<p><em>Figure 1</em></p>
+<p>我们如何递归地解决这个问题？我们的基本情况是什么？让我们从下到上考虑这个问题。假设你有一个五个盘子的塔，在杆一上。如果你已经知道如何将四个盘子移动到杆二上，那么你可以轻松地将最底部的盘子移动到杆三，然后再将四个盘子从杆二移动到杆三。但是如果你不知道如何移动四个盘子怎么办？假设你知道如何移动三个盘子到杆三;那么很容易将第四个盘子移动到杆二，并将它们从杆三移动到它们的顶部。但是如果你不知道如何移动三个盘子呢？如何将两个盘子移动到杆二，然后将第三个盘子移动到杆三，然后移动两个盘子到它的顶部？但是如果你还不知道该怎么办呢？当然你会知道移动一个盘子到杆三足够容易。这听起来像是基本情况。</p>
+<p>这里是如何使用中间杆将塔从起始杆移动到目标杆的步骤：</p>
+<ol>
+<li>使用目标杆将 <code>height-1</code> 的塔移动到中间杆。</li>
+<li>将剩余的盘子移动到目标杆。</li>
+<li>使用起始杆将 <code>height-1</code> 的塔从中间杆移动到目标杆。</li>
+</ol>
+<p>只要我们遵守规则，较大的盘子保留在栈的底部，我们可以使用递归的三个步骤，处理任何更大的盘子。上面概要中唯一缺失的是识别基本情况。最简单的汉诺塔是一个盘子的塔。在这种情况下，我们只需要将一个盘子移动到其最终目的地。 一个盘子的塔将是我们的基本情况。 此外，上述步骤通过在步骤1和3中减小塔的高度，使我们趋向基本情况。Listing 1 展示了解决汉诺塔的 Python 代码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">moveTower</span>(<span class="params">height,fromPole, toPole, withPole</span>):</span><br><span class="line">    <span class="keyword">if</span> height &gt;= <span class="number">1</span>:</span><br><span class="line">        moveTower(height-<span class="number">1</span>,fromPole,withPole,toPole)</span><br><span class="line">        moveDisk(fromPole,toPole)</span><br><span class="line">        moveTower(height-<span class="number">1</span>,withPole,toPole,fromPole)</span><br></pre></td></tr></table></figure>
+
+<p><em>Listing 1</em></p>
+<p>请注意，Listing 1 中的代码与描述几乎相同。算法的简单性的关键在于我们进行两个不同的递归调用，一个在第 3 行上，另一个在第 5 行。在第 3 行上，我们将初始杆上的底部圆盘移动到中间。下一行简单地将底部盘移动到其最终的位置。然后在第 5 行上，我们将塔从中间杆移动到最大盘子的顶部。当塔高度为 0 时检测到基本情况; 在这种情况下不需要做什么，所以 <code>moveTower</code> 函数简单地返回。关于以这种方式处理基本情况的重点是，从 <code>moveTower</code> 简单地返回以使 <code>moveDisk</code> 函数被调用。</p>
+<p>函数 <code>moveDisk</code>，如 Listing 2 所示，非常简单。它所做的就是打印出一个盘子从一杆移动到另一杆。 如果你输入并运行 <code>moveTower</code> 程序，你可以看到它给你一个非常有效的解决方案。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">moveDisk</span>(<span class="params">fp,tp</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;moving disk from&quot;</span>,fp,<span class="string">&quot;to&quot;</span>,tp)</span><br></pre></td></tr></table></figure>
+
+<p><em>Listing 2</em></p>
+<p>现在你已经看到了 <code>moveTower</code> 和 <code>moveDisk</code> 的代码，你可能会想知道为什么我们没有明确记录什么盘子在什么杆上的数据结构。这里有一个提示：如果你要明确地跟踪盘子，你会使用三个 Stack 对象，每个杆一个。 答案是 Python 提供了我们需要调用的隐含的栈。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.10.%E6%B1%89%E8%AF%BA%E5%A1%94%E6%B8%B8%E6%88%8F/README/" data-id="clxzhp6jt00131s8j5py7hsvx" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/4.递归/4.1.目标/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.1.%E7%9B%AE%E6%A0%87/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.653Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="4-1-目标"><a href="#4-1-目标" class="headerlink" title="4.1.目标"></a>4.1.目标</h2><p>本章的目标如下：</p>
+<ul>
+<li>要理解可能难以解决的复杂问题有一个简单的递归解决方案。</li>
+<li>学习如何递归地写出程序。</li>
+<li>理解和应用递归的三个定律。</li>
+<li>将递归理解为一种迭代形式。</li>
+<li>实现问题的递归公式化。</li>
+<li>了解计算机系统如何实现递归。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.1.%E7%9B%AE%E6%A0%87/README/" data-id="clxzhp6k0001z1s8jhcb0ddvf" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/3.基本数据结构/3.9.中缀前缀和后缀表达式/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.9.%E4%B8%AD%E7%BC%80%E5%89%8D%E7%BC%80%E5%92%8C%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.638Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="3-9-中缀，前缀和后缀表达式"><a href="#3-9-中缀，前缀和后缀表达式" class="headerlink" title="3.9.中缀，前缀和后缀表达式"></a>3.9.中缀，前缀和后缀表达式</h2><p>当你编写一个算术表达式如 <code>B*C</code> 时，表达式的形式使你能够正确理解它。在这种情况下，你知道 B 乘以 C, 因为乘法运算符 <code>*</code> 出现在表达式中。这种类型的符号称为中缀，因为运算符在它处理的两个操作数之间。看另外一个中缀示例，<code>A+B*C</code>，运算符 <code>+</code> 和 <code>*</code> 仍然出现在操作数之间。这里面有个问题是，他们分别作用于哪个运算数上，<code>+</code> 作用于 A 和 B , 还是 <code>*</code> 作用于 B 和 C？表达式似乎有点模糊。</p>
+<p>事实上，你已经读写过这些类型的表达式很长一段时间，所以它们对你不会导致什么问题。这是因为你知道运算符 <code>+</code>和 <code>*</code>。每个运算符都有一个优先级。优先级较高的运算符在优先级较低的运算符之前使用。唯一改变顺序的是括号的存在。算术运算符的优先顺序是将乘法和除法置于加法和减法之上。如果出现具有相等优先级的两个运算符，则使用从左到右的顺序排序或关联。</p>
+<p>我们使用运算符优先级来解释下表达式 <code>A+B*C</code>。B 和 C 首先相乘，然后将 A 与该结果相加。<code>(A+B)*C</code> 将强制在乘法之前执行 A 和 B 的加法。在表达式 <code>A+B+C</code> 中，最左边的 + 首先使用。</p>
+<p>虽然这一切对你来说都很明显。但请记住，计算机需要准确知道要执行的操作符和顺序。一种保证不会对操作顺序产生混淆的表达式的方法是创建一个称为完全括号表达式的表达式。这种类型的表达式对每个运算符都使用一对括号。括号没有歧义的指示操作的顺序。也没有必要记住任何优先规则。</p>
+<p>表达式 <code>A+B*C+D</code> 可以重写为 <code>((A + (B * C)) + D)</code> ，表明先乘法，然后是左边的加法，<code>A + B + C + D</code> 可以写为 <code>(((A + B) + C) + D)</code>，因为加法操作从左向右相关联。</p>
+<p>有两种非常重要的表达式格式，你可能一开始不会很明显的看出来。中缀表达式 <code>A+B</code>, 如果我们移动两个操作数之间的运算符会发生什么？结果表达式变成 <code>+ A B</code>。同样，我们也可以将运算符移动到结尾，得到 <code>A B +</code> ，这样看起来有点奇怪。</p>
+<p>改变操作符的位置得到了两种新的表达式格式，前缀和后缀。前缀表达式符号要求所有运算符在它们处理的两个操作数之前。另一个方面，后缀要求其操作符在相应的操作数之后。看下更多的例子 (见 Table 2)</p>
+<p><code>A+B*C</code> 将在前缀中写为 <code>+ A * B C</code> 。乘法运算符紧接在操作数 B 和 C 之前，表示 <code>*</code> 优先于 <code>+</code>。然后加法运算符出现在 A 和乘法的结果之前。</p>
+<p>在后缀中，表达式将是 <code>A B C * +</code>，再次，操作的顺序被保留，因为 <code>*</code> 紧接在 B 和 C 之后出现，表示 <code>*</code> 具有高优先级，<code>+</code> 优先级低。虽然操作符在它们各自的操作数前后移动，但是顺序相对于彼此保持完全相同。</p>
+<p><img src="/assets/3.9.%E4%B8%AD%E7%BC%80%E5%90%8E%E7%BC%80%E5%92%8C%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F.table2.png" alt="3.9.中缀后缀和后缀表达式.table2"></p>
+<p><em>Table 2</em></p>
+<p>现在考虑中缀表达式 <code>(A + B) * C</code>，回想下，在这种情况下，中缀需要括号在乘法之前强制执行加法。然而，当 A+B 写到前缀中时，加法运算符简单的移动到操作数 <code>+ A B</code> 之前。这个操作的结果成为乘法的第一个操作数。乘法运算符移动到整个表达式的前面，得出 <code>* + A B C</code>，同样，在后缀 <code>A B +</code>中，强制先加法。可以直接对该结果和剩余的操作数 C 相乘。然后，得出后缀表达式为 <code>A B + C *</code>。</p>
+<p>再次考虑这三个表达式(见 Table 3)，括号不见了。为什么在前缀和后缀的时候不需要括号了呢？答案是操作符对于他们的操作数不再模糊，只有中缀才需要括号，前缀和后缀表达式的操作顺序完全由操作符的顺序决定。</p>
+<p><img src="/assets/3.9.%E4%B8%AD%E7%BC%80%E5%90%8E%E7%BC%80%E5%92%8C%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F.table3.png" alt="3.9.中缀后缀和后缀表达式.table3"></p>
+<p><em>Table 3</em></p>
+<p>Table 4 展示了一些其他的例子</p>
+<p><img src="/assets/3.9.%E4%B8%AD%E7%BC%80%E5%90%8E%E7%BC%80%E5%92%8C%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F.table4.png" alt="3.9.中缀后缀和后缀表达式.table4"></p>
+<p><em>Table 4</em></p>
+<h3 id="3-9-1-中缀表达式转换前缀和后缀"><a href="#3-9-1-中缀表达式转换前缀和后缀" class="headerlink" title="3.9.1.中缀表达式转换前缀和后缀"></a>3.9.1.中缀表达式转换前缀和后缀</h3><p>到目前为止，我们已经使用特定方法在中缀表达式和等效前缀和后缀表达式符号之间进行转换。正如你可能期望的，有一些算法来执行转换，允许任何复杂表达式转换。</p>
+<p>我们考虑的第一种技术使用前面讨论的完全括号表达式的概念。回想一下，<code>A + B * C</code>可以写成<code>（A +（B * C））</code>，以明确标识乘法优先于加法。然而，仔细观察,你可以看到每个括号对还表示操作数对的开始和结束，中间有相应的运算符。</p>
+<p>看上面的子表达式<code>（B * C）</code>中的右括号。 如果我们将乘法符号移动到那个位置，并删除匹配的左括号，得到 <code>B C *</code>，我们实际上已经将子表达式转换为后缀符号。 如果加法运算符也被移动到其相应的右括号位置并且匹配的左括号被去除，则将得到完整的后缀表达式（见 Figure 6）。</p>
+<p><img src="/assets/3.9.%E4%B8%AD%E7%BC%80%E5%90%8E%E7%BC%80%E5%92%8C%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F.figure6.png" alt="3.9.中缀后缀和后缀表达式.figure6"></p>
+<p><em>Figure 6</em></p>
+<p>如果我们不是将符号移动到右括号的位置，我们将它向左移动，我们得到前缀符号（见 Figure 7）。圆括号对的位置实际上是包含的运算符的最终位置的线索。<br><img src="/assets/3.9.%E4%B8%AD%E7%BC%80%E5%90%8E%E7%BC%80%E5%92%8C%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F.figure7.png" alt="3.9.中缀后缀和后缀表达式.figure7"></p>
+<p><em>Figure 7</em></p>
+<p>所以为了转换表达式，无论是对前缀还是后缀符号，先根据操作的顺序把表达式转换成完全括号表达式。然后将包含的运算符移动到左或右括号的位置，具体取决于需要前缀或后缀符号。</p>
+<p>这里面有个更复杂的例子, <code>(A + B) * C - (D - E) * (F + G)</code> ，Figure 8 显示了如何转换为后缀和前缀。</p>
+<p><img src="/assets/3.9.%E4%B8%AD%E7%BC%80%E5%90%8E%E7%BC%80%E5%92%8C%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F.figure8.png" alt="3.9.中缀后缀和后缀表达式.figure8"></p>
+<p><em>Figure 8</em></p>
+<h3 id="3-9-2-中缀转后缀通用法"><a href="#3-9-2-中缀转后缀通用法" class="headerlink" title="3.9.2.中缀转后缀通用法"></a>3.9.2.中缀转后缀通用法</h3><p>我们需要开发一个算法来将任何中缀表达式转换为后缀表达式。 为了做到这一点，我们仔细看看转换过程。</p>
+<p>再次考虑表达式 <code>A + B * C</code>。如上所示，<code>A B C * +</code>是等价的后缀表达式。 我们已经注意到，操作数 A，B 和 C 保持在它们的相对位置。只有操作符改变位置。再看中缀表达式中的运算符。从左到右出现的第一个运算符为 +。 然而，在后缀表达式中，+ 在结束位置，因为下一个运算符 * 的优先级高于加法。 原始表达式中的运算符的顺序在生成的后缀表达式中相反。</p>
+<p>当我们处理表达式时，操作符必须保存在某处，因为它们相应的右操作数还没有看到。 此外，这些保存的操作符的顺序可能由于它们的优先级而需要反转。这是在该示例中的加法和乘法的情况，由于加法运算符在乘法运算符之前，并且具有较低的优先级，因此需要在使用乘法运算符之后出现。 由于这种顺序的反转，考虑使用栈来保存运算符直到用到它们是有意义的。</p>
+<p><code>(A + B)* C</code>的情况会是什么样呢？ 回想一下，<code>A B + C *</code>是等价的后缀表达式。从左到右处理此中缀表达式，我们先看到 <code>+</code>。 在这种情况下，当我们看到 <code>*</code>，<code>+</code>已经放置在结果表达式中，由于括号它的优先级高于<code>*</code>。 我们现在可以开始看看转换算法如何工作。当我们看到左括号时，我们保存它，表示高优先级的另一个运算符将出现。该操作符需要等到相应的右括号出现以表示其位置（回忆完全括号的算法）。 当右括号出现时，可以从栈中弹出操作符。</p>
+<p>当我们从左到右扫描中缀表达式时，我们将使用栈来保留运算符。这将提供我们在第一个例子中注意到的反转。 堆栈的顶部将始终是最近保存的运算符。每当我们读取一个新的运算符时，我们需要考虑该运算符如何与已经在栈上的运算符（如果有的话）比较优先级。</p>
+<p>假设中缀表达式是一个由空格分隔的标记字符串。 操作符标记是<code>*，/，+</code>和 <code>-</code> ，以及左右括号。操作数是单字符 A，B，C 等。 以下步骤将后缀顺序生成一个字符串。</p>
+<ol>
+<li>创建一个名为 opstack 的空栈以保存运算符。给输出创建一个空列表。</li>
+<li>通过使用字符串方法拆分将输入的中缀字符串转换为标记列表。</li>
+<li>从左到右扫描标记列表。<ul>
+<li>如果标记是操作数，将其附加到输出列表的末尾。</li>
+<li>如果标记是左括号，将其压到 opstack 上。</li>
+<li>如果标记是右括号，则弹出 opstack，直到删除相应的左括号。将每个运算符附加到输出列表的末尾。</li>
+<li>如果标记是运算符，<code>*，/，+</code>或 <code>-</code> ，将其压入 opstack。但是，首先删除已经在 opstack 中具有更高或相等优先级的任何运算符，并将它们加到输出列表中。</li>
+</ul>
+</li>
+<li>当输入表达式被完全处理时，检查 opstack。仍然在栈上的任何运算符都可以删除并加到输出列表的末尾。</li>
+</ol>
+<p>Figure 9 展示了对表达式 <code>A * B + C * D</code> 的转换算法。注意，第一个 <code>*</code> 在看到 <code>+</code> 运算符时被删除。另外，当第二个 * 出现时， <code>+</code> 保留在栈中，因为乘法优先级高于加法。在中缀表达式的末尾，栈被弹出两次，删除两个运算符，并将 <code>+</code> 作为后缀表达式中的最后一个运算符。</p>
+<p><img src="/assets/3.9.%E4%B8%AD%E7%BC%80%E5%90%8E%E7%BC%80%E5%92%8C%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F.figure9.png" alt="3.9.中缀后缀和后缀表达式.figure9"></p>
+<p><em>Figure 9</em></p>
+<p>为了在 Python 中编写算法，我们使用一个名为 prec 的字典来保存操作符的优先级。这个字典将每个运算符映射到一个整数，可以与其他运算符的优先级（我们使用整数3，2和1）进行比较。左括号将赋予最低的值。这样，与其进行比较的任何运算符将具有更高的优先级，将被放置在它的顶部。第15行将操作数定义为任何大写字符或数字。完整的转换函数见 ActiveCode 1。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pythonds.basic.stack <span class="keyword">import</span> Stack</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">infixToPostfix</span>(<span class="params">infixexpr</span>):</span><br><span class="line">    prec = &#123;&#125;</span><br><span class="line">    prec[<span class="string">&quot;*&quot;</span>] = <span class="number">3</span></span><br><span class="line">    prec[<span class="string">&quot;/&quot;</span>] = <span class="number">3</span></span><br><span class="line">    prec[<span class="string">&quot;+&quot;</span>] = <span class="number">2</span></span><br><span class="line">    prec[<span class="string">&quot;-&quot;</span>] = <span class="number">2</span></span><br><span class="line">    prec[<span class="string">&quot;(&quot;</span>] = <span class="number">1</span></span><br><span class="line">    opStack = Stack()</span><br><span class="line">    postfixList = []</span><br><span class="line">    tokenList = infixexpr.split()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> token <span class="keyword">in</span> tokenList:</span><br><span class="line">        <span class="keyword">if</span> token <span class="keyword">in</span> <span class="string">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span> <span class="keyword">or</span> token <span class="keyword">in</span> <span class="string">&quot;0123456789&quot;</span>:</span><br><span class="line">            postfixList.append(token)</span><br><span class="line">        <span class="keyword">elif</span> token == <span class="string">&#x27;(&#x27;</span>:</span><br><span class="line">            opStack.push(token)</span><br><span class="line">        <span class="keyword">elif</span> token == <span class="string">&#x27;)&#x27;</span>:</span><br><span class="line">            topToken = opStack.pop()</span><br><span class="line">            <span class="keyword">while</span> topToken != <span class="string">&#x27;(&#x27;</span>:</span><br><span class="line">                postfixList.append(topToken)</span><br><span class="line">                topToken = opStack.pop()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">while</span> (<span class="keyword">not</span> opStack.isEmpty()) <span class="keyword">and</span> \</span><br><span class="line">               (prec[opStack.peek()] &gt;= prec[token]):</span><br><span class="line">                  postfixList.append(opStack.pop())</span><br><span class="line">            opStack.push(token)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> opStack.isEmpty():</span><br><span class="line">        postfixList.append(opStack.pop())</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot; &quot;</span>.join(postfixList)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(infixToPostfix(<span class="string">&quot;A * B + C * D&quot;</span>))</span><br><span class="line"><span class="built_in">print</span>(infixToPostfix(<span class="string">&quot;( A + B ) * C - ( D - E ) * ( F + G )&quot;</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>执行结果如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>infixtopostfix(<span class="string">&quot;( A + B ) * ( C + D )&quot;</span>)</span><br><span class="line"><span class="string">&#x27;A B + C D + *&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>infixtopostfix(<span class="string">&quot;( A + B ) * C&quot;</span>)</span><br><span class="line"><span class="string">&#x27;A B + C *&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>infixtopostfix(<span class="string">&quot;A + B * C&quot;</span>)</span><br><span class="line"><span class="string">&#x27;A B C * +&#x27;</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-9-3-后缀表达式求值"><a href="#3-9-3-后缀表达式求值" class="headerlink" title="3.9.3.后缀表达式求值"></a>3.9.3.后缀表达式求值</h3><p>作为最后栈的示例，我们考虑对后缀符号中的表达式求值。在这种情况下，栈再次是我们选择的数据结构。但是，在扫描后缀表达式时，它必须等待操作数，而不像上面的转换算法中的运算符。 解决问题的另一种方法是，每当在输入上看到运算符时，计算两个最近的操作数。</p>
+<p>要详细的了解这一点，考虑后缀表达式 <code>4 5 6 * +</code>， 首先遇到操作数 <code>4</code> 和 <code>5</code>，此时，你还不确定如何处理它们，直到看到下一个符号。将它们放置到栈上，确保它们在下一个操作符出现时可用。</p>
+<p>在这种情况下，下一个符号是另一个操作数。所以，像先前一样，压入栈中。并检查下一个符号。现在我们看到了操作符 <code>*</code>，这意味着需要将两个最近的操作数相乘。通过弹出栈两次，我们可以得到正确的两个操作数，然后执行乘法（这种情况下结果为 30）。</p>
+<p>我们现在可以通过将其放回栈中来处理此结果，以便它可以表示为表达式后面的运算符的操作数。当处理最后一个操作符时，栈上只有一个值，弹出并返回它作为表达式的结果。Figure 10 展示了整个示例表达式的栈的内容。</p>
+<p><img src="/assets/3.9.%E4%B8%AD%E7%BC%80%E5%90%8E%E7%BC%80%E5%92%8C%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F.figure10.png" alt="3.9.中缀后缀和后缀表达式.figure10"></p>
+<p><em>Figure 10</em></p>
+<p>Figure 11 是个稍微复杂的示例，<code>7 8 + 3 2 + /</code> 。在这个例子中有两点需要注意，首先，栈的大小增长收缩，然后再子表达式求值的时候再次增长。第二，除法操作需要谨慎处理。回想下，后缀表达式的操作符顺序没变，仅仅改变操作符的位置。当用于除法的操作符从栈中弹出时，它们被反转。由于除法不是交换运算符，换句话说 <code>15/5</code>和 <code>5/15</code> 不同，因此我们必须保证操作数的顺序不会交换。</p>
+<p><img src="/assets/3.9.%E4%B8%AD%E7%BC%80%E5%90%8E%E7%BC%80%E5%92%8C%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F.figure11.png" alt="3.9.中缀后缀和后缀表达式.figure11"></p>
+<p><em>Figure 11</em></p>
+<p>假设后缀表达式是一个由空格分隔的标记字符串。 运算符为<code>*，/，+</code>和 <code>-</code> ，操作数假定为单个整数值。 输出将是一个整数结果。</p>
+<ol>
+<li>创建一个名为 <code>operandStack</code> 的空栈。</li>
+<li>拆分字符串转换为标记列表。</li>
+<li>从左到右扫描标记列表。<ul>
+<li>如果标记是操作数，将其从字符串转换为整数，并将值压到operandStack。</li>
+<li>如果标记是运算符<code>*，/，+</code>或<code>-</code>，它将需要两个操作数。弹出operandStack 两次。 第一个弹出的是第二个操作数，第二个弹出的是第一个操作数。执行算术运算后，将结果压到操作数栈中。</li>
+</ul>
+</li>
+<li>当输入的表达式被完全处理后，结果就在栈上，弹出 operandStack 并返回值。</li>
+</ol>
+<p>用于计算后缀表达式的完整函数见 ActiveCode 2，为了辅助计算，定义了一个函数 doMath, 它将获取两个操作数和运算符，执行相应的计算。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pythonds.basic.stack <span class="keyword">import</span> Stack</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">postfixEval</span>(<span class="params">postfixExpr</span>):</span><br><span class="line">    operandStack = Stack()</span><br><span class="line">    tokenList = postfixExpr.split()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> token <span class="keyword">in</span> tokenList:</span><br><span class="line">        <span class="keyword">if</span> token <span class="keyword">in</span> <span class="string">&quot;0123456789&quot;</span>:</span><br><span class="line">            operandStack.push(<span class="built_in">int</span>(token))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            operand2 = operandStack.pop()</span><br><span class="line">            operand1 = operandStack.pop()</span><br><span class="line">            result = doMath(token,operand1,operand2)</span><br><span class="line">            operandStack.push(result)</span><br><span class="line">    <span class="keyword">return</span> operandStack.pop()</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">doMath</span>(<span class="params">op, op1, op2</span>):</span><br><span class="line">    <span class="keyword">if</span> op == <span class="string">&quot;*&quot;</span>:</span><br><span class="line">        <span class="keyword">return</span> op1 * op2</span><br><span class="line">    <span class="keyword">elif</span> op == <span class="string">&quot;/&quot;</span>:</span><br><span class="line">        <span class="keyword">return</span> op1 / op2</span><br><span class="line">    <span class="keyword">elif</span> op == <span class="string">&quot;+&quot;</span>:</span><br><span class="line">        <span class="keyword">return</span> op1 + op2</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> op1 - op2</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(postfixEval(<span class="string">&#x27;7 8 + 3 2 + /&#x27;</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.9.%E4%B8%AD%E7%BC%80%E5%89%8D%E7%BC%80%E5%92%8C%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F/README/" data-id="clxzhp6jt00121s8j9jub4p7f" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/3.基本数据结构/3.8.十进制转换成二进制/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.8.%E5%8D%81%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E6%88%90%E4%BA%8C%E8%BF%9B%E5%88%B6/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.630Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="3-8-十进制转换成二进制"><a href="#3-8-十进制转换成二进制" class="headerlink" title="3.8.十进制转换成二进制"></a>3.8.十进制转换成二进制</h2><p>在你学习计算机的过程中，你可能已经接触了二进制。二进制在计算机科学中是很重要的，因为存储在计算机内的所有值都是以 0 和 1 存储的。如果没有能力在二进制数和普通字符串之间转换，我们与计算机之间的交互非常棘手。</p>
+<p>整数值是常见的数据项。他们一直用于计算机程序和计算。我们在数学课上学习它们，当然最后用十进制或者基数 10 来表示它们。十进制 $$233_{10}$$ 以及对应的二进制表示 $$11101001_2$$ 分别解释为</p>
+<p>$$<br>2\times10^{2} + 3\times10^{1} + 3\times10^{0}<br>$$</p>
+<p>和</p>
+<p>$$<br>1\times2^{7} + 1\times2^{6} + 1\times2^{5} + 0\times2^{4} + 1\times2^{3} + 0\times2^{2} + 0\times2^{1} + 1\times2^{0}<br>$$</p>
+<p>但是我们如何能够容易地将整数值转换为二进制呢？答案是“除 2”算法，它用栈来跟踪二进制结果的数字。</p>
+<p>“除 2” 算法假定我们从大于 0 的整数开始。不断迭代的将十进制除以 2，并跟踪余数。第一个除以 2 的余数说明了这个值是偶数还是奇数。偶数有 0 的余数，记为 0。奇数有余数 1，记为 1.我们将得到的二进制构建为数字序列，第一个余数实际上是序列中的最后一个数字。见 Figure 5 , 我们再次看到了反转的属性，表示栈可能是解决这个问题的数据结构。</p>
+<p><img src="/assets/3.8.%E5%8D%81%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E6%88%90%E4%BA%8C%E8%BF%9B%E5%88%B6.figure5.png" alt="3.8.十进制转换成二进制.figure5"></p>
+<p><em>Figure 5</em></p>
+<p>Activecode 1 中的 Python 代码实现了 “除 2” 算法，函数 divideBy2 传入了一个十进制的参数，并重复除以 2。第 7 行使用内置的模运算符 % 来提取余数，第 8 行将余数压到栈上。当除到 0 后，11-13 行构造了一个二进制字符串。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pythonds.basic.stack <span class="keyword">import</span> Stack</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">divideBy2</span>(<span class="params">decNumber</span>):</span><br><span class="line">    remstack = Stack()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> decNumber &gt; <span class="number">0</span>:</span><br><span class="line">        rem = decNumber % <span class="number">2</span></span><br><span class="line">        remstack.push(rem)</span><br><span class="line">        decNumber = decNumber // <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    binString = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> remstack.isEmpty():</span><br><span class="line">        binString = binString + <span class="built_in">str</span>(remstack.pop())</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> binString</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(divideBy2(<span class="number">42</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><em>ActiveCode 1</em></p>
+<p>这个用于二进制转换的算法可以很容易的扩展以执行任何基数的转换。在计算机科学中，通常会使用很多不同的编码。其中最常见的是二级制，八进制和十六进制。</p>
+<p>十进制 $$233$$ 和它对应的八进制和十六进制 $$351_8$$, $$E9_{16}$$</p>
+<p>$$<br>3\times8^{2} + 5\times8^{1} + 1\times8^{0}<br>$$</p>
+<p>和</p>
+<p>$$<br>14\times16^{1} + 9\times16^{0}<br>$$</p>
+<p>可以修改 <code>divideBy2</code> 函数，使它不仅能接受十进制参数，还能接受预期转换的基数。‘除 2’ 的概念被简单的替换成更通用的 ‘除基数’。在 ActiveCode2 展示的是一个名为 <code>baseConverter</code> 函数。采用十进制数和 2 到 16 之间的任何基数作为参数。余数部分仍然入栈，直到被转换的值为 0。我们创建一组数字，用来表示超过 9 的余数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pythonds.basic.stack <span class="keyword">import</span> Stack</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">baseConverter</span>(<span class="params">decNumber,base</span>):</span><br><span class="line">    digits = <span class="string">&quot;0123456789ABCDEF&quot;</span></span><br><span class="line"></span><br><span class="line">    remstack = Stack()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> decNumber &gt; <span class="number">0</span>:</span><br><span class="line">        rem = decNumber % base</span><br><span class="line">        remstack.push(rem)</span><br><span class="line">        decNumber = decNumber // base</span><br><span class="line"></span><br><span class="line">    newString = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> remstack.isEmpty():</span><br><span class="line">        newString = newString + digits[remstack.pop()]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> newString</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(baseConverter(<span class="number">25</span>,<span class="number">2</span>))</span><br><span class="line"><span class="built_in">print</span>(baseConverter(<span class="number">25</span>,<span class="number">16</span>))</span><br></pre></td></tr></table></figure>
+
+<p><em>ActiveCode2</em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.8.%E5%8D%81%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E6%88%90%E4%BA%8C%E8%BF%9B%E5%88%B6/README/" data-id="clxzhp6ju00151s8j5qnyaqd4" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.9.%E5%AE%9E%E7%8E%B0%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.8.%E6%9E%84%E5%BB%BA%E5%AD%97%E6%A2%AF%E5%9B%BE/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.7.%E5%AD%97%E6%A2%AF%E7%9A%84%E9%97%AE%E9%A2%98/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.6.%E5%AE%9E%E7%8E%B0/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.5.%E9%82%BB%E6%8E%A5%E8%A1%A8/README/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 FLITl<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

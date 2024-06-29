@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>FLITl的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="一些感想，一些技术，一些生活。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FLITl的博客">
+<meta property="og:url" content="http://jackfrued.top/page/11/index.html">
+<meta property="og:site_name" content="FLITl的博客">
+<meta property="og:description" content="一些感想，一些技术，一些生活。">
+<meta property="og:locale">
+<meta property="article:author" content="FLITl">
+<meta property="article:tag" content="反思，技术，生活">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="FLITl的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">FLITl的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">天命之谓性；率性之谓道；修道之谓教。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://jackfrued.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-python-data-structure-cn/1.介绍/1.9.输入和输出/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.9.%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.419Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-9-输入和输出"><a href="#1-9-输入和输出" class="headerlink" title="1.9.输入和输出"></a>1.9.输入和输出</h2><p>我们经常需要与用户交互，要么获取数据，要么提供某种结果。现今的大多数程序都使用一个对话框来让用户提供某种类型的输入。虽然Python确实有创建对话框的方法，但是我们可以使用一个简单得多的函数。Python为我们提供了一个功能，允许我们要求用户输入一些数据，并以字符串的形式返回数据的引用。这个函数叫做input。</p>
+<p>Python的输入函数接受单个参数，即字符串。这个字符串通常被称为提示符，因为它包含一些有用的文本，提示用户输入一些东西。例如，您可以按如下方式调用输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aName = input(&#x27;Please enter your name: &#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>现在，无论用户在提示符后面输入什么，都将存储在aName变量中。通过使用input函数，我们可以轻松地编写指令，提示用户输入数据，然后将这些数据合并到进一步的处理中。例如，在接下来的两个语句中，首先询问用户的名称，第二个语句打印基于所提供的字符串的一些简单处理的结果。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">aName = input(&quot;Please enter your name &quot;)</span><br><span class="line">print(&quot;Your name in all capitals is&quot;,aName.upper(),</span><br><span class="line">      &quot;and has length&quot;, len(aName))</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，输入函数返回的值将是一个字符串，表示在提示后输入的确切字符。如果您想将此字符串解释为另一种类型，您必须提供显式的类型转换。在下面的语句中，由用户输入的字符串被转换为浮点数，以便它可以用于进一步的算术处理。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sradius = input(&quot;Please enter the radius of the circle &quot;)</span><br><span class="line">radius = float(sradius)</span><br><span class="line">diameter = 2 * radius</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="1-9-1-格式化字符串"><a href="#1-9-1-格式化字符串" class="headerlink" title="1.9.1.格式化字符串"></a>1.9.1.格式化字符串</h3><p>我们已经看到print方法提供了一种非常简单的方法来从Python程序输出值。print采用零个或更多的参数，并使用单个空格作为默认分隔符来显示它们。可以通过设置sep参数来更改分隔符。此外，每次打印在默认情况下都以换行符结尾。可以通过设置end参数来改变这种行为。这些变化将显示在以下会话中：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; print(&quot;Hello&quot;)</span><br><span class="line">Hello</span><br><span class="line">&gt;&gt;&gt; print(&quot;Hello&quot;,&quot;World&quot;)</span><br><span class="line">Hello World</span><br><span class="line">&gt;&gt;&gt; print(&quot;Hello&quot;,&quot;World&quot;, sep=&quot;***&quot;)</span><br><span class="line">Hello***World</span><br><span class="line">&gt;&gt;&gt; print(&quot;Hello&quot;,&quot;World&quot;, end=&quot;***&quot;)</span><br><span class="line">Hello World***&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>更多的控制输出的外观通常是有用的。幸运的是，Python为我们提供了一种称为格式化字符串的替代方案。格式化的字符串是一个模板，在这个模板中，结合了保持不变的单词或空格与插入到字符串中的变量的占位符。例如,语句</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(aName, &quot;is&quot;, age, &quot;years old.&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>包含词语is 和 years old，但是名称和年龄将根据执行时的变量值而变化。使用格式化的字符串，我们将前面的语句写为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;%s is %d years old.&quot; % (aName, age))</span><br></pre></td></tr></table></figure>
+
+<p>这个简单的例子说明了一个新的字符串表达式。%号是一个字符串操作符，称作格式化操作符。表达式的左边含有模板或格式字符串，右边包含将被替换成格式字符串的值的集合。请注意，右侧集合中的值的数量与格式字符串中的%字符数相对应。值从左到右依次从集合中获取并插入到格式字符串中。</p>
+<p>让我们更详细地看一下这个格式化表达式的两边。格式字符串可以包含一个或多个转换规范。一个转换字符告诉格式化操作符将插入到字符串中的那个位置的值类型。在上面的例子中，%s指定一个字符串，而%d指定一个整数。其他可能的类型规范包括i、u、f、e、g、c或%。Table 9总结了各种类型的规范。</p>
+<p><img src="/assets/1.9.%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA.table9.png" alt="1.9.输入和输出.table9"></p>
+<p><em>Table 9</em></p>
+<p>除了格式字符之外，您还可以在%和格式字符之间包含一个格式修饰符。格式修饰符可以用来对指定字段宽度的值进行左对齐或右对齐。修饰符也可以用来指定字段宽度，以及小数点后的数字。Table 10解释了这些格式修饰符</p>
+<p><img src="/assets/1.9.%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA.table10.png" alt="1.9.输入和输出.table10"></p>
+<p><em>Table 10</em></p>
+<p>格式操作符的右边是一组值的集合，这些值将被插入到格式字符串中。这个集合可以是一个元组或一个字典。如果集合是一个元组，那么这些值就会按照位置的顺序插入。也就是说，元组中的第一个元素对应于格式字符串中的第一个格式字符。如果集合是一个字典，那么这些值将根据它们的键插入。在这种情况下，所有格式字符都必须使用(name)修饰符来指定键的名称。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; price = 24</span><br><span class="line">&gt;&gt;&gt; item = &quot;banana&quot;</span><br><span class="line">&gt;&gt;&gt; print(&quot;The %s costs %d cents&quot;%(item,price))</span><br><span class="line">The banana costs 24 cents</span><br><span class="line">&gt;&gt;&gt; print(&quot;The %+10s costs %5.2f cents&quot;%(item,price))</span><br><span class="line">The     banana costs 24.00 cents</span><br><span class="line">&gt;&gt;&gt; print(&quot;The %+10s costs %10.2f cents&quot;%(item,price))</span><br><span class="line">The     banana costs      24.00 cents</span><br><span class="line">&gt;&gt;&gt; itemdict = &#123;&quot;item&quot;:&quot;banana&quot;,&quot;cost&quot;:24&#125;</span><br><span class="line">&gt;&gt;&gt; print(&quot;The %(item)s costs %(cost)7.1f cents&quot;%itemdict)</span><br><span class="line">The banana costs    24.0 cents</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>除了使用格式字符和格式修饰符的格式字符串之外，Python字符串还包括一种format方法，它可以与新的Formatter类一起使用来实现复杂的字符串格式化。有关这些功能的更多信息，请参阅Python库参考手册。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.9.%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/README/" data-id="clxzhp6jm000e1s8j2qy1aojj" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/1.介绍/1.8.数据入门/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.8.%E6%95%B0%E6%8D%AE%E5%85%A5%E9%97%A8/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.397Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-8-数据入门"><a href="#1-8-数据入门" class="headerlink" title="1.8.数据入门"></a>1.8.数据入门</h2><p>我们在上面说过，Python支持面向对象的编程范式。这意味着Python认为在解决问题的过程中的重点是数据。在Python中，以及在任何其他面向对象的编程语言中，我们定义一个类来描述数据的外观（状态）和数据能做什么（行为）。因为类的用户只看数据项的状态和行为，所以类类似于抽象的数据类型。数据项在面向对象的范式中称为对象。 对象是类的实例。</p>
+<h3 id="1-8-1-内置的原子数据类型"><a href="#1-8-1-内置的原子数据类型" class="headerlink" title="1.8.1.内置的原子数据类型"></a>1.8.1.内置的原子数据类型</h3><p>通过思考原子数据类型来开始我们的回顾。Python有两个主要的内置数字类，它们实现了整型和浮点数据类型。这些Python类称为int和float。标准的算术运算，+，-，*，&#x2F;，和**（取幂），可以用括号强制操作的顺序来规避正常的操作符优先级。其他很有用的操作是余数（模组）操作符%、和整数除法&#x2F;&#x2F;。注意，当两个整数相除，结果是一个浮点数。整数除法运算符通过截断所有小数部分来返回商的整数部分。</p>
+<p>布尔数据类型，作为Python bool类的实现，在表示真值时非常有用。在标准的布尔操作中，and、or、not，布尔类型的状态值可能是True和False。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; True</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; False</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; False or True</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; not (False or True)</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; True and True</span><br><span class="line">True</span><br></pre></td></tr></table></figure>
+
+<p>布尔数据对象也被用作比较运算符的结果，例如相等（&#x3D;&#x3D;）和大于（&gt;）。此外，关系运算符和逻辑运算符可以组合在一起形成复杂的逻辑问题。Table 1展示了关系和逻辑运算符，例子如下所示。</p>
+<p><img src="/assets/1.8.%E6%95%B0%E6%8D%AE%E5%85%A5%E9%97%A8.table1.png" alt="1.8.数据入门.table1"></p>
+<p><em>Table 1</em></p>
+<p>标识符在编程语言中作为名称使用。在Python中，标识符以字母或下划线（_）开头，大小写敏感，并且可以是任意长度的。请记住，使用表示含义的名称总是一个好主意，这样您的程序代码就更容易阅读和理解。</p>
+<p>在赋值语句的左边第一次使用一个名称时，就会产生一个Python变量。赋值语句提供了一种将名称与值关联起来的方法。该变量将持有对一块数据的引用而不是数据本身。思考以下会话:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; theSum = 0</span><br><span class="line">&gt;&gt;&gt; theSum</span><br><span class="line">0</span><br><span class="line">&gt;&gt;&gt; theSum = theSum + 1</span><br><span class="line">&gt;&gt;&gt; theSum</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; theSum = True</span><br><span class="line">&gt;&gt;&gt; theSum</span><br><span class="line">True</span><br></pre></td></tr></table></figure>
+
+<p>赋值语句theSum &#x3D; 0创建一个变量称为theSum并让它持有对数据对象0的引用(参见Figure 3)。通常，会对赋值语句的右侧进行求值，并将对结果数据对象的引用“赋值”给左侧的名称。如上所示，如果数据的类型发生变化（参见Figure 3），布尔值为True，那么变量的类型也如此（theSum现在是布尔型）。赋值语句改变了变量所持有的引用。相同的变量可以引用许多不同类型的数据。</p>
+<p><img src="/assets/1.8.%E6%95%B0%E6%8D%AE%E5%85%A5%E9%97%A8.figure3.png" alt="1.8.数据入门.figure3"></p>
+<p><em>Figure 3</em></p>
+<p><img src="/assets/1.8.%E6%95%B0%E6%8D%AE%E5%85%A5%E9%97%A8.figure4.png" alt="1.8.数据入门.figure4"></p>
+<p><em>Figure 4</em></p>
+<h3 id="1-8-2-内置的集合数据类型"><a href="#1-8-2-内置的集合数据类型" class="headerlink" title="1.8.2.内置的集合数据类型"></a>1.8.2.内置的集合数据类型</h3><p>除了数字和布尔类之外，Python还有许多非常强大的内置集合类。列表、字符串和元组是有序集合，它们在常用的结构中非常相似，但是有特定的差异，必须理解它们才能正确使用。集合和字典是无序的集合。</p>
+<p>列表是对Python数据对象的零个或多个引用的有序集合。列表的写法是用方括号括起来、以逗号分隔。空列表简单的用[]表示。列表是异构的，这意味着数据对象不需要全部是同一类型，并且集合可以赋值给一个变量，如下所示。下面的代码展示了列表中的各种Python数据对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; [1,3,True,6.5]</span><br><span class="line">[1, 3, True, 6.5]</span><br><span class="line">&gt;&gt;&gt; myList = [1,3,True,6.5]</span><br><span class="line">&gt;&gt;&gt; myList</span><br><span class="line">[1, 3, True, 6.5]</span><br></pre></td></tr></table></figure>
+
+<p>请注意，当Python对列表求值时，会返回列表本身。然而，为了记住后面的列表操作，它的引用需要赋值给一个变量。</p>
+<p>由于列表被认为是按顺序排列，所以它们支持许多可以应用于任何Python序列的操作。Table 2回顾了这些操作，以下给出了它们的使用示例。</p>
+<p><img src="/assets/1.8.%E6%95%B0%E6%8D%AE%E5%85%A5%E9%97%A8.table2.png" alt="1.8.数据入门.table2"></p>
+<p><em>Table 2</em></p>
+<p>注意，列表（序列）的索引从0开始计数。切片操作，myList[1:3]，返回一个包含索引从1到3的项的列表、但不包含索引为3的项。</p>
+<p>有时，您需要初始化一个列表。这可以通过使用重复操作快速完成。例如，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; myList = [0] * 6</span><br><span class="line">&gt;&gt;&gt; myList</span><br><span class="line">[0, 0, 0, 0, 0, 0]</span><br></pre></td></tr></table></figure>
+
+<p>除了重复操作符之外，还有一个非常重要的问题是其结果是对序列中的数据对象的引用的重复。通过思考以下代码得到最好的印证：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">myList = [1,2,3,4]</span><br><span class="line">A = [myList]*3</span><br><span class="line">print(A)</span><br><span class="line">myList[2]=45</span><br><span class="line">print(A)</span><br></pre></td></tr></table></figure>
+
+<p>变量A持有三个名为myList的原始列表的引用。注意，对myList的一个元素的更改，在A的所有三种情况中都体现了出来</p>
+<p>列表支持许多用于构建数据结构的方法。Table 3提供了总结。下面是使用他们的例子。</p>
+<p><img src="/assets/1.8.%E6%95%B0%E6%8D%AE%E5%85%A5%E9%97%A8.table3.png" alt="1.8.数据入门.table3"></p>
+<p><em>Table 3</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">myList = [1024, 3, True, 6.5]</span><br><span class="line">myList.append(False)</span><br><span class="line">print(myList)</span><br><span class="line">myList.insert(2,4.5)</span><br><span class="line">print(myList)</span><br><span class="line">print(myList.pop())</span><br><span class="line">print(myList)</span><br><span class="line">print(myList.pop(1))</span><br><span class="line">print(myList)</span><br><span class="line">myList.pop(2)</span><br><span class="line">print(myList)</span><br><span class="line">myList.sort()</span><br><span class="line">print(myList)</span><br><span class="line">myList.reverse()</span><br><span class="line">print(myList)</span><br><span class="line">print(myList.count(6.5))</span><br><span class="line">print(myList.index(4.5))</span><br><span class="line">myList.remove(6.5)</span><br><span class="line">print(myList)</span><br><span class="line">del myList[0]</span><br><span class="line">print(myList)</span><br></pre></td></tr></table></figure>
+
+<p>你可以看到一些方法，比如pop，返回一个值，并修改列表。其他的，比如反向，只是简单地修改列表，没有返回值。pop会默返回列表的末尾项，也能删除并返回一个特定项。这些方法再次使用从0开始的索引范围。您还应该注意到熟悉的“dot”符号，使对象调用方法。myList.append（False）可以被认为是“请求对象myList执行它的append方法，并将False这个值传入”。即使是像整数这样的简单数据对象也可以以这种方式调用方法。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; (54).__add__(21)</span><br><span class="line">75</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在此段中，我们让整型对象54来执行它的add方法（在Python中称为__add__），并将它与传过去的21相加，结果是75。当然，我们通常把它写成54+21。稍后我们将在本节中详细介绍这些方法。</p>
+<p>通常与列表一起讨论的一个常见的Python函数是range函数。range产生一个范围对象，表示一系列的值。通过使用list函数，我们可以将range对象的值看作一个列表。如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; range(10)</span><br><span class="line">range(0, 10)</span><br><span class="line">&gt;&gt;&gt; list(range(10))</span><br><span class="line">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span><br><span class="line">&gt;&gt;&gt; range(5,10)</span><br><span class="line">range(5, 10)</span><br><span class="line">&gt;&gt;&gt; list(range(5,10))</span><br><span class="line">[5, 6, 7, 8, 9]</span><br><span class="line">&gt;&gt;&gt; list(range(5,10,2))</span><br><span class="line">[5, 7, 9]</span><br><span class="line">&gt;&gt;&gt; list(range(10,1,-1))</span><br><span class="line">[10, 9, 8, 7, 6, 5, 4, 3, 2]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>range对象代表一个整数序列。默认情况下，它将从0开始。如果您提供了更多的参数，它将在特定的点开始和结束，甚至可以跳过一些项。在我们的第一个例子中，range（10），序列从0开始，递增到10但不包括10。在第二个例子中，范围（5,10）从5开始，递增到10但不包括10。范围（5,10,2）类似的执行，但是以2递增（同样，10不包括在内）。</p>
+<p>字符串是由零个或多个字母、数字和其他符号组成的序列集合。我们称之为字母，数字和其他符号字符。通过使用引号（单引号或双引号）将文字字符串值与标识符区分开来。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; &quot;David&quot;</span><br><span class="line">&#x27;David&#x27;</span><br><span class="line">&gt;&gt;&gt; myName = &quot;David&quot;</span><br><span class="line">&gt;&gt;&gt; myName[3]</span><br><span class="line">&#x27;i&#x27;</span><br><span class="line">&gt;&gt;&gt; myName*2</span><br><span class="line">&#x27;DavidDavid&#x27;</span><br><span class="line">&gt;&gt;&gt; len(myName)</span><br><span class="line">5</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>由于字符串是序列，所以上面描述的所有序列操作都按照您的预期工作。另外，字符串有许多方法，其中一些方法如Table 4所示。例如,</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; myName</span><br><span class="line">&#x27;David&#x27;</span><br><span class="line">&gt;&gt;&gt; myName.upper()</span><br><span class="line">&#x27;DAVID&#x27;</span><br><span class="line">&gt;&gt;&gt; myName.center(10)</span><br><span class="line">&#x27;  David   &#x27;</span><br><span class="line">&gt;&gt;&gt; myName.find(&#x27;v&#x27;)</span><br><span class="line">2</span><br><span class="line">&gt;&gt;&gt; myName.split(&#x27;v&#x27;)</span><br><span class="line">[&#x27;Da&#x27;, &#x27;id&#x27;]</span><br></pre></td></tr></table></figure>
+
+<p>其中，split对于处理数据非常有用。split将使用一个字符串，并使用分割字符作为分隔点返回字符串列表。在这个例子中，v是分隔点。如果没有指定分隔点，split方法会寻找空格字符，如制表符、换行符和空格。</p>
+<p><img src="/assets/1.8.%E6%95%B0%E6%8D%AE%E5%85%A5%E9%97%A8.table4.png" alt="1.8.数据入门.table4"></p>
+<p><em>Table 4</em></p>
+<p>列表和字符串之间的主要区别是，列表可以被修改，而字符串不能。这被称为可变性。列表是可变的;字符串是不可变的。例如，您可以通过使用索引和赋值来更改列表中的项。而对字符串进行这样的更改是不允许的。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; myList</span><br><span class="line">[1, 3, True, 6.5]</span><br><span class="line">&gt;&gt;&gt; myList[0]=2**10</span><br><span class="line">&gt;&gt;&gt; myList</span><br><span class="line">[1024, 3, True, 6.5]</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; myName</span><br><span class="line">&#x27;David&#x27;</span><br><span class="line">&gt;&gt;&gt; myName[0]=&#x27;X&#x27;</span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;pyshell#84&gt;&quot;, line 1, in -toplevel-</span><br><span class="line">    myName[0]=&#x27;X&#x27;</span><br><span class="line">TypeError: object doesn&#x27;t support item assignment</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>元组与列表非常相似，因为它们是异构的数据序列。不同之处在于，元组是不可变的，就像字符串一样。任何元组都不能被改变。元组的写法是用括号括起来并以逗号来分隔值。作为序列，它们可以使用上面描述的任何操作。例如,</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; myTuple = (2,True,4.96)</span><br><span class="line">&gt;&gt;&gt; myTuple</span><br><span class="line">(2, True, 4.96)</span><br><span class="line">&gt;&gt;&gt; len(myTuple)</span><br><span class="line">3</span><br><span class="line">&gt;&gt;&gt; myTuple[0]</span><br><span class="line">2</span><br><span class="line">&gt;&gt;&gt; myTuple * 3</span><br><span class="line">(2, True, 4.96, 2, True, 4.96, 2, True, 4.96)</span><br><span class="line">&gt;&gt;&gt; myTuple[0:2]</span><br><span class="line">(2, True)</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>但是，如果您试图改变元组中的一个项，您将会得到一个错误。注意，错误消息提供了问题的位置和原因。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; myTuple[1]=False</span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;pyshell#137&gt;&quot;, line 1, in -toplevel-</span><br><span class="line">    myTuple[1]=False</span><br><span class="line">TypeError: object doesn&#x27;t support item assignment</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+
+<p>set是零到多个不可变的Python数据对象组成的无序集合。集合中的值不允许重复，以逗号分隔，写在大括号中。空集合由set()表示。集合是异构的并且可以被分配给一个变量，如下所示。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; &#123;3,6,&quot;cat&quot;,4.5,False&#125;</span><br><span class="line">&#123;False, 4.5, 3, 6, &#x27;cat&#x27;&#125;</span><br><span class="line">&gt;&gt;&gt; mySet = &#123;3,6,&quot;cat&quot;,4.5,False&#125;</span><br><span class="line">&gt;&gt;&gt; mySet</span><br><span class="line">&#123;False, 4.5, 3, 6, &#x27;cat&#x27;&#125;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>尽管集合不被认为是序列，但是它们确实支持前面提到的一些熟悉的操作。Table 5回顾了这些操作，以下给出了它们的使用示例。</p>
+<p><img src="/assets/1.8.%E6%95%B0%E6%8D%AE%E5%85%A5%E9%97%A8.table5.png" alt="1.8.数据入门.table5"></p>
+<p><em>Table 5</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mySet</span><br><span class="line">&#123;False, 4.5, 3, 6, &#x27;cat&#x27;&#125;</span><br><span class="line">&gt;&gt;&gt; len(mySet)</span><br><span class="line">5</span><br><span class="line">&gt;&gt;&gt; False in mySet</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; &quot;dog&quot; in mySet</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>集合支持许多方法，使用过数学概念中集合的人应该对这些方法比较熟悉。 Table 6提供了总结。 它们的使用示例如下。 请注意，并集，交集，子集和差分都有可以使用的运算符。</p>
+<p><img src="/assets/1.8.%E6%95%B0%E6%8D%AE%E5%85%A5%E9%97%A8.table6.png" alt="1.8.数据入门.table6"></p>
+<p><em>Table 6</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; mySet</span><br><span class="line">&#123;False, 4.5, 3, 6, &#x27;cat&#x27;&#125;</span><br><span class="line">&gt;&gt;&gt; yourSet = &#123;99,3,100&#125;</span><br><span class="line">&gt;&gt;&gt; mySet.union(yourSet)</span><br><span class="line">&#123;False, 4.5, 3, 100, 6, &#x27;cat&#x27;, 99&#125;</span><br><span class="line">&gt;&gt;&gt; mySet | yourSet</span><br><span class="line">&#123;False, 4.5, 3, 100, 6, &#x27;cat&#x27;, 99&#125;</span><br><span class="line">&gt;&gt;&gt; mySet.intersection(yourSet)</span><br><span class="line">&#123;3&#125;</span><br><span class="line">&gt;&gt;&gt; mySet &amp; yourSet</span><br><span class="line">&#123;3&#125;</span><br><span class="line">&gt;&gt;&gt; mySet.difference(yourSet)</span><br><span class="line">&#123;False, 4.5, 6, &#x27;cat&#x27;&#125;</span><br><span class="line">&gt;&gt;&gt; mySet - yourSet</span><br><span class="line">&#123;False, 4.5, 6, &#x27;cat&#x27;&#125;</span><br><span class="line">&gt;&gt;&gt; &#123;3,100&#125;.issubset(yourSet)</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; &#123;3,100&#125;&lt;=yourSet</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; mySet.add(&quot;house&quot;)</span><br><span class="line">&gt;&gt;&gt; mySet</span><br><span class="line">&#123;False, 4.5, 3, 6, &#x27;house&#x27;, &#x27;cat&#x27;&#125;</span><br><span class="line">&gt;&gt;&gt; mySet.remove(4.5)</span><br><span class="line">&gt;&gt;&gt; mySet</span><br><span class="line">&#123;False, 3, 6, &#x27;house&#x27;, &#x27;cat&#x27;&#125;</span><br><span class="line">&gt;&gt;&gt; mySet.pop()</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; mySet</span><br><span class="line">&#123;3, 6, &#x27;house&#x27;, &#x27;cat&#x27;&#125;</span><br><span class="line">&gt;&gt;&gt; mySet.clear()</span><br><span class="line">&gt;&gt;&gt; mySet</span><br><span class="line">set()</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>我们最后的Python集合是一个无序的结构，称为字典。字典是一组关联项，其中每一项由一个键和一个值组成。这个键-值对通常被写成key：value。字典的键值对以逗号分隔并用花括号括起来。例如,</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; capitals = &#123;&#x27;Iowa&#x27;:&#x27;DesMoines&#x27;,&#x27;Wisconsin&#x27;:&#x27;Madison&#x27;&#125;</span><br><span class="line">&gt;&gt;&gt; capitals</span><br><span class="line">&#123;&#x27;Wisconsin&#x27;: &#x27;Madison&#x27;, &#x27;Iowa&#x27;: &#x27;DesMoines&#x27;&#125;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以通过它的键来访问一个值，或者通过添加另一个键-值对来操作字典。取值语法除了使用键值而不是使用项目的索引，看起来很像序列取值，添加新值类似。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">capitals = &#123;&#x27;Iowa&#x27;:&#x27;DesMoines&#x27;,&#x27;Wisconsin&#x27;:&#x27;Madison&#x27;&#125;</span><br><span class="line">print(capitals[&#x27;Iowa&#x27;])</span><br><span class="line">capitals[&#x27;Utah&#x27;]=&#x27;SaltLakeCity&#x27;</span><br><span class="line">print(capitals)</span><br><span class="line">capitals[&#x27;California&#x27;]=&#x27;Sacramento&#x27;</span><br><span class="line">print(len(capitals))</span><br><span class="line">for k in capitals:</span><br><span class="line">   print(capitals[k],&quot; is the capital of &quot;, k)</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，字典在键上没有特定的顺序。第一组加入(‘Utah’: ‘SaltLakeCity’)首先被放在字典里，第二组加了(‘California’: ‘Sacramento’)。键的位置取决于“哈希”的概念，这将在第4章中更详细地解释。字典中length方法的作用与其他集合中的相同。</p>
+<p>字典既有方法又有操作符。Table 7和Table 8描述了它们，会话显示了它们的作用。keys、values和items方法都返回包含感兴趣的值的对象。你可以使用list函数把它们转换成列表，还将看到get方法有两种变体。如果字典里没有对应键，get将返回空。然而，第二个可选参数可以指定一个返回值。</p>
+<p><img src="/assets/1.8.%E6%95%B0%E6%8D%AE%E5%85%A5%E9%97%A8.table7.png" alt="1.8.数据入门.table7"></p>
+<p><em>Table 7</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; phoneext=&#123;&#x27;david&#x27;:1410,&#x27;brad&#x27;:1137&#125;</span><br><span class="line">&gt;&gt;&gt; phoneext</span><br><span class="line">&#123;&#x27;brad&#x27;: 1137, &#x27;david&#x27;: 1410&#125;</span><br><span class="line">&gt;&gt;&gt; phoneext.keys()</span><br><span class="line">dict_keys([&#x27;brad&#x27;, &#x27;david&#x27;])</span><br><span class="line">&gt;&gt;&gt; list(phoneext.keys())</span><br><span class="line">[&#x27;brad&#x27;, &#x27;david&#x27;]</span><br><span class="line">&gt;&gt;&gt; phoneext.values()</span><br><span class="line">dict_values([1137, 1410])</span><br><span class="line">&gt;&gt;&gt; list(phoneext.values())</span><br><span class="line">[1137, 1410]</span><br><span class="line">&gt;&gt;&gt; phoneext.items()</span><br><span class="line">dict_items([(&#x27;brad&#x27;, 1137), (&#x27;david&#x27;, 1410)])</span><br><span class="line">&gt;&gt;&gt; list(phoneext.items())</span><br><span class="line">[(&#x27;brad&#x27;, 1137), (&#x27;david&#x27;, 1410)]</span><br><span class="line">&gt;&gt;&gt; phoneext.get(&quot;kent&quot;)</span><br><span class="line">&gt;&gt;&gt; phoneext.get(&quot;kent&quot;,&quot;NO ENTRY&quot;)</span><br><span class="line">&#x27;NO ENTRY&#x27;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/assets/1.8.%E6%95%B0%E6%8D%AE%E5%85%A5%E9%97%A8.table8.png" alt="1.8.数据入门.table8"></p>
+<p><em>Table 8</em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.8.%E6%95%B0%E6%8D%AE%E5%85%A5%E9%97%A8/README/" data-id="clxzhp6jl000d1s8jgwcxhznr" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/1.介绍/1.7.回顾Python基础/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.7.%E5%9B%9E%E9%A1%BEPython%E5%9F%BA%E7%A1%80/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.393Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-7-回顾Python基础"><a href="#1-7-回顾Python基础" class="headerlink" title="1.7.回顾Python基础"></a>1.7.回顾Python基础</h2><p>在本节中，我们将回顾 Python 编程语言，并提供一些更详细的例子。 如果你是 Python 新手，或者你需要有关提出的任何主题的更多信息，我们建议你参考 <a href="https://docs.python.org/3/reference/index.html">Python语言参考</a>或 <a href="https://docs.python.org/3/tutorial/index.html">Python教程</a>。我们在这里的目标是重新认识下 python 语言，并强化一些将成为后面章节中心的概念。</p>
+<p>Python 是一种现代的，易于学习的面向对象的编程语言。 它具有一组强大的内置数据类型和易于使用的控件结构。 由于Python是 一种解释型语言，因此通过简单地查看和描述交互式会话，更容易进行检查。 你应该记得，解释器显示熟悉的<code>&gt;&gt;&gt;</code> 提示，然后计算你提供的 Python 语句。 例如，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; print(&quot;Algorithms and Data Structures&quot;)</span><br><span class="line">Algorithms and Data Structures</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<p>显示提示，打印结果和下一个提示。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.7.%E5%9B%9E%E9%A1%BEPython%E5%9F%BA%E7%A1%80/README/" data-id="clxzhp6jl000c1s8jc6fk0t0n" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/1.介绍/1.6.为什么要学习算法/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.6.%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.389Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-6-为什么要学习算法"><a href="#1-6-为什么要学习算法" class="headerlink" title="1.6.为什么要学习算法"></a>1.6.为什么要学习算法</h2><p>计算机科学家经常通过经验学习。我们通过看别人解决问题和自己解决问题来学习。接触不同的问题解决技术，看不同的算法设计有助于我们承担下一个具有挑战性的问题。通过思考许多不同的算法，我们可以开始开发模式识别，以便下一次出现类似的问题时，我们能够更好地解决它。</p>
+<p>算法通常彼此完全不同。考虑前面看到的 <code>sqrt</code> 的例子。完全可能的是，存在许多不同的方式来实现细节以计算平方根函数。一种算法可以使用比另一种更少的资源。一个算法可能需要 10 倍的时间来返回结果。我们想要一些方法来比较这两个解决方案。即使他们都工作，一个可能比另一个“更好”。我们建议使用一个更高效，或者一个只是工作更快或使用更少的内存的算法。当我们研究算法时，我们可以学习分析技术，允许我们仅仅根据自己的特征而不是用于实现它们的程序或计算机的特征来比较和对比解决方案。</p>
+<p>在最坏的情况下，我们可能有一个难以处理的问题，这意味着没有算法可以在实际的时间量内解决问题。重要的是能够区分具有解决方案的那些问题，不具有解决方案的那些问题，以及存在解决方案但需要太多时间或其他资源来合理工作的那些问题。</p>
+<p>经常需要权衡，我们需要做决定。作为计算机科学家，除了我们解决问题的能力，我们还需要了解解决方案评估技术。最后，通常有很多方法来解决问题。找到一个解决方案，我们将一遍又一遍比较，然后决定它是否是一个好的方案。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.6.%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/README/" data-id="clxzhp6jk000a1s8j7o3ycqzm" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/1.介绍/1.5.为什么要学习数据结构和抽象数据类型/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.5.%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6%E4%B9%A0%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.382Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-5-为什么要学习数据结构和抽象数据类型"><a href="#1-5-为什么要学习数据结构和抽象数据类型" class="headerlink" title="1.5.为什么要学习数据结构和抽象数据类型"></a>1.5.为什么要学习数据结构和抽象数据类型</h2><p>为了管理问题的复杂性和解决问题的过程，计算机科学家使用抽象使他们能够专注于 “大局” 而不会迷失在细节中。通过创建问题域的模型，我们能够利用更好和更有效的问题解决过程。这些模型允许我们以更加一致的方式描述我们的算法将要处理的数据。</p>
+<p>之前，我们将过程抽象称为隐藏特定函数的细节的过程，以允许用户或客户端在高层查看它。我们现在将注意力转向类似的思想，即数据抽象的思想。<code>抽象数据类型</code>（有时缩写为 ADT ）是对我们如何查看数据和允许的操作的逻辑描述，而不用考虑如何实现它们。这意味着我们只关心数据表示什么，而不关心它最终将如何构造。通过提供这种级别的抽象，我们围绕数据创建一个封装。通过封装实现细节，我们将它们从用户的视图中隐藏。这称为信息隐藏。</p>
+<p>Figure 2 展示了抽象数据类型是什么以及如何操作。用户与接口交互，使用抽象数据类型指定的操作。抽象数据类型是用户与之交互的 shell。实现隐藏在更深的底层。用户不关心实现的细节。<br><img src="/assets/1.5.%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6%E4%B9%A0%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.figure2.png" alt="1.5.为什么要学习数据结构和抽象数据类型.figure2"></p>
+<p><em>Figure 2</em></p>
+<p>抽象数据类型（通常称为数据结构）的实现将要求我们使用一些程序构建和原始数据类型的集合来提供数据的物理视图。 正如我们前面讨论的，这两个视角的分离将允许我们将问题定义复杂的数据模型，而不给出关于模型如何实际构建的细节。 这提供了独立于实现的数据视图。由于通常有许多不同的方法来实现抽象数据类型，所以这种实现独立性允许程序员在不改变数据的用户与其交互的方式的情况下切换实现的细节。 用户可以继续专注于解决问题的过程。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.5.%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6%E4%B9%A0%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/README/" data-id="clxzhp6jk000b1s8j35bvaxlx" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/1.介绍/1.4.什么是编程/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.4.%E4%BB%80%E4%B9%88%E6%98%AF%E7%BC%96%E7%A8%8B/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.378Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-4-什么是编程"><a href="#1-4-什么是编程" class="headerlink" title="1.4.什么是编程"></a>1.4.什么是编程</h2><p><strong>编程</strong>是将算法编码为符号，编程语言的过程，以使得其可以由计算机执行。虽然有许多编程语言和不同类型的计算机存在，第一步是需要有解决方案。没有算法就没有程序。</p>
+<p>计算机科学不是研究编程。然而，编程是计算机科学家的一个重要能力。编程通常是我们为解决方案创建的表现形式。因此，这种语言表现形式和创造它的过程成为该学科的基本部分。</p>
+<p>算法描述了依据问题实例数据所产生的解决方案和产生预期结果所需的一套步骤。编程语言必须提供一种表示方法来表示过程和数据。为此，它提供了控制结构和数据类型。</p>
+<p>控制结构允许以方便而明确的方式表示算法步骤。至少，算法需要执行顺序处理，决策选择和重复控制迭代。只要语言提供这些基本语句，它就可以用于算法表示。</p>
+<p>计算机中的所有数据项都以二进制形式表示。为了赋给这些字符串含义，我们需要有数据类型。数据类型提供了对这个二进制数据的解释，以便我们能够根据解决的问题思考数据。这些底层的内置数据类型（有时称为原始数据类型）为算法开发提供了基础。</p>
+<p>例如，大多数编程语言为整数提供数据类型。内存中的二进制数据可以解释为整数，并且能给予一个我们通常与整数（例如 23,654 和 -19）相关联的含义。此外，数据类型还提供数据项参与的操作的描述。对于整数，诸如加法，减法和乘法的操作是常见的。我们期望数值类型的数据可以参与这些算术运算。通常我们遇到的困难是问题及其解决方案非常复杂。这些简单的，语言提供的结构和数据类型虽然足以表示复杂的解决方案，但通常在我们处理问题的过程中处于不利地位。我们需要一些方法控制这种复杂性，并能给我们提供更好的解决方案。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.4.%E4%BB%80%E4%B9%88%E6%98%AF%E7%BC%96%E7%A8%8B/README/" data-id="clxzhp6jj00091s8j68szcxyg" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/1.介绍/1.3.什么是计算机科学/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.3.%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.370Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-3-什么是计算机科学"><a href="#1-3-什么是计算机科学" class="headerlink" title="1.3.什么是计算机科学"></a>1.3.什么是计算机科学</h2><p>计算机科学往往难以定义。这可能是由于在名称中不幸使用了“计算机”一词。正如你可能知道的，计算机科学不仅仅是计算机的研究。虽然计算机作为一个工具在学科中发挥重要的支持作用，但它们只是工具。</p>
+<p>计算机科学是对问题，解决问题以及解决问题过程中产生的解决方案的研究。给定一个问题，计算机科学家的目标是开发一个算法，一系列的指令列表，用于解决可能出现的问题的任何实例。算法遵循它有限的过程就可以解决问题。</p>
+<p>计算机科学可以被认为是对算法的研究。但是，我们必须谨慎地包括一些事实，即一些问题可能没有解决方案。虽然证明这种说法正确性超出了本文的范围，但一些问题不能解决的事实对于那些研究计算机科学的人是很重要的。所以我们可以这么定义计算机科学，是研究能被解决的问题的方案和不能被解决问题的科学。</p>
+<p>通常我们会说这个问题是可计算的，当在描述问题和解决方案时。如果存在一个算法解决这个问题，那么问题是可计算的。计算机科学的另一个定义是说，计算机科学是研究那些可计算和不可计算的问题，研究是不是存在一种算法来解决它。你会注意到，“电脑”一词根本没有出现。解决方案是独立于机器而言的。</p>
+<p>计算机科学，因为它涉及问题解决过程本身，也是抽象的研究。抽象使我们能够以分离所谓的逻辑和物理角度的方式来观察问题和解决方案。基本思想跟我们常见的例子一样。</p>
+<p>假设你可能已经开车上学或上班。作为司机，汽车的用户。你为了让汽车载你到目的地，你会和汽车有些互动。进入汽车，插入钥匙，点火，换挡，制动，加速和转向。从抽象的角度，我们可以说你所看到的是汽车的逻辑视角。你正在使用汽车设计师提供的功能，将你从一个地方运输到另一个位置。这些功能有时也被称为接口。</p>
+<p>另一方面，修理汽车的技工有一个截然不同的视角。他不仅知道如何开车，还必须知道所有必要的细节，使我们认为理所当然的功能运行起来。他需要了解发动机是如何工作的，变速箱如何变速，温度是如何控制的等等。这被称为物理视角，细节发生在“引擎盖下”。</p>
+<p>当我们使用电脑时也会发生同样的情况。大多数人使用计算机写文档，发送和接收电子邮件，上网冲浪，播放音乐，存储图像和玩游戏，而不知道让这些应用程序工作的细节。他们从逻辑或用户角度看计算机。计算机科学家，程序员，技术支持人员和系统管理员看计算机的角度截然不同。他们必须知道操作系统如何工作的细节，如何配置网络协议，以及如何编写控制功能的各种脚本。他们必须能够控制底层的细节。</p>
+<p>这两个示例的共同点是用户态的抽象，有时也称为客户端，不需要知道细节，只要用户知道接口的工作方式。这个接口是用户与底层沟通的方式。作为抽象的另一个例子，Python 数学模块。一旦我们导入模块，我们可以执行计算</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> math</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>math.sqrt(<span class="number">16</span>)</span><br><span class="line"><span class="number">4.0</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这是一个程序抽象的例子。我们不一定知道如何计算平方根，但我们知道函数是什么以及如何使用它。如果我们正确地执行导入，我们可以假设该函数将为我们提供正确的结果。我们知道有人实现了平方根问题的解决方案，但我们只需要知道如何使用它。这有时被称为“黑盒子”视图。我们简单地描述下接口：函数的名称，需要什么（参数），以及将返回什么。细节隐藏在里面（见图1）。<br><img src="/assets/blackbox.png" alt="blackbox"><br>（图1）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.3.%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/README/" data-id="clxzhp6ji00061s8jeuiva7u5" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/1.介绍/1.2.快速开始/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.2.%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.366Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-2-快速开始"><a href="#1-2-快速开始" class="headerlink" title="1.2.快速开始"></a>1.2.快速开始</h2><p>从第一台通过接入网线和交换机来传递人的指令的计算机开始，我们编程思考的方式发生了许多变化。与社会的许多方面一样，计算技术的变化为计算机科学家提供了越来越多的工具和平台来实践他们的工艺。计算机的快速发展诸如更快的处理器，高速网络和大的存储器容量已经让计算机科学家陷入高度复杂螺旋中。在所有这些快速演变中，一些基本原则保持不变。计算机科学关注用计算机来解决问题。</p>
+<p>毫无疑问你花了相当多的时间学习解决问题的基础知识能力，把问题弄清以此希望有足够的楚并想出解决方案。你还发现编写代码通常很困难。问题的复杂性和解决方案的相应复杂性往往会掩盖与解决问题过程相关的基本思想。</p>
+<p>本章着重介绍了其他两个重要的部分。首先回顾了计算机科学与算法和研究数据结构所必须适应的框架，特别是我们需要研究这些主题的原因，以及如何理解这些主题有助于我们更好的解决问题。第二，我们回顾 Python 编程语言。虽然我们不提供详尽的参考，我们将在其余章节中给出基本数据结构的示例和解释。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.2.%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/README/" data-id="clxzhp6jh00041s8j7nym9z27" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/1.介绍/1.14.总结/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.14.%E6%80%BB%E7%BB%93/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.362Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-14-总结"><a href="#1-14-总结" class="headerlink" title="1.14.总结"></a>1.14.总结</h2><ul>
+<li>计算机科学是解决问题的研究。</li>
+<li>计算机科学使用抽象作为表示过程和数据的工具。</li>
+<li>抽象的数据类型允许程序员通过隐藏数据的细节来管理问题领域的复杂性。</li>
+<li>Python是一种强大但易于使用的面向对象语言。</li>
+<li>列表、元组和字符串都是Python内置的有序数据集合。</li>
+<li>字典和集合是无序的数据集合。</li>
+<li>类允许程序员实现抽象的数据类型。</li>
+<li>程序员可以重写标准方法，也可以创建新的方法。</li>
+<li>类可以被组织成层次结构。</li>
+<li>类构造器应该总是调用其父节点的构造函数，然后继续使用自己的数据和行为。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.14.%E6%80%BB%E7%BB%93/README/" data-id="clxzhp6jj00071s8j671khbtb" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/1.介绍/1.13.面向对象编程-定义类/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.13.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B-%E5%AE%9A%E4%B9%89%E7%B1%BB/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.344Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-13-Python中面向对象编程：定义类"><a href="#1-13-Python中面向对象编程：定义类" class="headerlink" title="1.13.Python中面向对象编程：定义类"></a>1.13.Python中面向对象编程：定义类</h2><p>我们之前说过，Python是一种面向对象的编程语言。到目前为止，我们已经使用了许多内置类来显示示例数据和控制结构。 面向对象编程语言中最强大的功能之一是允许程序员（问题解决者）创建新类，以模拟解决问题所需的数据。</p>
+<p>请记住，我们使用抽象数据类型来提供数据对象的外观（其状态）及其可以执行的操作（其方法）的逻辑描述。 通过构建实现抽象数据类型的类，程序员可以利用抽象过程，同时提供在程序中实际使用抽象所需的详细信息。 每当我们想要实现抽象数据类型时，我们都会使用新类。</p>
+<h3 id="1-13-1-一个分数类"><a href="#1-13-1-一个分数类" class="headerlink" title="1.13.1.一个分数类"></a>1.13.1.一个分数类</h3><p>一个非常常见的例子，展示实现用户定义的类的细节，就是构造一个类来实现抽象的分数数据类型。我们已经看到Python提供了许多供我们使用的数字类。然而，有时候，能够创建“看起来像”分数的数据对象是最合适的。</p>
+<p>像3&#x2F;5这样的分数由两部分组成。最上面的值，也就是分子，可以是任意整数。底部的值，叫做分母，可以是大于0的整数（负分数有负的分子）。尽管可以为任何分数创建浮点近似，在这种情况下，我们想把分数表示成一个精确的值。</p>
+<p>Fraction类型的操作将允许Fraction数据对象的行为与任何其他数值一样。 我们需要能够对分数进行加，减，乘和除。 我们还希望能够使用标准的“斜杠”形式显示分数，例如3&#x2F;5。 此外，所有分数方法都应以最简分数返回结果，这样无论执行何种计算，结果总是最常见的形式。</p>
+<p>在Python中，我们通过提供一个名称和一组在语法上类似于函数定义的方法定义来定义一个新类。 对于这个例子，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class Fraction:</span><br><span class="line"></span><br><span class="line">   #the methods go here</span><br></pre></td></tr></table></figure>
+
+<p>为我们提供了定义方法的框架。 所有类应提供的第一个方法是构造函数。 构造函数定义了数据对象的创建方式。 要创建Fraction对象，我们需要提供两个数据，分子和分母。 在Python中，构造函数方法始终称为__init__（init之前和之后均有两个下划线），如Listing 2所示。</p>
+<p><em>Listing 1</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Fraction:</span><br><span class="line"></span><br><span class="line">    def __init__(self,top,bottom):</span><br><span class="line"></span><br><span class="line">        self.num = top</span><br><span class="line">        self.den = bottom</span><br></pre></td></tr></table></figure>
+
+<p>请注意，形式参数列表包含三个项目（self，top，bottom）。 self是一个特殊参数，将始终用作返回对象本身的引用。 它必须始终是第一个形式参数; 但是，在调用时永远不会给出实际的参数值。 如前所述，分数需要两个状态数据，即分子和分母。构造函数中的符号self.num定义Fraction对象应具有名为num的内部数据对象作为其状态的一部分。同样，self.den创建了分母。两个正式参数做初始化赋值，允许新的分数对象知道它的起始值。</p>
+<p>要创建分数类的实例，我们必须调用构造函数。调用方法是使用类名并传递必要状态的实际值（请注意，我们从不直接调用__init__）。 例如，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myfraction = Fraction(3,5)</span><br></pre></td></tr></table></figure>
+
+<p>创建一个名为myfraction的对象，表示分数3&#x2F;5（五分之三）。 Figure 5显示了此对象，因为它当前已实现。</p>
+<p><img src="/assets/1.13.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B-%E5%AE%9A%E4%B9%89%E7%B1%BB.figure5.png" alt="1.13.面向对象编程-定义类.figure5"></p>
+<p><em>Figure 5</em></p>
+<p>我们需要做的下一件事是实现抽象数据类型所需的行为。 首先，考虑一下当我们尝试打印Fraction对象时会发生什么。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; myf = Fraction(3,5)</span><br><span class="line">&gt;&gt;&gt; print(myf)</span><br><span class="line">&lt;__main__.Fraction instance at 0x409b1acc&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Fraction对象myf不知道如何响应此打印请求。 print函数要求对象将自身转换为字符串，以便可以将字符串写入输出。 myf唯一的选择是显示存储在变量中的实际引用（地址本身）。 这不是我们想要的。</p>
+<p>我们有两种方法可以解决这个问题。 一种是定义一个名为show的方法，它允许Fraction对象将自己打印为字符串。 我们可以实现此方法，如Listing 3所示。如果我们像以前一样创建Fraction对象，我们可以要求它显示自己，换句话说，以适当的格式打印自己。 不幸的是，这一般不起作用。 为了使打印正常工作，我们需要告诉Fraction类如何将自身转换为字符串。 这是打印功能为了完成其工作所需要的。</p>
+<p><em>Listing 3</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def show(self):</span><br><span class="line">     print(self.num,&quot;/&quot;,self.den)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; myf = Fraction(3,5)</span><br><span class="line">&gt;&gt;&gt; myf.show()</span><br><span class="line">3 / 5</span><br><span class="line">&gt;&gt;&gt; print(myf)</span><br><span class="line">&lt;__main__.Fraction instance at 0x40bce9ac&gt;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在Python中，所有类都提供了一组标准方法，但可能无法正常工作。 其中之一__str__是一种将对象转换为字符串的方法。 正如我们已经看到的，此方法的默认实现是返回实例地址字符串。我们需要做的是为这种方法提供“更好”的实现。我们会说这个实现重写了原有方法或重新定义方法的行为。</p>
+<p>为此，我们只需定义一个名为__str__的方法，并为其提供一个新的实现，如Listing 4所示。除了特殊参数self之外，该定义不需要任何其他信息。 反过来，该方法将通过让每个内部状态数据转换为字符串然后使用字符串连接在字符串之间放置&#x2F;字符来构建字符串表示。 每当要求Fraction对象将其自身转换为字符串时，将返回结果字符串。 请注意使用此功能的各种方法。</p>
+<p><em>Listing 4</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def __str__(self):</span><br><span class="line">    return str(self.num)+&quot;/&quot;+str(self.den)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; myf = Fraction(3,5)</span><br><span class="line">&gt;&gt;&gt; print(myf)</span><br><span class="line">3/5</span><br><span class="line">&gt;&gt;&gt; print(&quot;I ate&quot;, myf, &quot;of the pizza&quot;)</span><br><span class="line">I ate 3/5 of the pizza</span><br><span class="line">&gt;&gt;&gt; myf.__str__()</span><br><span class="line">&#x27;3/5&#x27;</span><br><span class="line">&gt;&gt;&gt; str(myf)</span><br><span class="line">&#x27;3/5&#x27;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以重写新Fraction类的许多其他方法。 其中一些最重要的是基本的算术运算。 我们希望能够创建两个Fraction对象，然后使用标准的“+”符号将它们添加到一起。 目前，如果我们尝试将两个分数对象相加，我们得到以下结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; f1 = Fraction(1,4)</span><br><span class="line">&gt;&gt;&gt; f2 = Fraction(1,2)</span><br><span class="line">&gt;&gt;&gt; f1+f2</span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;pyshell#173&gt;&quot;, line 1, in -toplevel-</span><br><span class="line">    f1+f2</span><br><span class="line">TypeError: unsupported operand type(s) for +:</span><br><span class="line">          &#x27;instance&#x27; and &#x27;instance&#x27;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>如果仔细查看错误，您会发现问题是“+”运算符不理解Fraction这个操作数。</p>
+<p>我们可以通过为Fraction类提供一个重写add方法的方法来解决这个问题。 在Python中，此方法称为__add__，它需要两个参数。 第一个是self，总是需要，第二个代表表达式中的另一个操作数。 例如，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f1.__add__(f2)</span><br></pre></td></tr></table></figure>
+
+<p>会要求Fraction对象f1将Fraction对象f2添加到自身。 这可以用标准写法f1 + f2调用。</p>
+<p>两个分数必须具有相同的分母才能添加。 确保它们具有相同分母的最简单方法是简单地使用两个分母的乘积作为公分母，以便a&#x2F;b + c&#x2F;d &#x3D; ad&#x2F;bd + cb&#x2F;bd &#x3D; (ad + cb)&#x2F;bd。实现如Listing 5所示。相加方法利用和的分子和分母创建并返回一个新的Fraction对象。我们可以用这个方法来写一个包含分数的标准算术表达式，赋值加法的结果，然后打印我们的结果。</p>
+<p><em>Listing 5</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def __add__(self,otherfraction):</span><br><span class="line"></span><br><span class="line">     newnum = self.num*otherfraction.den + self.den*otherfraction.num</span><br><span class="line">     newden = self.den * otherfraction.den</span><br><span class="line"></span><br><span class="line">     return Fraction(newnum,newden)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; f1=Fraction(1,4)</span><br><span class="line">&gt;&gt;&gt; f2=Fraction(1,2)</span><br><span class="line">&gt;&gt;&gt; f3=f1+f2</span><br><span class="line">&gt;&gt;&gt; print(f3)</span><br><span class="line">6/8</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>添加方法可以按照我们的意愿工作，但还可以改进。 请注意，6&#x2F;8是正确的结果（1&#x2F;4 + 1&#x2F;2），但它不是“最简分数”表示。 最佳结果是3&#x2F;4。 为了确保我们的结果总是最简分数，我们需要一个知道如何约分的辅助函数。 此函数需要查找最大公约数，简称GCD。 然后我们可以将分子和分母除以GCD，结果就会被约分为最简分数。</p>
+<p>用于求出最大公约数的最著名算法是欧几里德算法，将在第8章中详细讨论。欧几里德算法表明，整数m如果可以被整数n整除，则m和n的最大公约数为n。 但是，如果m不能被n整除，结果便是 n 和 m除以n的余数 二者的最大公约数。 我们将在这里简单地提供一个迭代实现（参见ActiveCode 1）。 请注意，GCD算法的此实现仅在分母为正数时才有效。 这对于我们的分数类是可以接受的，因为我们已经说过负分数将由负分子表示。</p>
+<p><em>ActiveCode 1</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def gcd(m,n):</span><br><span class="line">    while m%n != 0:</span><br><span class="line">        oldm = m</span><br><span class="line">        oldn = n</span><br><span class="line"></span><br><span class="line">        m = oldn</span><br><span class="line">        n = oldm%oldn</span><br><span class="line">    return n</span><br><span class="line"></span><br><span class="line">print(gcd(20,10))</span><br></pre></td></tr></table></figure>
+
+<p>现在我们可以使用此函数来约分任何分数。 为了将分数化为最简分数，我们将分子和分母除以它们的最大公约数。 因此，对于分数6&#x2F;8，最大公约数为2.将分子和分母除以2会创建一个新的分数3&#x2F;4（参见Listing 6）。</p>
+<p><em>Listing 6</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def __add__(self,otherfraction):</span><br><span class="line">    newnum = self.num*otherfraction.den + self.den*otherfraction.num</span><br><span class="line">    newden = self.den * otherfraction.den</span><br><span class="line">    common = gcd(newnum,newden)</span><br><span class="line">    return Fraction(newnum//common,newden//common)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; f1=Fraction(1,4)</span><br><span class="line">&gt;&gt;&gt; f2=Fraction(1,2)</span><br><span class="line">&gt;&gt;&gt; f3=f1+f2</span><br><span class="line">&gt;&gt;&gt; print(f3)</span><br><span class="line">3/4</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/assets/1.13.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B-%E5%AE%9A%E4%B9%89%E7%B1%BB.figure6.png" alt="1.13.面向对象编程-定义类.figure6"></p>
+<p><em>Figure 6</em></p>
+<p>我们的分数对象现在有两个非常有用的方法，如Figure 6所显示。我们需要在示例Fraction类中包含的另一组方法将允许两个分数相互比较。假设我们有两个Fraction对象，f1和f2。 f1 &#x3D;&#x3D; f2只有在引用同一个对象时才为True。具有相同分子和分母的两个不同对象在此实现下将不相等。这称为浅相等(shallow equality)（参见Figure 7）。</p>
+<p><img src="/assets/1.13.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B-%E5%AE%9A%E4%B9%89%E7%B1%BB.figure7.png" alt="1.13.面向对象编程-定义类.figure7"></p>
+<p><em>Figure 7</em></p>
+<p>我们可以通过重写__eq__方法来实现深相等（参见Figure 7） - 通过比较值来判断相等，而不是比较引用。 __eq__方法是另一个任何类中都可用的标准方法。 __eq__方法比较两个对象，如果它们的值相同则返回True，否则返回False。</p>
+<p>在Fraction类中，我们可以通过再次将两个分数通分后比较分子来实现__eq__方法（参见Listing 7）。 值得注意的是，还有其他可以覆盖的关系运算符。 例如，__ le__方法提供的小于或等于功能。</p>
+<p><em>Listing 7</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def __eq__(self, other):</span><br><span class="line">    firstnum = self.num * other.den</span><br><span class="line">    secondnum = other.num * self.den</span><br><span class="line"></span><br><span class="line">    return firstnum == secondnum</span><br></pre></td></tr></table></figure>
+
+<p>到目前为止，完整的Fraction类在ActiveCode 2中显示。我们把剩下的算术和关系方法作为练习。</p>
+<p><em>ActiveCode 2</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">def gcd(m,n):</span><br><span class="line">    while m%n != 0:</span><br><span class="line">        oldm = m</span><br><span class="line">        oldn = n</span><br><span class="line"></span><br><span class="line">        m = oldn</span><br><span class="line">        n = oldm%oldn</span><br><span class="line">    return n</span><br><span class="line"></span><br><span class="line">class Fraction:</span><br><span class="line">     def __init__(self,top,bottom):</span><br><span class="line">         self.num = top</span><br><span class="line">         self.den = bottom</span><br><span class="line"></span><br><span class="line">     def __str__(self):</span><br><span class="line">         return str(self.num)+&quot;/&quot;+str(self.den)</span><br><span class="line"></span><br><span class="line">     def show(self):</span><br><span class="line">         print(self.num,&quot;/&quot;,self.den)</span><br><span class="line"></span><br><span class="line">     def __add__(self,otherfraction):</span><br><span class="line">         newnum = self.num*otherfraction.den + \</span><br><span class="line">                      self.den*otherfraction.num</span><br><span class="line">         newden = self.den * otherfraction.den</span><br><span class="line">         common = gcd(newnum,newden)</span><br><span class="line">         return Fraction(newnum//common,newden//common)</span><br><span class="line"></span><br><span class="line">     def __eq__(self, other):</span><br><span class="line">         firstnum = self.num * other.den</span><br><span class="line">         secondnum = other.num * self.den</span><br><span class="line"></span><br><span class="line">         return firstnum == secondnum</span><br><span class="line"></span><br><span class="line">x = Fraction(1,2)</span><br><span class="line">y = Fraction(2,3)</span><br><span class="line">print(x+y)</span><br><span class="line">print(x == y)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="1-13-2-继承：逻辑门和电路"><a href="#1-13-2-继承：逻辑门和电路" class="headerlink" title="1.13.2.继承：逻辑门和电路"></a>1.13.2.继承：逻辑门和电路</h3><p>我们的最后一节将介绍面向对象编程的另一个重要方面。 继承是一个类与另一个类相关联的能力，与人们彼此相关的方式非常相似。 儿童继承父母的特征。 类似地，Python子类可以从父类继承特征数据和行为。 这些类通常称为子类和超类。</p>
+<p>Figure 8显示了内置的Python集合及其相互之间的关系。 我们将这种关系结构称为继承结构。 例如，列表是有序集合的子类。 在这种情况下，我们将列表称为子级，将序列称为父级（或子类列表和超类序列）。 这通常被称为IS-A Relationship（列表IS-A游戏集合）。 这意味着列表从序列继承了重要的特征，即底层数据的排序和连接，重复和索引等操作。</p>
+<p><img src="/assets/1.13.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B-%E5%AE%9A%E4%B9%89%E7%B1%BB.figure8.png" alt="1.13.面向对象编程-定义类.figure8"></p>
+<p><em>Figure 8</em></p>
+<p>列表，元组和字符串都是有序集合类型。 它们都继承了常见的数据组织方式和操作。 但是，根据数据是否是同构的以及集合是否不可变，它们中的每一个都是不同的。 孩子们都从父母那里获益，并通过增加额外的特征来区分自己。</p>
+<p>通过以这种继承方式来组织类，面向对象的编程语言允许扩展先前编写的代码以满足新情况的需要。 此外，通过以这种继承方式来组织数据，我们可以更好地理解存在的关系。 我们可以更有效地构建抽象表示。</p>
+<p>为了进一步探索这个特性，我们将构造仿真，一个模拟数字电路的应用程序。 该模拟的基本构建块将是逻辑门。 这些电子开关代表其输入和输出之间的布尔代数关系。 通常，门具有单个输出线。 输出值取决于输入线上给出的值。</p>
+<p>与门有两条输入线，每条输入线可以是0或1（分别代表False或True）。 如果两个输入行的值都为1，则结果输出为1.但是，如果输入行中的任何一个或两个为0，则结果为0.或者门也有两个输入行，如果一个或两个输入行都产生1 输入值的值为1.在两个输入行均为0的情况下，结果为0。</p>
+<p>非门与其他两个门的不同之处在于它们只有一条输入线。 输出值与输入值完全相反。 如果输入上出现0，则在输出上产生1。 类似地，1产生0. Figure 9显示了这些门中的每一个通常如何表示。 每个门还有一个真值表，显示由门执行的输入到输出映射。</p>
+<p><img src="/assets/1.13.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B-%E5%AE%9A%E4%B9%89%E7%B1%BB.figure9.png" alt="1.13.面向对象编程-定义类.figure9"></p>
+<p><em>Figure 9</em></p>
+<p>通过以各种模式组合这些门然后应用一组输入值，我们可以构建具有逻辑功能的电路。 Figure 10显示了一个由两个与门，一个或门和一个非门组成的电路。 来自两个与门的输出线直接馈入或门，或门产生的输出提供给非门。 如果我们将一组输入值应用于四个输入行（每个与门两个），则处理这些值并在非门的输出处显示结果。 Figure 10还显示了一个带有值的示例。</p>
+<p><img src="/assets/1.13.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B-%E5%AE%9A%E4%B9%89%E7%B1%BB.figure10.png" alt="1.13.面向对象编程-定义类.figure10"></p>
+<p><em>Figure 10</em></p>
+<p>为了实现电路，我们将首先构建逻辑门的表示。 逻辑门很容易组织成一个类继承层次结构，如Figure 11所示。在继承结构的顶部，LogicGate类代表逻辑门的最一般特征：即门的标签和输出线。 下一级子类将逻辑门分为两个系列，即具有一个输入线的系列和具有两个输入线的系列。 在此之下，每个的特定逻辑功能出现。</p>
+<p><img src="/assets/1.13.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B-%E5%AE%9A%E4%B9%89%E7%B1%BB.figure11.png" alt="1.13.面向对象编程-定义类.figure11"></p>
+<p><em>Figure 11</em></p>
+<p>我们现在可以从最常见的LogicGate开始实现这些类。 如前所述，每扇门都有一个识别标签和一条输出线。 此外，我们还需要一种方法，允许门的用户从门上请求标签。。</p>
+<p>每个逻辑门需要的另一个行为是知道其输出值的能力。 这将要求门基于当前输入执行适当的逻辑。 为了产生输出，门需要知道该逻辑具体是什么。 这意味着调用一个方法来执行逻辑计算。 完整的类如Listing 8所示。</p>
+<p><em>Listing 8</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class LogicGate:</span><br><span class="line"></span><br><span class="line">    def __init__(self,n):</span><br><span class="line">        self.label = n</span><br><span class="line">        self.output = None</span><br><span class="line"></span><br><span class="line">    def getLabel(self):</span><br><span class="line">        return self.label</span><br><span class="line"></span><br><span class="line">    def getOutput(self):</span><br><span class="line">        self.output = self.performGateLogic()</span><br><span class="line">        return self.output</span><br></pre></td></tr></table></figure>
+
+<p>此时，我们不会实现performGateLogic函数。 原因是我们不知道每个门将如何执行自己的逻辑运算。 这些细节将包含在添加到层次结构中的每个单独的门中。 这是面向对象编程中非常强大的思想。 我们正在编写一种方法，它将使用尚不存在的代码。 参数self是对调用该方法的实际门对象的引用。 添加到层级结构中的任何新逻辑门都只需要实现performGateLogic函数，它将在适当的时候使用。 完成后，门可以提供其输出值。 这种扩展当前存在的层次结构并提供层次结构需要使用新类的特定功能的能力对于重用现有代码非常重要。</p>
+<p>我们根据输入线的数量对逻辑门进行了分类。 与门有两条输入线。 或门也有两条输入线。 非门有一条输入线。 BinaryGate类将是LogicGate的子类，并将添加两个输入行。 UnaryGate类也将是LogicGate的子类，但只有一个输入行。 在计算机电路设计中，这些线有时被称为“引脚”，因此我们将在实现中使用该术语。</p>
+<p><em>Listing 9</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class BinaryGate(LogicGate):</span><br><span class="line"></span><br><span class="line">    def __init__(self,n):</span><br><span class="line">        LogicGate.__init__(self,n)</span><br><span class="line"></span><br><span class="line">        self.pinA = None</span><br><span class="line">        self.pinB = None</span><br><span class="line"></span><br><span class="line">    def getPinA(self):</span><br><span class="line">        return int(input(&quot;Enter Pin A input for gate &quot;+ self.getLabel()+&quot;--&gt;&quot;))</span><br><span class="line"></span><br><span class="line">    def getPinB(self):</span><br><span class="line">        return int(input(&quot;Enter Pin B input for gate &quot;+ self.getLabel()+&quot;--&gt;&quot;))</span><br></pre></td></tr></table></figure>
+
+<p><em>Listing 10</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class UnaryGate(LogicGate):</span><br><span class="line"></span><br><span class="line">    def __init__(self,n):</span><br><span class="line">        LogicGate.__init__(self,n)</span><br><span class="line"></span><br><span class="line">        self.pin = None</span><br><span class="line"></span><br><span class="line">    def getPin(self):</span><br><span class="line">        return int(input(&quot;Enter Pin input for gate &quot;+ self.getLabel()+&quot;--&gt;&quot;))</span><br></pre></td></tr></table></figure>
+
+<p>Listing 9和Listing 10实现了这两个类。 这两个类中的构造函数都是使用父类的__init__方法显式调用父类的构造函数。 在创建BinaryGate类的实例时，我们首先要初始化从LogicGate继承的任何数据项。 在这种情况下，这意味着门的标签。 然后构造函数继续添加两条输入线（pinA和pinB）。 这是构建类层次结构时应始终使用的非常常见的模式。 子类构造函数需要调用父类构造函数，然后继续使用它们自己的区分数据。</p>
+<p>Python还有一个名为super的函数，可用于代替显式命名父类。 这是一种更通用的机制，并且被广泛使用，尤其是当一个类有多个父类时。 但是，这不是我们将在本简介中讨论的内容。 例如，在上面的示例中，LogicGate .__ init <strong>（self，n）可以替换为super（UnaryGate，self）.</strong> init __（n）。</p>
+<p>BinaryGate类添加的唯一行为是从两个输入行获取值的能力。 由于这些值来自某些外部位置，我们只需通过输入语句询问用户即可。 除了只有一个输入行之外，UnaryGate类也会进行相同的实现。</p>
+<p>现在我们有了一个针对门的通用类，这取决于输入行的数量，我们可以构建具有独特行为的特定门。例如，AndGate类将是BinaryGate的子类，因为与门有两条输入线。 和以前一样，构造函数的第一行调用父类构造函数（BinaryGate），后者又调用其父类构造函数（LogicGate）。 请注意，AndGate类不提供任何新数据，因为它继承了两个输入行，一个输出行和一个标签。</p>
+<p><em>Listing 11</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class AndGate(BinaryGate):</span><br><span class="line"></span><br><span class="line">    def __init__(self,n):</span><br><span class="line">        BinaryGate.__init__(self,n)</span><br><span class="line"></span><br><span class="line">    def performGateLogic(self):</span><br><span class="line"></span><br><span class="line">        a = self.getPinA()</span><br><span class="line">        b = self.getPinB()</span><br><span class="line">        if a==1 and b==1:</span><br><span class="line">            return 1</span><br><span class="line">        else:</span><br><span class="line">            return 0</span><br></pre></td></tr></table></figure>
+
+<p>AndGate唯一需要添加的是执行前面描述的布尔操作的特定行为。 这是我们可以提供performGateLogic方法的地方。 对于AND门，此方法首先必须获取两个输入值，然后仅在两个输入值均为1时返回1.完整类如Listing 11所示。</p>
+<p>我们可以通过创建实例并要求它计算其输出来显示AndGate类。 以下会话显示了一个AndGate对象g1，它具有内部标签“G1”。 当我们调用getOutput方法时，该对象必须首先调用其performGateLogic方法，该方法依次查询两个输入行。 提供值后，将显示正确的输出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; g1 = AndGate(&quot;G1&quot;)</span><br><span class="line">&gt;&gt;&gt; g1.getOutput()</span><br><span class="line">Enter Pin A input for gate G1--&gt;1</span><br><span class="line">Enter Pin B input for gate G1--&gt;0</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+
+<p>对于或门和非门，可以进行相同的开发。 OrGate类也将是BinaryGate的子类，NotGate类将扩展UnaryGate类。 这两个类都需要提供自己的performGateLogic函数，因为这是它们的特定行为。</p>
+<p>我们可以使用单个门，首先构造一个门类的实例，然后得到门的输出（这将反过来需要提供输入）。 例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; g2 = OrGate(&quot;G2&quot;)</span><br><span class="line">&gt;&gt;&gt; g2.getOutput()</span><br><span class="line">Enter Pin A input for gate G2--&gt;1</span><br><span class="line">Enter Pin B input for gate G2--&gt;1</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; g2.getOutput()</span><br><span class="line">Enter Pin A input for gate G2--&gt;0</span><br><span class="line">Enter Pin B input for gate G2--&gt;0</span><br><span class="line">0</span><br><span class="line">&gt;&gt;&gt; g3 = NotGate(&quot;G3&quot;)</span><br><span class="line">&gt;&gt;&gt; g3.getOutput()</span><br><span class="line">Enter Pin input for gate G3--&gt;0</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+
+<p>现在我们已经完成了基本的工作，我们可以将注意力转向构建电路。 为了创建一个电路，我们需要将门连接在一起，一个输出另一个输入。 为此，我们将实现一个名为Connector的新类。</p>
+<p>Connector类不会驻留在门层次结构中。 然而，它将使用门层次结构，因为每个连接器将具有两个门，一个在两端（参见Figure 12）。 这种关系在面向对象编程中非常重要。 它被称为HAS-A关系。 回想一下，我们使用短语“IS-A Relationship”来表示子类与父类相关，例如UnaryGate IS-A LogicGate。</p>
+<p><img src="/assets/1.13.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B-%E5%AE%9A%E4%B9%89%E7%B1%BB.figure12.png" alt="1.13.面向对象编程-定义类.figure12"></p>
+<p><em>Figure 12</em></p>
+<p>现在，使用Connector类，我们说连接器HAS-A LogicGate意味着连接器将包含LogicGate类的实例但不是层次结构的一部分。 在设计类时，区分具有IS-A关系（需要继承）和具有HAS-A关系（没有继承）的类非常重要。</p>
+<p>Listing 12显示了Connector类。 每个连接器对象内的两个门实例将被称为fromgate和togate，识别出数据值将从一个门的输出“流动”到下一个门的输入线。 对setNextPin的调用对于建立连接非常重要（参见Listing 13）。 我们需要将此方法添加到我们的门类中，以便每个togate可以为连接选择正确的输入行。</p>
+<p><em>Listing 12</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Connector:</span><br><span class="line"></span><br><span class="line">    def __init__(self, fgate, tgate):</span><br><span class="line">        self.fromgate = fgate</span><br><span class="line">        self.togate = tgate</span><br><span class="line"></span><br><span class="line">        tgate.setNextPin(self)</span><br><span class="line"></span><br><span class="line">    def getFrom(self):</span><br><span class="line">        return self.fromgate</span><br><span class="line"></span><br><span class="line">    def getTo(self):</span><br><span class="line">        return self.togate</span><br></pre></td></tr></table></figure>
+
+<p>在BinaryGate类中，对于具有两条可能输入线的门，连接器必须仅连接到一条线。 如果它们都可用，我们将默认选择pinA。 如果pinA已经连接，那么我们将选择pinB。 无法连接到没有可用输入线的门。</p>
+<p><em>Listing 13</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def setNextPin(self,source):</span><br><span class="line">    if self.pinA == None:</span><br><span class="line">        self.pinA = source</span><br><span class="line">    else:</span><br><span class="line">        if self.pinB == None:</span><br><span class="line">            self.pinB = source</span><br><span class="line">        else:</span><br><span class="line">           raise RuntimeError(&quot;Error: NO EMPTY PINS&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>现在可以从两个位置获取输入：外部，如前所述，以及连接到该输入线的门的输出。 这需要更改getPinA和getPinB方法（参见Listing 14）。 如果输入行没有连接到任何内容（空），则像以前一样向外部询问用户。 但是，如果存在连接，则访问连接并检索fromgate的输出值。 这反过来导致该门处理其逻辑。 这一直持续到所有输入都可用并且最终输出值成为所讨论的门的所需输入。 从某种意义上说，电路向后工作以找到最终产生输出所需的输入。</p>
+<p><em>Listing 14</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def getPinA(self):</span><br><span class="line">    if self.pinA == None:</span><br><span class="line">        return input(&quot;Enter Pin A input for gate &quot; + self.getName()+&quot;--&gt;&quot;)</span><br><span class="line">    else:</span><br><span class="line">        return self.pinA.getFrom().getOutput()</span><br></pre></td></tr></table></figure>
+
+<p>以下片段构建了本节前面所示的电路：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; g1 = AndGate(&quot;G1&quot;)</span><br><span class="line">&gt;&gt;&gt; g2 = AndGate(&quot;G2&quot;)</span><br><span class="line">&gt;&gt;&gt; g3 = OrGate(&quot;G3&quot;)</span><br><span class="line">&gt;&gt;&gt; g4 = NotGate(&quot;G4&quot;)</span><br><span class="line">&gt;&gt;&gt; c1 = Connector(g1,g3)</span><br><span class="line">&gt;&gt;&gt; c2 = Connector(g2,g3)</span><br><span class="line">&gt;&gt;&gt; c3 = Connector(g3,g4)</span><br></pre></td></tr></table></figure>
+
+<p>两个与门（g1和g2）的输出连接到或门（g3），输出连接到非门（g4）。 非门的输出是整个电路的输出。 例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; g4.getOutput()</span><br><span class="line">Pin A input for gate G1--&gt;0</span><br><span class="line">Pin B input for gate G1--&gt;1</span><br><span class="line">Pin A input for gate G2--&gt;1</span><br><span class="line">Pin B input for gate G2--&gt;1</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+
+
+<p>使用ActiveCode 4自己尝试一下:</p>
+<p><em>ActiveCode 4</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br></pre></td><td class="code"><pre><span class="line">class LogicGate:</span><br><span class="line"></span><br><span class="line">    def __init__(self,n):</span><br><span class="line">        self.name = n</span><br><span class="line">        self.output = None</span><br><span class="line"></span><br><span class="line">    def getName(self):</span><br><span class="line">        return self.name</span><br><span class="line"></span><br><span class="line">    def getOutput(self):</span><br><span class="line">        self.output = self.performGateLogic()</span><br><span class="line">        return self.output</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class BinaryGate(LogicGate):</span><br><span class="line"></span><br><span class="line">    def __init__(self,n):</span><br><span class="line">        LogicGate.__init__(self,n)</span><br><span class="line"></span><br><span class="line">        self.pinA = None</span><br><span class="line">        self.pinB = None</span><br><span class="line"></span><br><span class="line">    def getPinA(self):</span><br><span class="line">        if self.pinA == None:</span><br><span class="line">            return int(input(&quot;Enter Pin A input for gate &quot;+self.getName()+&quot;--&gt;&quot;))</span><br><span class="line">        else:</span><br><span class="line">            return self.pinA.getFrom().getOutput()</span><br><span class="line"></span><br><span class="line">    def getPinB(self):</span><br><span class="line">        if self.pinB == None:</span><br><span class="line">            return int(input(&quot;Enter Pin B input for gate &quot;+self.getName()+&quot;--&gt;&quot;))</span><br><span class="line">        else:</span><br><span class="line">            return self.pinB.getFrom().getOutput()</span><br><span class="line"></span><br><span class="line">    def setNextPin(self,source):</span><br><span class="line">        if self.pinA == None:</span><br><span class="line">            self.pinA = source</span><br><span class="line">        else:</span><br><span class="line">            if self.pinB == None:</span><br><span class="line">                self.pinB = source</span><br><span class="line">            else:</span><br><span class="line">                print(&quot;Cannot Connect: NO EMPTY PINS on this gate&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class AndGate(BinaryGate):</span><br><span class="line"></span><br><span class="line">    def __init__(self,n):</span><br><span class="line">        BinaryGate.__init__(self,n)</span><br><span class="line"></span><br><span class="line">    def performGateLogic(self):</span><br><span class="line"></span><br><span class="line">        a = self.getPinA()</span><br><span class="line">        b = self.getPinB()</span><br><span class="line">        if a==1 and b==1:</span><br><span class="line">            return 1</span><br><span class="line">        else:</span><br><span class="line">            return 0</span><br><span class="line"></span><br><span class="line">class OrGate(BinaryGate):</span><br><span class="line"></span><br><span class="line">    def __init__(self,n):</span><br><span class="line">        BinaryGate.__init__(self,n)</span><br><span class="line"></span><br><span class="line">    def performGateLogic(self):</span><br><span class="line"></span><br><span class="line">        a = self.getPinA()</span><br><span class="line">        b = self.getPinB()</span><br><span class="line">        if a ==1 or b==1:</span><br><span class="line">            return 1</span><br><span class="line">        else:</span><br><span class="line">            return 0</span><br><span class="line"></span><br><span class="line">class UnaryGate(LogicGate):</span><br><span class="line"></span><br><span class="line">    def __init__(self,n):</span><br><span class="line">        LogicGate.__init__(self,n)</span><br><span class="line"></span><br><span class="line">        self.pin = None</span><br><span class="line"></span><br><span class="line">    def getPin(self):</span><br><span class="line">        if self.pin == None:</span><br><span class="line">            return int(input(&quot;Enter Pin input for gate &quot;+self.getName()+&quot;--&gt;&quot;))</span><br><span class="line">        else:</span><br><span class="line">            return self.pin.getFrom().getOutput()</span><br><span class="line"></span><br><span class="line">    def setNextPin(self,source):</span><br><span class="line">        if self.pin == None:</span><br><span class="line">            self.pin = source</span><br><span class="line">        else:</span><br><span class="line">            print(&quot;Cannot Connect: NO EMPTY PINS on this gate&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class NotGate(UnaryGate):</span><br><span class="line"></span><br><span class="line">    def __init__(self,n):</span><br><span class="line">        UnaryGate.__init__(self,n)</span><br><span class="line"></span><br><span class="line">    def performGateLogic(self):</span><br><span class="line">        if self.getPin():</span><br><span class="line">            return 0</span><br><span class="line">        else:</span><br><span class="line">            return 1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Connector:</span><br><span class="line"></span><br><span class="line">    def __init__(self, fgate, tgate):</span><br><span class="line">        self.fromgate = fgate</span><br><span class="line">        self.togate = tgate</span><br><span class="line"></span><br><span class="line">        tgate.setNextPin(self)</span><br><span class="line"></span><br><span class="line">    def getFrom(self):</span><br><span class="line">        return self.fromgate</span><br><span class="line"></span><br><span class="line">    def getTo(self):</span><br><span class="line">        return self.togate</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">   g1 = AndGate(&quot;G1&quot;)</span><br><span class="line">   g2 = AndGate(&quot;G2&quot;)</span><br><span class="line">   g3 = OrGate(&quot;G3&quot;)</span><br><span class="line">   g4 = NotGate(&quot;G4&quot;)</span><br><span class="line">   c1 = Connector(g1,g3)</span><br><span class="line">   c2 = Connector(g2,g3)</span><br><span class="line">   c3 = Connector(g3,g4)</span><br><span class="line">   print(g4.getOutput())</span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
+
+<p><em>自我检测</em></p>
+<p>创建两个新的门类，一个名为NorGate，另一个名为NandGate。 NandGates像AndGates一样工作，它没有附加到输出。 NorGates工作的湖OrGates没有附加到输出。</p>
+<p>创建一系列门，证明以下等式NOT(( A and B) or (C and D))与NOT( A and B ) and NOT (C and D)相同。 确保在模拟中使用一些新的门。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.13.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B-%E5%AE%9A%E4%B9%89%E7%B1%BB/README/" data-id="clxzhp6jj00081s8jhxxj7eqs" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.9.%E5%AE%9E%E7%8E%B0%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.8.%E6%9E%84%E5%BB%BA%E5%AD%97%E6%A2%AF%E5%9B%BE/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.7.%E5%AD%97%E6%A2%AF%E7%9A%84%E9%97%AE%E9%A2%98/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.6.%E5%AE%9E%E7%8E%B0/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.5.%E9%82%BB%E6%8E%A5%E8%A1%A8/README/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 FLITl<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>FLITl的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="6.4.列表表示在由列表表示的树中，我们将从 Python 的列表数据结构开始，并编写上面定义的函数。虽然将接口作为一组操作在列表上编写与我们实现的其他抽象数据类型有点不同，但这样做是有趣的，因为它为我们提供了一个简单的递归数据结构，我们可以直接查看和检查。在列表树的列表中，我们将根节点的值存储为列表的第一个元素。列表的第二个元素本身将是一个表示左子树的列表。列表的第三个元素将是表示右子树的另一个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FLITl的博客">
+<meta property="og:url" content="http://jackfrued.top/2024/06/29/python-data-structure-cn/6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.4.%E5%88%97%E8%A1%A8%E8%A1%A8%E7%A4%BA/README/index.html">
+<meta property="og:site_name" content="FLITl的博客">
+<meta property="og:description" content="6.4.列表表示在由列表表示的树中，我们将从 Python 的列表数据结构开始，并编写上面定义的函数。虽然将接口作为一组操作在列表上编写与我们实现的其他抽象数据类型有点不同，但这样做是有趣的，因为它为我们提供了一个简单的递归数据结构，我们可以直接查看和检查。在列表树的列表中，我们将根节点的值存储为列表的第一个元素。列表的第二个元素本身将是一个表示左子树的列表。列表的第三个元素将是表示右子树的另一个">
+<meta property="og:locale">
+<meta property="og:image" content="http://jackfrued.top/assets/6.4.%E5%88%97%E8%A1%A8%E8%A1%A8%E7%A4%BA.figure1.png">
+<meta property="article:published_time" content="2024-06-29T02:14:12.994Z">
+<meta property="article:modified_time" content="2024-05-15T03:24:19.124Z">
+<meta property="article:author" content="FLITl">
+<meta property="article:tag" content="反思，技术，生活">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://jackfrued.top/assets/6.4.%E5%88%97%E8%A1%A8%E8%A1%A8%E7%A4%BA.figure1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="FLITl的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">FLITl的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">天命之谓性；率性之谓道；修道之谓教。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://jackfrued.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-python-data-structure-cn/6.树和树的算法/6.4.列表表示/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.4.%E5%88%97%E8%A1%A8%E8%A1%A8%E7%A4%BA/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.994Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="6-4-列表表示"><a href="#6-4-列表表示" class="headerlink" title="6.4.列表表示"></a>6.4.列表表示</h2><p>在由列表表示的树中，我们将从 Python 的列表数据结构开始，并编写上面定义的函数。虽然将接口作为一组操作在列表上编写与我们实现的其他抽象数据类型有点不同，但这样做是有趣的，因为它为我们提供了一个简单的递归数据结构，我们可以直接查看和检查。在列表树的列表中，我们将根节点的值存储为列表的第一个元素。列表的第二个元素本身将是一个表示左子树的列表。列表的第三个元素将是表示右子树的另一个列表。为了说明这种存储技术，让我们看一个例子。 Figure 1 展示了一个简单的树和相应的列表实现。</p>
+<p><img src="/assets/6.4.%E5%88%97%E8%A1%A8%E8%A1%A8%E7%A4%BA.figure1.png" alt="6.4.列表表示.figure1"></p>
+<p><em>Figure 1</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">myTree = [<span class="string">&#x27;a&#x27;</span>,   <span class="comment">#root</span></span><br><span class="line">      [<span class="string">&#x27;b&#x27;</span>,  <span class="comment">#left subtree</span></span><br><span class="line">       [<span class="string">&#x27;d&#x27;</span>, [], []],</span><br><span class="line">       [<span class="string">&#x27;e&#x27;</span>, [], []] ],</span><br><span class="line">      [<span class="string">&#x27;c&#x27;</span>,  <span class="comment">#right subtree</span></span><br><span class="line">       [<span class="string">&#x27;f&#x27;</span>, [], []],</span><br><span class="line">       [] ]</span><br><span class="line">     ]</span><br></pre></td></tr></table></figure>
+
+<p>注意，我们可以使用标准列表索引来访问列表的子树。树的根是 <code>myTree[0]</code>，根的左子树是 <code>myTree[1]</code>，右子树是 <code>myTree[2]</code>。 ActiveCode 1 说明了使用列表创建一个简单的树。一旦树被构建，我们可以访问根和左右子树。 该列表方法的一个非常好的属性是表示子树的列表的结构遵守树定义的结构; 结构本身是递归的！具有根值和两个空列表的子树是叶节点。列表方法的另一个很好的特性是它可以推广到一个有许多子树的树。在树超过二叉树的情况下，另一个子树只是另一个列表。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">myTree = [<span class="string">&#x27;a&#x27;</span>, [<span class="string">&#x27;b&#x27;</span>, [<span class="string">&#x27;d&#x27;</span>,[],[]], [<span class="string">&#x27;e&#x27;</span>,[],[]] ], [<span class="string">&#x27;c&#x27;</span>, [<span class="string">&#x27;f&#x27;</span>,[],[]], []] ]</span><br><span class="line"><span class="built_in">print</span>(myTree)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;left subtree = &#x27;</span>, myTree[<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;root = &#x27;</span>, myTree[<span class="number">0</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;right subtree = &#x27;</span>, myTree[<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
+
+<p><em>Activecode 1</em></p>
+<p>让我们提供一些使我们能够使用列表作为树的函数来形式化树数据结构的这个定义。注意，我们不会定义一个二叉树类。我们写的函数只是帮助我们操纵一个标准列表，就像我们正在使用一棵树。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">BinaryTree</span>(<span class="params">r</span>):</span><br><span class="line">    <span class="keyword">return</span> [r, [], []]</span><br></pre></td></tr></table></figure>
+
+<p><code>BinaryTree</code> 函数简单地构造一个具有根节点和两个子列表为空的列表。要将左子树添加到树的根，我们需要在根列表的第二个位置插入一个新的列表。我们必须小心。如果列表已经在第二个位置有东西，我们需要跟踪它，并沿着树向下把它作为我们添加的列表的左子节点。Listing 1 展示了插入左子节点的 Python 代码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">insertLeft</span>(<span class="params">root,newBranch</span>):</span><br><span class="line">    t = root.pop(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(t) &gt; <span class="number">1</span>:</span><br><span class="line">        root.insert(<span class="number">1</span>,[newBranch,t,[]])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        root.insert(<span class="number">1</span>,[newBranch, [], []])</span><br><span class="line">    <span class="keyword">return</span> root</span><br></pre></td></tr></table></figure>
+
+<p><em>Listing 1</em></p>
+<p>注意，要插入一个左子节点，我们首先获得与当前左子节点对应的（可能为空的）列表。然后我们添加新的左子树，添加旧的左子数作为新子节点的左子节点。这允许我们在任何位置将新节点拼接到树中。<code>insertRight</code> 的代码与<code>insertLeft</code> 类似，如 Listing 2所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">insertRight</span>(<span class="params">root,newBranch</span>):</span><br><span class="line">    t = root.pop(<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(t) &gt; <span class="number">1</span>:</span><br><span class="line">        root.insert(<span class="number">2</span>,[newBranch,[],t])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        root.insert(<span class="number">2</span>,[newBranch,[],[]])</span><br><span class="line">    <span class="keyword">return</span> root</span><br></pre></td></tr></table></figure>
+
+<p><em>Listing 2</em></p>
+<p>为了完成这组树形函数（见 Listing 3），让我们编写一些访问函数来获取和设置根节点的值，以及获取左或右子树。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">getRootVal</span>(<span class="params">root</span>):</span><br><span class="line">    <span class="keyword">return</span> root[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">setRootVal</span>(<span class="params">root,newVal</span>):</span><br><span class="line">    root[<span class="number">0</span>] = newVal</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getLeftChild</span>(<span class="params">root</span>):</span><br><span class="line">    <span class="keyword">return</span> root[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getRightChild</span>(<span class="params">root</span>):</span><br><span class="line">    <span class="keyword">return</span> root[<span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+
+<p><em>Listing 3</em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.4.%E5%88%97%E8%A1%A8%E8%A1%A8%E7%A4%BA/README/" data-id="clxzhp6k2002d1s8j6gl8h5xc" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/06/29/python-data-structure-cn/6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.5.%E8%8A%82%E7%82%B9%E8%A1%A8%E7%A4%BA/README/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/06/29/python-data-structure-cn/6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.3.%E8%AF%8D%E6%B1%87%E5%92%8C%E5%AE%9A%E4%B9%89/README/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.9.%E5%AE%9E%E7%8E%B0%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.8.%E6%9E%84%E5%BB%BA%E5%AD%97%E6%A2%AF%E5%9B%BE/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.7.%E5%AD%97%E6%A2%AF%E7%9A%84%E9%97%AE%E9%A2%98/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.6.%E5%AE%9E%E7%8E%B0/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.5.%E9%82%BB%E6%8E%A5%E8%A1%A8/README/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 FLITl<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

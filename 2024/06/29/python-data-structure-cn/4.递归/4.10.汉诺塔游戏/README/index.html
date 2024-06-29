@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>FLITl的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="4.10.汉诺塔游戏汉诺塔是由法国数学家爱德华·卢卡斯在 1883 年发明的。他的灵感来自一个传说，有一个印度教寺庙，将谜题交给年轻的牧师。在开始的时候，牧师们被给予三根杆和一堆 64 个金碟，每个盘比它下面一个小一点。他们的任务是将所有 64 个盘子从三个杆中一个转移到另一个。有两个重要的约束，它们一次只能移动一个盘子，并且它们不能在较小的盘子顶部上放置更大的盘子。牧师日夜不停每秒钟移动一块盘子">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FLITl的博客">
+<meta property="og:url" content="http://jackfrued.top/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.10.%E6%B1%89%E8%AF%BA%E5%A1%94%E6%B8%B8%E6%88%8F/README/index.html">
+<meta property="og:site_name" content="FLITl的博客">
+<meta property="og:description" content="4.10.汉诺塔游戏汉诺塔是由法国数学家爱德华·卢卡斯在 1883 年发明的。他的灵感来自一个传说，有一个印度教寺庙，将谜题交给年轻的牧师。在开始的时候，牧师们被给予三根杆和一堆 64 个金碟，每个盘比它下面一个小一点。他们的任务是将所有 64 个盘子从三个杆中一个转移到另一个。有两个重要的约束，它们一次只能移动一个盘子，并且它们不能在较小的盘子顶部上放置更大的盘子。牧师日夜不停每秒钟移动一块盘子">
+<meta property="og:locale">
+<meta property="og:image" content="http://jackfrued.top/assets/4.10.%E6%B1%89%E8%AF%BA%E5%A1%94%E6%B8%B8%E6%88%8F.figure1.png">
+<meta property="article:published_time" content="2024-06-29T02:14:12.657Z">
+<meta property="article:modified_time" content="2024-05-15T03:24:19.058Z">
+<meta property="article:author" content="FLITl">
+<meta property="article:tag" content="反思，技术，生活">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://jackfrued.top/assets/4.10.%E6%B1%89%E8%AF%BA%E5%A1%94%E6%B8%B8%E6%88%8F.figure1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="FLITl的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">FLITl的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">天命之谓性；率性之谓道；修道之谓教。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://jackfrued.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-python-data-structure-cn/4.递归/4.10.汉诺塔游戏/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.10.%E6%B1%89%E8%AF%BA%E5%A1%94%E6%B8%B8%E6%88%8F/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.657Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="4-10-汉诺塔游戏"><a href="#4-10-汉诺塔游戏" class="headerlink" title="4.10.汉诺塔游戏"></a>4.10.汉诺塔游戏</h2><p>汉诺塔是由法国数学家爱德华·卢卡斯在 1883 年发明的。他的灵感来自一个传说，有一个印度教寺庙，将谜题交给年轻的牧师。在开始的时候，牧师们被给予三根杆和一堆 64 个金碟，每个盘比它下面一个小一点。他们的任务是将所有 64 个盘子从三个杆中一个转移到另一个。有两个重要的约束，它们一次只能移动一个盘子，并且它们不能在较小的盘子顶部上放置更大的盘子。牧师日夜不停每秒钟移动一块盘子。当他们完成工作时，传说，寺庙会变成灰尘，世界将消失。</p>
+<p>虽然传说是有趣的，你不必担心世界不久的将来会消失。移动 64 个盘子的塔所需的步骤数是 <code>2^64 - 1 = 18,446,744,073,709,551,615264 - 1 = 18,446,744,073,709,551,615</code>。以每秒一次的速度，即 <code>584,942,417,355584,942,417,355</code> 年！。</p>
+<p>Figure 1 展示了在从第一杆移动到第三杆的过程中的盘的示例。请注意，如规则指定，每个杆上的盘子都被堆叠起来，以使较小的盘子始终位于较大盘的顶部。如果你以前没有尝试过解决这个难题，你现在应该尝试下。你不需要花哨的盘子，一堆书或纸张都可以。</p>
+<p><img src="/assets/4.10.%E6%B1%89%E8%AF%BA%E5%A1%94%E6%B8%B8%E6%88%8F.figure1.png" alt="4.10.汉诺塔游戏.figure1"></p>
+<p><em>Figure 1</em></p>
+<p>我们如何递归地解决这个问题？我们的基本情况是什么？让我们从下到上考虑这个问题。假设你有一个五个盘子的塔，在杆一上。如果你已经知道如何将四个盘子移动到杆二上，那么你可以轻松地将最底部的盘子移动到杆三，然后再将四个盘子从杆二移动到杆三。但是如果你不知道如何移动四个盘子怎么办？假设你知道如何移动三个盘子到杆三;那么很容易将第四个盘子移动到杆二，并将它们从杆三移动到它们的顶部。但是如果你不知道如何移动三个盘子呢？如何将两个盘子移动到杆二，然后将第三个盘子移动到杆三，然后移动两个盘子到它的顶部？但是如果你还不知道该怎么办呢？当然你会知道移动一个盘子到杆三足够容易。这听起来像是基本情况。</p>
+<p>这里是如何使用中间杆将塔从起始杆移动到目标杆的步骤：</p>
+<ol>
+<li>使用目标杆将 <code>height-1</code> 的塔移动到中间杆。</li>
+<li>将剩余的盘子移动到目标杆。</li>
+<li>使用起始杆将 <code>height-1</code> 的塔从中间杆移动到目标杆。</li>
+</ol>
+<p>只要我们遵守规则，较大的盘子保留在栈的底部，我们可以使用递归的三个步骤，处理任何更大的盘子。上面概要中唯一缺失的是识别基本情况。最简单的汉诺塔是一个盘子的塔。在这种情况下，我们只需要将一个盘子移动到其最终目的地。 一个盘子的塔将是我们的基本情况。 此外，上述步骤通过在步骤1和3中减小塔的高度，使我们趋向基本情况。Listing 1 展示了解决汉诺塔的 Python 代码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">moveTower</span>(<span class="params">height,fromPole, toPole, withPole</span>):</span><br><span class="line">    <span class="keyword">if</span> height &gt;= <span class="number">1</span>:</span><br><span class="line">        moveTower(height-<span class="number">1</span>,fromPole,withPole,toPole)</span><br><span class="line">        moveDisk(fromPole,toPole)</span><br><span class="line">        moveTower(height-<span class="number">1</span>,withPole,toPole,fromPole)</span><br></pre></td></tr></table></figure>
+
+<p><em>Listing 1</em></p>
+<p>请注意，Listing 1 中的代码与描述几乎相同。算法的简单性的关键在于我们进行两个不同的递归调用，一个在第 3 行上，另一个在第 5 行。在第 3 行上，我们将初始杆上的底部圆盘移动到中间。下一行简单地将底部盘移动到其最终的位置。然后在第 5 行上，我们将塔从中间杆移动到最大盘子的顶部。当塔高度为 0 时检测到基本情况; 在这种情况下不需要做什么，所以 <code>moveTower</code> 函数简单地返回。关于以这种方式处理基本情况的重点是，从 <code>moveTower</code> 简单地返回以使 <code>moveDisk</code> 函数被调用。</p>
+<p>函数 <code>moveDisk</code>，如 Listing 2 所示，非常简单。它所做的就是打印出一个盘子从一杆移动到另一杆。 如果你输入并运行 <code>moveTower</code> 程序，你可以看到它给你一个非常有效的解决方案。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">moveDisk</span>(<span class="params">fp,tp</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;moving disk from&quot;</span>,fp,<span class="string">&quot;to&quot;</span>,tp)</span><br></pre></td></tr></table></figure>
+
+<p><em>Listing 2</em></p>
+<p>现在你已经看到了 <code>moveTower</code> 和 <code>moveDisk</code> 的代码，你可能会想知道为什么我们没有明确记录什么盘子在什么杆上的数据结构。这里有一个提示：如果你要明确地跟踪盘子，你会使用三个 Stack 对象，每个杆一个。 答案是 Python 提供了我们需要调用的隐含的栈。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.10.%E6%B1%89%E8%AF%BA%E5%A1%94%E6%B8%B8%E6%88%8F/README/" data-id="clxzhp6jt00131s8j5py7hsvx" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.11.%E6%8E%A2%E7%B4%A2%E8%BF%B7%E5%AE%AB/README/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.1.%E7%9B%AE%E6%A0%87/README/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.9.%E5%AE%9E%E7%8E%B0%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.8.%E6%9E%84%E5%BB%BA%E5%AD%97%E6%A2%AF%E5%9B%BE/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.7.%E5%AD%97%E6%A2%AF%E7%9A%84%E9%97%AE%E9%A2%98/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.6.%E5%AE%9E%E7%8E%B0/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.5.%E9%82%BB%E6%8E%A5%E8%A1%A8/README/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 FLITl<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

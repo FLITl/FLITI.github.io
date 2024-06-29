@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>FLITl的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="一些感想，一些技术，一些生活。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FLITl的博客">
+<meta property="og:url" content="http://jackfrued.top/page/12/index.html">
+<meta property="og:site_name" content="FLITl的博客">
+<meta property="og:description" content="一些感想，一些技术，一些生活。">
+<meta property="og:locale">
+<meta property="article:author" content="FLITl">
+<meta property="article:tag" content="反思，技术，生活">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="FLITl的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">FLITl的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">天命之谓性；率性之谓道；修道之谓教。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://jackfrued.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-python-data-structure-cn/1.介绍/1.12.定义函数/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.12.%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.340Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-12-定义函数"><a href="#1-12-定义函数" class="headerlink" title="1.12.定义函数"></a>1.12.定义函数</h2><p>之前的过程抽象的例子调用了一个名为sqrt的Python函数，它来自math模块，用来计算平方根。一般来说，我们可以通过定义一个函数来隐藏任何计算的细节。一个函数定义需要一个名称、一组参数和一个函数体。它也可以显式地返回一个值。例如，下面定义的简单函数返回传入的值的平方。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; def square(n):</span><br><span class="line">...    return n**2</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; square(3)</span><br><span class="line">9</span><br><span class="line">&gt;&gt;&gt; square(square(3))</span><br><span class="line">81</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这个函数定义的语法包括名称square和一个圆括号括起来的正式参数列表。对于这个函数，n是唯一的正式参数，这表明square只需要一个数据就可以完成它的工作。这些细节隐藏在“盒子里”，简单地计算出n**2的结果并返回它。为调用square函数，我们可以传入一个实际的参数值（在本例中为3）来让Python计算它。请注意，对square的调用会返回一个整数，该整数又可以被传递给另一个调用。</p>
+<p>我们可以使用一种叫做“牛顿法”的著名技术来实现我们自己的平方根函数。牛顿法用来求近似平方根，它执行一种迭代运算，该计算的结果收敛于正确的值。等式newguess &#x3D; 1&#x2F;2 *（oldguess + n&#x2F;oldguess）取n值，并通过在随后的迭代中使每个newguess成为oldguess来反复猜测平方根。这里最初始的猜测是n&#x2F;2。 Listing 1显示了一个接受值n的函数定义，并在进行20次猜测后返回n的平方根。同样，牛顿法的细节隐藏在函数定义中，用户不需要知道任何关于实现的内容，就可以使用这个函数来实现它的预期目的。 Listing 1还显示了使用＃字符作为注释标记。此行＃后面的任何字符都将被忽略。</p>
+<p><em>Listing 1</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def squareroot(n):</span><br><span class="line">    root = n/2    #initial guess will be 1/2 of n</span><br><span class="line">    for k in range(20):</span><br><span class="line">        root = (1/2)*(root + (n / root))</span><br><span class="line"></span><br><span class="line">    return root</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;squareroot(9)</span><br><span class="line">3.0</span><br><span class="line">&gt;&gt;&gt;squareroot(4563)</span><br><span class="line">67.549981495186216</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p><em>自我检测</em></p>
+<p>这是一个真正涵盖到目前为止所有内容的自我检查。 你可能听说过无限猴子定理？ 该定理指出，猴子在打字机键盘上随机敲击键无限时间几乎肯定会输入一个给定的文本，例如威廉·莎士比亚的全集。好吧，假设我们用Python函数替换猴子。 你认为Python函数生成莎士比亚的一个句子需要多长时间？ 我们要的目标句是：“我觉得它就像一只黄鼠狼”</p>
+<p>您别想在浏览器中运行这个，所以请启动您最喜欢的Python IDE。我们模拟这个的方法是写一个函数，通过从字母表中26个字母和空格中随机选择字母来生成一个27个字符长的字符串。我们将编写另一个函数，通过将随机生成的字符串与目标进行比较，从而为每个生成的字符串打分。</p>
+<p>第三个函数会反复调用生成函数和打分函数，如果百分之百的字母是正确的，我们就完成了。如果字母不正确，我们就会生成一个全新的字符串。为了更方便地跟踪程序的进度，第三个函数应该打印出目前为止生成的最佳字符串及其每1000次尝试的分数。</p>
+<p><em>自我挑战</em></p>
+<p>看看你是否可以通过保持正确的字母来改进程序，并且只修改目前最好的字符串中的一个字符。这是“爬坡”算法中的一种算法，如果它比前一个更好，我们只保留结果。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.12.%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0/README/" data-id="clxzhp6ji00051s8j8l7m5cvz" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/1.介绍/1.11.处理异常/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.11.%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.337Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-11-处理异常"><a href="#1-11-处理异常" class="headerlink" title="1.11.处理异常"></a>1.11.处理异常</h2><p>在编写程序时通常会出现两种类型的错误。第一个被称为语法错误，仅仅意味着程序员在语句或表达式的结构中犯了一个错误。例如，写一个for语句而忘记冒号是错误的。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; for i in range(10)</span><br><span class="line">SyntaxError: invalid syntax (&lt;pyshell#61&gt;, line 1)</span><br></pre></td></tr></table></figure>
+
+<p>在这种情况下，Python解释器发现它不能完成这个指令的处理，因为它不符合语言的规则。当你第一次学习一门语言时，语法错误通常会更频繁。</p>
+<p>另一种类型的错误，称为逻辑错误，表示程序执行但给出错误结果的情况。 这可能是由于基础算法中的错误或该算法的转换错误。 在某些情况下，逻辑错误会导致非常糟糕的情况，例如尝试除以零或尝试访问列表中的索引超出列表边界的项目。 在这种情况下，逻辑错误会导致运行时错误，导致程序终止。 这些类型的运行时错误通常称为exceptions。</p>
+<p>大多数时候，小白程序员只是把异常看作是导致执行结束的致命的运行时错误。然而，大多数编程语言提供了一种处理这些错误的方法，这些错误将允许程序员在选择时进行某种类型的干预。此外，如果程序员能保证检查到程序执行中的情况，就可以创建自己的异常。</p>
+<p>当一个异常发生时，我们说它已经被“抛出”了。使用try语句处理所提出的异常。例如，思考下面的会话，让用户输入一个整数，然后从数学库调用平方根函数。如果用户输入大于或等于0的值，打印将显示平方根。但是，如果用户输入负值，平方根函数将报出ValueError异常。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; anumber = int(input(&quot;Please enter an integer &quot;))</span><br><span class="line">Please enter an integer -23</span><br><span class="line">&gt;&gt;&gt; print(math.sqrt(anumber))</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;pyshell#102&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">    print(math.sqrt(anumber))</span><br><span class="line">ValueError: math domain error</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以通过在try块中调用print函数来处理这个异常。相应的except块“捕获”异常，并在发生异常时将消息打印给用户。例如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; try:</span><br><span class="line">       print(math.sqrt(anumber))</span><br><span class="line">    except:</span><br><span class="line">       print(&quot;Bad Value for square root&quot;)</span><br><span class="line">       print(&quot;Using absolute value instead&quot;)</span><br><span class="line">       print(math.sqrt(abs(anumber)))</span><br><span class="line"></span><br><span class="line">Bad Value for square root</span><br><span class="line">Using absolute value instead</span><br><span class="line">4.79583152331</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>它将捕获sqrt引发的异常，将消息打印回用户并使用绝对值来确保我们采用非负数的平方根。 这意味着程序不会终止，而是继续执行下一个语句。</p>
+<p>程序员也可以通过使用raise语句来引发运行时异常。 例如，我们可以先检查该值，然后引发自己的异常，而不是使用负数调用平方根函数。 下面的代码片段显示了创建新的RuntimeError异常的结果。 请注意，程序仍然会终止，但现在导致终止的异常是程序员明确创建的。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; if anumber &lt; 0:</span><br><span class="line">...    raise RuntimeError(&quot;You can&#x27;t use a negative number&quot;)</span><br><span class="line">... else:</span><br><span class="line">...    print(math.sqrt(anumber))</span><br><span class="line">...</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 2, in &lt;module&gt;</span><br><span class="line">RuntimeError: You can&#x27;t use a negative number</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>除了上面显示的RuntimeError之外，还可以引发多种异常。 有关所有可用异常类型的列表以及如何创建自己的异常类型，请参阅Python参考手册。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.11.%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8/README/" data-id="clxzhp6jh00031s8j1ne738ou" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/1.介绍/1.10.控制结构/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.10.%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.332Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-10-控制结构"><a href="#1-10-控制结构" class="headerlink" title="1.10.控制结构"></a>1.10.控制结构</h2><p>正如我们前面提到的，算法需要两个重要的控制结构：迭代和选择。Python以各种形式支持这两种方法。程序员可以对给定环境选择最有用的语句。</p>
+<p>对于迭代，Python提供了一个标准的while语句和一个非常强大的for语句。只要条件为真，while语句就会重复一段代码。 例如，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; counter = 1</span><br><span class="line">&gt;&gt;&gt; while counter &lt;= 5:</span><br><span class="line">...     print(&quot;Hello, world&quot;)</span><br><span class="line">...     counter = counter + 1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Hello, world</span><br><span class="line">Hello, world</span><br><span class="line">Hello, world</span><br><span class="line">Hello, world</span><br><span class="line">Hello, world</span><br></pre></td></tr></table></figure>
+
+<p>把“Hello, world”这个短语打印出来五次。在每次重复的开始时评估while语句的条件。如果条件为真，则将执行语句主体。由于语言强制执行的强制缩进模式，很容易看到Python while语句的结构。</p>
+<p>while语句是一个非常通用的迭代结构，我们将在许多不同的算法中使用它。 在许多情况下，将会用复合条件来控制迭代。 片段如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">while counter &lt;= 10 and not done:</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>只会在条件的两个部分都满足的情况下才会执行语句的主体。 变量counter的值需要小于或等于10，并且变量done的值需要为False（not False为True），以便True and True结果为True。</p>
+<p>即使这种类型的构造在各种情况下都非常有用，但是另一个迭代结构for语句，可以与许多Python集合一起使用。 只要集合是序列，for语句就可以用于迭代集合的成员。 所以，例如，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; for item in [1,3,6,2,5]:</span><br><span class="line">...    print(item)</span><br><span class="line">...</span><br><span class="line">1</span><br><span class="line">3</span><br><span class="line">6</span><br><span class="line">2</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
+
+<p>逐次将列表[1,3,6,2,5]中的每个值赋给变量item。 然后执行迭代的主体。 这适用于任何序列集合（列表，元组和字符串）。</p>
+<p>for语句的一个常见用途是在一系列值上实现明确的迭代。 如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; for item in range(5):</span><br><span class="line">...    print(item**2)</span><br><span class="line">...</span><br><span class="line">0</span><br><span class="line">1</span><br><span class="line">4</span><br><span class="line">9</span><br><span class="line">16</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>该语句将执行五次print功能。 range函数将返回表示序列0,1,2,3,4的范围对象，并且每个值将分配给变量item。 然后将该值平方并打印。</p>
+<p>此迭代结构的另一个非常有用的版本用于处理字符串的每个字符。 以下代码片段遍历字符串列表，并且每个字符串通过将每个字符追加到列表上来处理每个字符。 结果为所有单词中所有字母的列表。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wordlist = [&#x27;cat&#x27;,&#x27;dog&#x27;,&#x27;rabbit&#x27;]</span><br><span class="line">letterlist = [ ]</span><br><span class="line">for aword in wordlist:</span><br><span class="line">    for aletter in aword:</span><br><span class="line">        letterlist.append(aletter)</span><br><span class="line">print(letterlist)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>选择语句允许程序员提出问题，然后根据结果执行不同的操作。 大多数编程语言都提供了这个有用结构的两个版本：ifelse和if。 一个简单示例是使用ifelse语句实现二分选择。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">if score &gt;= 90:</span><br><span class="line">   print(&#x27;A&#x27;)</span><br><span class="line">else:</span><br><span class="line">   if score &gt;=80:</span><br><span class="line">      print(&#x27;B&#x27;)</span><br><span class="line">   else:</span><br><span class="line">      if score &gt;= 70:</span><br><span class="line">         print(&#x27;C&#x27;)</span><br><span class="line">      else:</span><br><span class="line">         if score &gt;= 60:</span><br><span class="line">            print(&#x27;D&#x27;)</span><br><span class="line">         else:</span><br><span class="line">            print(&#x27;F&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>此片段将通过打印所获得的字母等级对名为score的值进行分类。 如果分数大于或等于90，则语句将打印A.如果不是（else），则询问下一个问题。 如果分数大于或等于80，那么它必须在80到89之间，因为第一个问题的答案是错误的。 在这种情况下，打印B。 您可以看到Python缩进模式有助于理解if和else之间的关联而无需任何其他语法元素。</p>
+<p>此类嵌套选择的替代语法是使用elif关键字。 将else和下一个if组合起来，以消除对额外嵌套级别的需要。 请注意，如果所有其他条件都失败，则仍需要最终的else来提供默认情况。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">if score &gt;= 90:</span><br><span class="line">   print(&#x27;A&#x27;)</span><br><span class="line">elif score &gt;=80:</span><br><span class="line">   print(&#x27;B&#x27;)</span><br><span class="line">elif score &gt;= 70:</span><br><span class="line">   print(&#x27;C&#x27;)</span><br><span class="line">elif score &gt;= 60:</span><br><span class="line">   print(&#x27;D&#x27;)</span><br><span class="line">else:</span><br><span class="line">   print(&#x27;F&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>Python也有单向选择构造，即if语句。 使用此语句，如果条件为true，则执行操作。 在条件为假的情况下，简单地继续执行到if之后的下一个语句。 例如，以下片段将首先检查变量n的值是否为负数。 如果是，则由绝对值函数修改。 无论如何，下一步是计算平方根。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if n&lt;0:</span><br><span class="line">   n = abs(n)</span><br><span class="line">print(math.sqrt(n))</span><br></pre></td></tr></table></figure>
+
+<p>返回列表，有一种替代方法来创建一个列表，它使用迭代和选择构造，称为list comprehension。列表推导允许您根据某些处理或选择标准轻松创建列表。 例如，如果我们想要创建前10个完美正方形的列表，我们可以使用for语句：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; sqlist=[]</span><br><span class="line">&gt;&gt;&gt; for x in range(1,11):</span><br><span class="line">         sqlist.append(x*x)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; sqlist</span><br><span class="line">[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>使用列表推导( 又称列表综合 )，我们可以一步完成</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; sqlist=[x*x for x in range(1,11)]</span><br><span class="line">&gt;&gt;&gt; sqlist</span><br><span class="line">[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>变量x采用for构造指定值1到10。 然后计算x * x的值并将其添加到正在构造的列表中。 列表推导的一般语法还允许添加选择标准，以便仅添加某些项。 例如，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; sqlist=[x*x for x in range(1,11) if x%2 != 0]</span><br><span class="line">&gt;&gt;&gt; sqlist</span><br><span class="line">[1, 9, 25, 49, 81]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>此列表推导构造了一个列表，该列表仅包含1到10范围内的奇数的平方。任何支持迭代的序列都可以在列表推导中用于构造新列表。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;[ch.upper() for ch in &#x27;comprehension&#x27; if ch not in &#x27;aeiou&#x27;]</span><br><span class="line">[&#x27;C&#x27;, &#x27;M&#x27;, &#x27;P&#x27;, &#x27;R&#x27;, &#x27;H&#x27;, &#x27;N&#x27;, &#x27;S&#x27;, &#x27;N&#x27;]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.10.%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/README/" data-id="clxzhp6jp000n1s8j1mb3flo0" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/1.介绍/1.1.目标/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.1.%E7%9B%AE%E6%A0%87/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.328Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-1-目标"><a href="#1-1-目标" class="headerlink" title="1.1.目标"></a>1.1.目标</h2><ul>
+<li>回顾计算机科学的思想, 提高编程和解决问题的能力。</li>
+<li>理解抽象化以及它在解决问题过程中发挥的作用</li>
+<li>理解和实现抽象数据类型的概念</li>
+<li>回顾 Python 编程语言</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/1.%E4%BB%8B%E7%BB%8D/1.1.%E7%9B%AE%E6%A0%87/README/" data-id="clxzhp6jf00011s8jhlv896d9" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/SUMMARY" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/SUMMARY/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.213Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li><p><a href="1.%E4%BB%8B%E7%BB%8D/README.md">1.介绍</a></p>
+<ul>
+<li><a href="1.%E4%BB%8B%E7%BB%8D/1.1.%E7%9B%AE%E6%A0%87/README.md">1.1.目标</a>  </li>
+<li><a href="1.%E4%BB%8B%E7%BB%8D/1.2.%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/README.md">1.2.快速开始</a></li>
+<li><a href="1.%E4%BB%8B%E7%BB%8D/1.3.%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/README.md">1.3.什么是计算机科学</a></li>
+<li><a href="1.%E4%BB%8B%E7%BB%8D/1.4.%E4%BB%80%E4%B9%88%E6%98%AF%E7%BC%96%E7%A8%8B/README.md">1.4.什么是编程</a></li>
+<li><a href="1.%E4%BB%8B%E7%BB%8D/1.5.%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6%E4%B9%A0%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/README.md">1.5.为什么要学习数据结构和抽象数据类型</a></li>
+<li><a href="1.%E4%BB%8B%E7%BB%8D/1.6.%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/README.md">1.6.为什么要学习算法</a>        </li>
+<li><a href="1.%E4%BB%8B%E7%BB%8D/1.7.%E5%9B%9E%E9%A1%BEPython%E5%9F%BA%E7%A1%80/README.md">1.7.回顾Python基础</a></li>
+<li><a href="1.%E4%BB%8B%E7%BB%8D/1.8.%E6%95%B0%E6%8D%AE%E5%85%A5%E9%97%A8/README.md">1.8.数据入门</a></li>
+<li><a href="1.%E4%BB%8B%E7%BB%8D/1.9.%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/README.md">1.9.输入和输出</a></li>
+<li><a href="1.%E4%BB%8B%E7%BB%8D/1.10.%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/README.md">1.10.控制结构</a></li>
+<li><a href="1.%E4%BB%8B%E7%BB%8D/1.11.%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8/README.md">1.11.处理异常</a></li>
+<li><a href="1.%E4%BB%8B%E7%BB%8D/1.12.%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0/README.md">1.12.定义函数</a></li>
+<li><a href="1.%E4%BB%8B%E7%BB%8D/1.13.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B-%E5%AE%9A%E4%B9%89%E7%B1%BB/README.md">1.13.面向对象编程-定义类</a></li>
+<li><a href="1.%E4%BB%8B%E7%BB%8D/1.14.%E6%80%BB%E7%BB%93/README.md">1.14.总结</a></li>
+</ul>
+</li>
+<li><p><a href="2.%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/README.md">2.算法分析</a></p>
+<ul>
+<li><a href="2.%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/2.1.%E7%9B%AE%E6%A0%87/README.md">2.1.目标</a></li>
+<li><a href="2.%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/2.2.%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/README.md">2.2.什么是算法分析</a></li>
+<li><a href="2.%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/2.3.%E5%A4%A7O%E7%AC%A6%E5%8F%B7/README.md">2.3.大O符号</a></li>
+<li><a href="2.%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/2.4.%E4%B8%80%E4%B8%AA%E4%B9%B1%E5%BA%8F%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A3%80%E6%9F%A5%E7%9A%84%E4%BE%8B%E5%AD%90/README.md">2.4.一个乱序字符串检查的例子</a></li>
+<li><a href="2.%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/2.5.Python%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E6%80%A7%E8%83%BD/README.md">2.5.Python数据结构的性能</a></li>
+<li><a href="2.%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/2.6.%E5%88%97%E8%A1%A8/README.md">2.6.列表</a></li>
+<li><a href="2.%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/2.7.%E5%AD%97%E5%85%B8/README.md">2.7.字典</a></li>
+<li><a href="2.%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/2.8.%E6%80%BB%E7%BB%93/README.md">2.8.总结</a></li>
+</ul>
+</li>
+<li><p><a href="3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/README.md">3.基本数据结构</a></p>
+<ul>
+<li><a href="3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.1.%E7%9B%AE%E6%A0%87/README.md">3.1.目标</a></li>
+<li><a href="3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.2.%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%BF%E6%80%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/README.md">3.2.什么是线性数据结构</a></li>
+<li><a href="3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.3.%E4%BB%80%E4%B9%88%E6%98%AF%E6%A0%88/README.md">3.3.什么是栈</a></li>
+<li><a href="3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.4.%E6%A0%88%E7%9A%84%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/README.md">3.4.栈的抽象数据类型</a></li>
+<li><a href="3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.5.Python%E5%AE%9E%E7%8E%B0%E6%A0%88/README.md">3.5.Python实现栈</a></li>
+<li><a href="3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.6.%E7%AE%80%E5%8D%95%E6%8B%AC%E5%8F%B7%E5%8C%B9%E9%85%8D/README.md">3.6.简单括号匹配</a></li>
+<li><a href="3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.7.%E7%AC%A6%E5%8F%B7%E5%8C%B9%E9%85%8D/README.md">3.7.符号匹配</a></li>
+<li><a href="3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.8.%E5%8D%81%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E6%88%90%E4%BA%8C%E8%BF%9B%E5%88%B6/README.md">3.8.十进制转换成二进制</a></li>
+<li><a href="3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.9.%E4%B8%AD%E7%BC%80%E5%89%8D%E7%BC%80%E5%92%8C%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F/README.md">3.9.中缀前缀和后缀表达式</a></li>
+<li><a href="3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.10.%E4%BB%80%E4%B9%88%E6%98%AF%E9%98%9F%E5%88%97/README.md">3.10.什么是队列</a></li>
+<li><a href="3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.11.%E9%98%9F%E5%88%97%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/README.md">3.11.队列抽象数据类型</a></li>
+<li><a href="3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.12.Python%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/README.md">3.12.Python实现队列</a></li>
+<li><a href="3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.13.%E6%A8%A1%E6%8B%9F%EF%BC%9A%E7%83%AB%E6%89%8B%E5%B1%B1%E8%8A%8B/README.md">3.13.模拟：烫手山芋</a></li>
+<li><a href="3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.14.%E6%A8%A1%E6%8B%9F%EF%BC%9A%E6%89%93%E5%8D%B0%E6%9C%BA/README.md">3.14.模拟：打印机</a></li>
+<li><a href="3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.15.%E4%BB%80%E4%B9%88%E6%98%AFDeque/README.md">3.15.什么是Deque</a></li>
+<li><a href="3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.16.Deque%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/README.md">3.16.Deque抽象数据类型</a></li>
+<li><a href="3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.17.Python%E5%AE%9E%E7%8E%B0Deque/README.md">3.17.Python实现Deque</a></li>
+<li><a href="3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.18.%E5%9B%9E%E6%96%87%E6%A3%80%E6%9F%A5/README.md">3.18.回文检查</a></li>
+<li><a href="3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.19.%E5%88%97%E8%A1%A8/README.md">3.19.列表</a></li>
+<li><a href="3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.20.%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/README.md">3.20.无序列表抽象数据类型</a> </li>
+<li><a href="3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.21.%E5%AE%9E%E7%8E%B0%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8%EF%BC%9A%E9%93%BE%E8%A1%A8/README.md">3.21.实现无序列表：链表</a>   </li>
+<li><a href="3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.22.%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/README.md">3.22.有序列表抽象数据结构</a>  </li>
+<li><a href="3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.23.%E5%AE%9E%E7%8E%B0%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8/README.md">3.23.实现有序列表</a> </li>
+<li><a href="3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.24.%E6%80%BB%E7%BB%93/README.md">3.24.总结</a></li>
+</ul>
+</li>
+<li><p><a href="4.%E9%80%92%E5%BD%92/README.md">4.递归</a></p>
+<ul>
+<li><a href="4.%E9%80%92%E5%BD%92/4.1.%E7%9B%AE%E6%A0%87/README.md">4.1.目标</a> </li>
+<li><a href="4.%E9%80%92%E5%BD%92/4.2.%E4%BB%80%E4%B9%88%E6%98%AF%E9%80%92%E5%BD%92/README.md">4.2.什么是递归</a> </li>
+<li><a href="4.%E9%80%92%E5%BD%92/4.3.%E8%AE%A1%E7%AE%97%E6%95%B4%E6%95%B0%E5%88%97%E8%A1%A8%E5%92%8C/README.md">4.3.计算整数列表和</a> </li>
+<li><a href="4.%E9%80%92%E5%BD%92/4.4.%E9%80%92%E5%BD%92%E7%9A%84%E4%B8%89%E5%AE%9A%E5%BE%8B/README.md">4.4.递归的三定律</a> </li>
+<li><a href="4.%E9%80%92%E5%BD%92/4.5.%E6%95%B4%E6%95%B0%E8%BD%AC%E6%8D%A2%E4%B8%BA%E4%BB%BB%E6%84%8F%E8%BF%9B%E5%88%B6%E5%AD%97%E7%AC%A6%E4%B8%B2/README.md">4.5.整数转换为任意进制字符串</a> </li>
+<li><a href="4.%E9%80%92%E5%BD%92/4.6.%E6%A0%88%E5%B8%A7%EF%BC%9A%E5%AE%9E%E7%8E%B0%E9%80%92%E5%BD%92/README.md">4.6.栈帧：实现递归</a> </li>
+<li><a href="4.%E9%80%92%E5%BD%92/4.7.%E4%BB%8B%E7%BB%8D%EF%BC%9A%E5%8F%AF%E8%A7%86%E5%8C%96%E9%80%92%E5%BD%92/README.md">4.7.介绍：可视化递归</a> </li>
+<li><a href="4.%E9%80%92%E5%BD%92/4.8.%E8%B0%A2%E5%B0%94%E5%AE%BE%E6%96%AF%E5%9F%BA%E4%B8%89%E8%A7%92%E5%BD%A2/README.md">4.8.谢尔宾斯基三角形</a> </li>
+<li><a href="4.%E9%80%92%E5%BD%92/4.10.%E6%B1%89%E8%AF%BA%E5%A1%94%E6%B8%B8%E6%88%8F/README.md">4.10.汉诺塔游戏</a> </li>
+<li><a href="4.%E9%80%92%E5%BD%92/4.11.%E6%8E%A2%E7%B4%A2%E8%BF%B7%E5%AE%AB/README.md">4.11.探索迷宫</a> </li>
+<li><a href="4.%E9%80%92%E5%BD%92/4.12.%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/README.md">4.12.动态规划</a> </li>
+<li><a href="4.%E9%80%92%E5%BD%92/4.13.%E6%80%BB%E7%BB%93/README.md">4.13.总结</a></li>
+</ul>
+</li>
+<li><p><a href="5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/README.md">5.排序和搜索</a></p>
+<ul>
+<li><a href="5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.1.%E7%9B%AE%E6%A0%87/README.md">5.1.目标</a> </li>
+<li><a href="5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.2.%E6%90%9C%E7%B4%A2/README.md">5.2.搜索</a> </li>
+<li><a href="5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.3.%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE/README.md">5.3.顺序查找</a> </li>
+<li><a href="5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.4.%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/README.md">5.4.二分查找</a> </li>
+<li><a href="5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.5.Hash%E6%9F%A5%E6%89%BE/README.md">5.5.Hash查找</a></li>
+<li><a href="5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.6.%E6%8E%92%E5%BA%8F/README.md">5.6.排序</a></li>
+<li><a href="5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.7.%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/README.md">5.7.冒泡排序</a></li>
+<li><a href="5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.8.%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/README.md">5.8.选择排序</a></li>
+<li><a href="5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.9.%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/README.md">5.9.插入排序</a></li>
+<li><a href="5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.10.%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/README.md">5.10.希尔排序</a>    </li>
+<li><a href="5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.11.%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/README.md">5.11.归并排序</a>    </li>
+<li><a href="5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.12.%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/README.md">5.12.快速排序</a> </li>
+<li><a href="5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.13.%E6%80%BB%E7%BB%93/README.md">5.13.总结</a></li>
+</ul>
+</li>
+<li><p><a href="6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/README.md">6.树和树的算法</a></p>
+<ul>
+<li><a href="6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.1.%E7%9B%AE%E6%A0%87/README.md">6.1.目标</a> </li>
+<li><a href="6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.2.%E6%A0%91%E7%9A%84%E4%BE%8B%E5%AD%90/README.md">6.2.树的例子</a> </li>
+<li><a href="6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.3.%E8%AF%8D%E6%B1%87%E5%92%8C%E5%AE%9A%E4%B9%89/README.md">6.3.词汇和定义</a> </li>
+<li><a href="6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.4.%E5%88%97%E8%A1%A8%E8%A1%A8%E7%A4%BA/README.md">6.4.列表表示</a> </li>
+<li><a href="6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.5.%E8%8A%82%E7%82%B9%E8%A1%A8%E7%A4%BA/README.md">6.5.节点表示</a> </li>
+<li><a href="6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.6.%E5%88%86%E6%9E%90%E6%A0%91/README.md">6.6.分析树</a> </li>
+<li><a href="6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.7.%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/README.md">6.7.树的遍历</a> </li>
+<li><a href="6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.8.%E5%9F%BA%E4%BA%8E%E4%BA%8C%E5%8F%89%E5%A0%86%E7%9A%84%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/README.md">6.8.基于二叉堆的优先队列</a> </li>
+<li><a href="6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.9.%E4%BA%8C%E5%8F%89%E5%A0%86%E6%93%8D%E4%BD%9C/README.md">6.9.二叉堆操作</a> </li>
+<li><a href="6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.10.%E4%BA%8C%E5%8F%89%E5%A0%86%E5%AE%9E%E7%8E%B0/README.md">6.10.二叉堆实现</a> </li>
+<li><a href="6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.11.%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91/README.md">6.11.二叉查找树</a> </li>
+<li><a href="6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.12.%E6%9F%A5%E6%89%BE%E6%A0%91%E6%93%8D%E4%BD%9C/README.md">6.12.查找树操作</a> </li>
+<li><a href="6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.13.%E6%9F%A5%E6%89%BE%E6%A0%91%E5%AE%9E%E7%8E%B0/README.md">6.13.查找树实现</a> </li>
+<li><a href="6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.14.%E6%9F%A5%E6%89%BE%E6%A0%91%E5%88%86%E6%9E%90/README.md">6.14.查找树分析</a> </li>
+<li><a href="6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.15.%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/README.md">6.15.平衡二叉搜索树</a> </li>
+<li><a href="6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.16.AVL%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/README.md">6.16.AVL平衡二叉搜索树</a> </li>
+<li><a href="6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.17.AVL%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E5%AE%9E%E7%8E%B0/README.md">6.17.AVL平衡二叉搜索树实现</a> </li>
+<li><a href="6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.18.Map%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93/README.md">6.18.Map抽象数据结构总结</a> </li>
+<li><a href="6.%E6%A0%91%E5%92%8C%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95/6.19.%E6%80%BB%E7%BB%93/README.md">6.19.总结</a></li>
+</ul>
+</li>
+<li><p><a href="7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/README.md">7.图和图的算法</a></p>
+<ul>
+<li><a href="7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.1.%E7%9B%AE%E6%A0%87/README.md">7.1.目标</a> </li>
+<li><a href="7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.2.%E8%AF%8D%E6%B1%87%E5%92%8C%E5%AE%9A%E4%B9%89/README.md">7.2.词汇和定义</a> </li>
+<li><a href="7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.3.%E5%9B%BE%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/README.md">7.3.图抽象数据类型</a> </li>
+<li><a href="7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.4.%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5/README.md">7.4.邻接矩阵</a> </li>
+<li><a href="7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.5.%E9%82%BB%E6%8E%A5%E8%A1%A8/README.md">7.5.邻接表</a></li>
+<li><a href="7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.6.%E5%AE%9E%E7%8E%B0/README.md">7.6.实现</a></li>
+<li><a href="7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.7.%E5%AD%97%E6%A2%AF%E7%9A%84%E9%97%AE%E9%A2%98/README.md">7.7.字梯的问题</a></li>
+<li><a href="7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.8.%E6%9E%84%E5%BB%BA%E5%AD%97%E6%A2%AF%E5%9B%BE/README.md">7.8.构建字梯图</a></li>
+<li><a href="7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.9.%E5%AE%9E%E7%8E%B0%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/README.md">7.9.实现广度优先搜索</a></li>
+<li><a href="7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.10.%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E5%88%86%E6%9E%90/README.md">7.10.广度优先搜索分析</a></li>
+<li><a href="7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.11.%E9%AA%91%E5%A3%AB%E4%B9%8B%E6%97%85/README.md">7.11.骑士之旅</a></li>
+<li><a href="7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.12.%E6%9E%84%E5%BB%BA%E9%AA%91%E5%A3%AB%E4%B9%8B%E6%97%85%E5%9B%BE/README.md">7.12.构建骑士之旅图</a></li>
+<li><a href="7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.13.%E5%AE%9E%E7%8E%B0%E9%AA%91%E5%A3%AB%E4%B9%8B%E6%97%85/README.md">7.13.实现骑士之旅</a></li>
+<li><a href="7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.14.%E9%AA%91%E5%A3%AB%E4%B9%8B%E6%97%85%E5%88%86%E6%9E%90/README.md">7.14.骑士之旅分析</a></li>
+<li><a href="7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.15.%E9%80%9A%E7%94%A8%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/README.md">7.15.通用深度优先搜索</a></li>
+<li><a href="7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.16.%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E5%88%86%E6%9E%90/README.md">7.16.深度优先搜索分析</a></li>
+<li><a href="7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.17.%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/README.md">7.17.拓扑排序</a></li>
+<li><a href="7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.18.%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/README.md">7.18.强连通分量</a></li>
+<li><a href="7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.19.%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/README.md">7.19.最短路径问题</a></li>
+<li><a href="7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.20.Dijkstra%E7%AE%97%E6%B3%95/README.md">7.20.Dijkstra算法</a></li>
+<li><a href="7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.21.Dijkstra%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/README.md">7.21.Dijkstra算法分析</a></li>
+<li><a href="7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.22.Prim%E7%94%9F%E6%88%90%E6%A0%91%E7%AE%97%E6%B3%95/README.md">7.22.Prim生成树算法</a></li>
+<li><a href="7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.23.%E6%80%BB%E7%BB%93/README.md">7.23.总结</a></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/SUMMARY/" data-id="clxzhp6jc00001s8jdmzba0ql" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/book" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/book/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.200Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        {"plugins":["katex"]}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/book/" data-id="clxzhp6jg00021s8j2lzxc2rd" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-个人感受" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/%E4%B8%AA%E4%BA%BA%E6%84%9F%E5%8F%97/" class="article-date">
+  <time class="dt-published" datetime="2024-06-28T23:03:13.351Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="观Google翻译新增110种语言有感"><a href="#观Google翻译新增110种语言有感" class="headerlink" title="观Google翻译新增110种语言有感"></a>观<a href="https://m.cnbeta.com.tw/view/1436298.htm">Google翻译新增110种语言</a>有感</h1><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>Google今天表示，它的翻译服务将增加对 110 种语言的支持。该公司利用其 PaLM 2 人工智能模型为翻译提供支持。这些语言包括阿法尔语、粤语、曼克斯语、尼科语、旁遮普语（Shahmukhi）、塔马齐特语（阿马齐格语）和托克皮辛语。该公司表示，这些新增语言的使用者超过 6.14 亿，约占总人口的 8%。</p>
+<h2 id="个人感想"><a href="#个人感想" class="headerlink" title="个人感想"></a>个人感想</h2><h3 id="对中国现在存在的现象进行不完全列举"><a href="#对中国现在存在的现象进行不完全列举" class="headerlink" title="对中国现在存在的现象进行不完全列举"></a>对中国现在存在的现象进行不完全列举</h3><p><a href="https://www.bilibili.com/video/BV1LU4y1i71Q/?spm_id_from=333.337.search-card.all.click&vd_source=27657830b9e9b31655a0f23fd04ec5e2">讨薪者不敢讨薪</a><br><a href="https://www.bilibili.com/video/BV11Q4y1d7Hu/?spm_id_from=333.337.search-card.all.click&vd_source=27657830b9e9b31655a0f23fd04ec5e2">是什么让公司争先恐后的逃税</a><br><a href="https://www.bilibili.com/video/BV1Kog1eZEZJ/?spm_id_from=333.337.search-card.all.click&vd_source=27657830b9e9b31655a0f23fd04ec5e2">特斯拉一开源万物生</a><br><a href="https://www.bilibili.com/video/BV1HT421Y76f/?spm_id_from=333.337.search-card.all.click&vd_source=27657830b9e9b31655a0f23fd04ec5e2">chatgpt一出又是万物生</a><br><a href="https://www.bilibili.com/video/BV1RfugeYEHH/?spm_id_from=333.337.search-card.all.click&vd_source=27657830b9e9b31655a0f23fd04ec5e2">胖猫事件(公信力)</a><br>[疫情期间产生的事端][]<br>我想了想这些已经很多了就不在列举了，每想到这些事情在这片土地上发生，我就同艾青诗中的鸟一样只有流干鲜血</p>
+<p>反观在以人民为基本盘的中国发展起的公司，输入法对少数民族的语言根本就不支持，apple的输入法支持藏文的输入却成了藏族同胞的购买理由，很魔幻。今又看到goole对少部分人民的需求的响应，这不仅是商业上的长远眼光，中国的产业为什么都做不大做不长，大抵来说，无非就是成功后的傲慢和胆怯，不敢用长远的眼光来决定开发目标，大公司缺少活力，小公司缺少实力。与小公司合作，怕的并不是其突然倒闭，而是怕其同宋江一样一心只想“诏安”。中国这个礼仪之邦可以说名存实亡，为何？我们看待一个组织，往往并不先看到其内在，而是其表面，虽说用表面来看待是有些许不严谨，但一个表面都烂了的苹果你会想吃下去吗？所以，就从表面看下礼仪之邦的虚伪吧，这种虚伪与日本并不相同，日本是表里如一的，是承认的，是可以接受失败的，是可以吸取经验的，当然我并非夸赞日本。中国的公司为何倒闭的这么快，与市场中的手有着托不清的关系。政府不重视版权、劳动、福利等各种对公司对劳动者有关的法律，何以见得，与劳动者高歌劳动的伟大的必要性，一边却是对公司对员工的过度剥削熟视无睹，劳动法在这个时候就消失或者是变得静默了，中国这个地方金钱并不是一切，应当为权力至高无上，不维护劳动者的利益，并非领导者大脑一热就决定了的，而是进行了利益权衡的，</p>
+<h3 id="分析内因"><a href="#分析内因" class="headerlink" title="分析内因"></a>分析内因</h3><p>一是这种现象是具有普遍性的，并非是孤立的某一件事，所以即便是再蠢再坏的领导人都会站在全国或者是全世界的角度来看待。  对于这种维护成本很大，甚至来说是一直都会有并不会随着意识形态的转变而消失， 就同刑法上的事人们明知会有严重后果却依然敢为先为的原因一样，人心的贪婪。光是这样看也没有那么大的冲击，中国对偷税漏税的处罚力度之轻简直是轻如毫毛。</p>
+<p>二是中国人并没有搞懂公民应有的权力和责任是什么样的，因其根本就没有见过，从一开始就埋下了不相信的种子，所以见别人说国外的主义是不好的也出声附和，这无疑是可悲的，这就是当代鲁迅笔下吃人血馒头的人，但毫不自知。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/%E4%B8%AA%E4%BA%BA%E6%84%9F%E5%8F%97/" data-id="clxzb1wss0000i08j5mge83nr" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/25/hello-world/" class="article-date">
+  <time class="dt-published" datetime="2024-06-25T15:58:02.993Z" itemprop="datePublished">2024-06-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/06/25/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/25/hello-world/" data-id="clxzask0e0000e88j6n980x8t" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/11/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.9.%E5%AE%9E%E7%8E%B0%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.8.%E6%9E%84%E5%BB%BA%E5%AD%97%E6%A2%AF%E5%9B%BE/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.7.%E5%AD%97%E6%A2%AF%E7%9A%84%E9%97%AE%E9%A2%98/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.6.%E5%AE%9E%E7%8E%B0/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.5.%E9%82%BB%E6%8E%A5%E8%A1%A8/README/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 FLITl<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

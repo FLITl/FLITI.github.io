@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>FLITl的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="5.10.希尔排序希尔排序（有时称为“递减递增排序”）通过将原始列表分解为多个较小的子列表来改进插入排序，每个子列表使用插入排序进行排序。 选择这些子列表的方式是希尔排序的关键。不是将列表拆分为连续项的子列表，希尔排序使用增量i（有时称为 gap），通过选择 i 个项的所有项来创建子列表。 这可以在 Figure 6 中看到。该列表有九个项。如果我们使用三的增量，有三个子列表，每个子列表可以通过插">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FLITl的博客">
+<meta property="og:url" content="http://jackfrued.top/2024/06/29/python-data-structure-cn/5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.10.%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/README/index.html">
+<meta property="og:site_name" content="FLITl的博客">
+<meta property="og:description" content="5.10.希尔排序希尔排序（有时称为“递减递增排序”）通过将原始列表分解为多个较小的子列表来改进插入排序，每个子列表使用插入排序进行排序。 选择这些子列表的方式是希尔排序的关键。不是将列表拆分为连续项的子列表，希尔排序使用增量i（有时称为 gap），通过选择 i 个项的所有项来创建子列表。 这可以在 Figure 6 中看到。该列表有九个项。如果我们使用三的增量，有三个子列表，每个子列表可以通过插">
+<meta property="og:locale">
+<meta property="og:image" content="http://jackfrued.top/assets/5.10.shell%E6%8E%92%E5%BA%8F.figure6.png">
+<meta property="og:image" content="http://jackfrued.top/assets/5.10.shell%E6%8E%92%E5%BA%8F.figure8.png">
+<meta property="og:image" content="http://jackfrued.top/assets/5.10.shell%E6%8E%92%E5%BA%8F.figure9.png">
+<meta property="article:published_time" content="2024-06-29T02:14:12.750Z">
+<meta property="article:modified_time" content="2024-05-15T03:24:19.074Z">
+<meta property="article:author" content="FLITl">
+<meta property="article:tag" content="反思，技术，生活">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://jackfrued.top/assets/5.10.shell%E6%8E%92%E5%BA%8F.figure6.png">
+  
+    <link rel="alternate" href="/atom.xml" title="FLITl的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">FLITl的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">天命之谓性；率性之谓道；修道之谓教。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://jackfrued.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-python-data-structure-cn/5.排序和搜索/5.10.希尔排序/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.10.%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.750Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="5-10-希尔排序"><a href="#5-10-希尔排序" class="headerlink" title="5.10.希尔排序"></a>5.10.希尔排序</h2><p>希尔排序（有时称为“递减递增排序”）通过将原始列表分解为多个较小的子列表来改进插入排序，每个子列表使用插入排序进行排序。 选择这些子列表的方式是希尔排序的关键。不是将列表拆分为连续项的子列表，希尔排序使用增量i（有时称为 <code>gap</code>），通过选择 i 个项的所有项来创建子列表。</p>
+<p>这可以在 Figure 6 中看到。该列表有九个项。如果我们使用三的增量，有三个子列表，每个子列表可以通过插入排序进行排序。完成这些排序后，我们得到如 Figure 7 所示的列表。虽然这个列表没有完全排序，但发生了很有趣的事情。 通过排序子列表，我们已将项目移动到更接近他们实际所属的位置。</p>
+<p><img src="/assets/5.10.shell%E6%8E%92%E5%BA%8F.figure6.png" alt="5.10.希尔排序.figure6"></p>
+<p><em>Figure 6-7</em></p>
+<p>Figure 8 展示了使用增量为 1 的插入排序; 换句话说，标准插入排序。注意，通过执行之前的子列表排序，我们减少了将列表置于其最终顺序所需的移位操作的总数。对于这种情况，我们只需要四次移位完成该过程。</p>
+<p><img src="/assets/5.10.shell%E6%8E%92%E5%BA%8F.figure8.png" alt="5.10.希尔排序.figure8"></p>
+<p><em>Figure 8</em></p>
+<p><img src="/assets/5.10.shell%E6%8E%92%E5%BA%8F.figure9.png" alt="5.10.希尔排序.figure9"></p>
+<p><em>Figure 9</em></p>
+<p>我们之前说过，增量的选择方式是希尔排序的独特特征。 ActiveCode 1中展示的函数使用不同的增量集。在这种情况下，我们从 n&#x2F;2 子列表开始。下一次，n&#x2F;4 子列表排序。 最后，单个列表按照基本插入排序进行排序。 Figure 9 展示了我们使用此增量的示例的第一个子列表。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">shellSort</span>(<span class="params">alist</span>):</span><br><span class="line">    sublistcount = <span class="built_in">len</span>(alist)//<span class="number">2</span></span><br><span class="line">    <span class="keyword">while</span> sublistcount &gt; <span class="number">0</span>:</span><br><span class="line"></span><br><span class="line">      <span class="keyword">for</span> startposition <span class="keyword">in</span> <span class="built_in">range</span>(sublistcount):</span><br><span class="line">        gapInsertionSort(alist,startposition,sublistcount)</span><br><span class="line"></span><br><span class="line">      <span class="built_in">print</span>(<span class="string">&quot;After increments of size&quot;</span>,sublistcount,</span><br><span class="line">                                   <span class="string">&quot;The list is&quot;</span>,alist)</span><br><span class="line"></span><br><span class="line">      sublistcount = sublistcount // <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gapInsertionSort</span>(<span class="params">alist,start,gap</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(start+gap,<span class="built_in">len</span>(alist),gap):</span><br><span class="line"></span><br><span class="line">        currentvalue = alist[i]</span><br><span class="line">        position = i</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> position&gt;=gap <span class="keyword">and</span> alist[position-gap]&gt;currentvalue:</span><br><span class="line">            alist[position]=alist[position-gap]</span><br><span class="line">            position = position-gap</span><br><span class="line"></span><br><span class="line">        alist[position]=currentvalue</span><br><span class="line"></span><br><span class="line">alist = [<span class="number">54</span>,<span class="number">26</span>,<span class="number">93</span>,<span class="number">17</span>,<span class="number">77</span>,<span class="number">31</span>,<span class="number">44</span>,<span class="number">55</span>,<span class="number">20</span>]</span><br><span class="line">shellSort(alist)</span><br><span class="line"><span class="built_in">print</span>(alist)</span><br></pre></td></tr></table></figure>
+
+<p><em>Activecode 1</em></p>
+<p>乍一看，你可能认为希尔排序不会比插入排序更好，因为它最后一步执行了完整的插入排序。 然而，结果是，该最终插入排序不需要进行非常多的比较（或移位），因为如上所述，该列表已经被较早的增量插入排序预排序。 换句话说，每个遍历产生比前一个“更有序”的列表。 这使得最终遍历非常有效。</p>
+<p>虽然对希尔排序的一般分析远远超出了本文的范围，我们可以说，它倾向于落在 $$O(n)$$ 和 $$O(n^2)$$ 之间的某处，基于以上所描述的行为。对于 Listing 5中显示的增量，性能为 $$O(n^2)$$ 。 通过改变增量，例如使用<code>2^k -1（1,3,7,15,31等等）</code>，希尔排序可以在 $$O(n^{\frac{3}{2}})$$处执行。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.10.%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/README/" data-id="clxzhp6jx001o1s8ja4e21spw" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/06/29/python-data-structure-cn/5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.11.%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/README/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/06/29/python-data-structure-cn/5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.1.%E7%9B%AE%E6%A0%87/README/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.9.%E5%AE%9E%E7%8E%B0%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.8.%E6%9E%84%E5%BB%BA%E5%AD%97%E6%A2%AF%E5%9B%BE/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.7.%E5%AD%97%E6%A2%AF%E7%9A%84%E9%97%AE%E9%A2%98/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.6.%E5%AE%9E%E7%8E%B0/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.5.%E9%82%BB%E6%8E%A5%E8%A1%A8/README/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 FLITl<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>FLITl的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="3.23.实现有序列表为了实现有序列表，我们必须记住项的相对位置是基于一些潜在的特性。上面给出的整数的有序列表17,26,31,54,77 和 93 可以由 Figure 15 所示的链接结构表示。节点和链接结构表示项的相对位置。  Figure 15 为了实现 OrderedList 类，我们将使用与前面看到的无序列表相同的技术。再次，head 的引用为 None 表示为空链表（参见 Listi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FLITl的博客">
+<meta property="og:url" content="http://jackfrued.top/2024/06/29/python-data-structure-cn/3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.23.%E5%AE%9E%E7%8E%B0%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8/README/index.html">
+<meta property="og:site_name" content="FLITl的博客">
+<meta property="og:description" content="3.23.实现有序列表为了实现有序列表，我们必须记住项的相对位置是基于一些潜在的特性。上面给出的整数的有序列表17,26,31,54,77 和 93 可以由 Figure 15 所示的链接结构表示。节点和链接结构表示项的相对位置。  Figure 15 为了实现 OrderedList 类，我们将使用与前面看到的无序列表相同的技术。再次，head 的引用为 None 表示为空链表（参见 Listi">
+<meta property="og:locale">
+<meta property="og:image" content="http://jackfrued.top/assets/3.23.%E5%AE%9E%E7%8E%B0%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8.figure15.png">
+<meta property="og:image" content="http://jackfrued.top/assets/3.23.%E5%AE%9E%E7%8E%B0%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8.figure16.png">
+<meta property="og:image" content="http://jackfrued.top/assets/3.23.%E5%AE%9E%E7%8E%B0%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8.figure17.png">
+<meta property="article:published_time" content="2024-06-29T02:14:12.580Z">
+<meta property="article:modified_time" content="2024-05-15T03:24:19.043Z">
+<meta property="article:author" content="FLITl">
+<meta property="article:tag" content="反思，技术，生活">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://jackfrued.top/assets/3.23.%E5%AE%9E%E7%8E%B0%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8.figure15.png">
+  
+    <link rel="alternate" href="/atom.xml" title="FLITl的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">FLITl的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">天命之谓性；率性之谓道；修道之谓教。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://jackfrued.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-python-data-structure-cn/3.基本数据结构/3.23.实现有序列表/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.23.%E5%AE%9E%E7%8E%B0%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.580Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="3-23-实现有序列表"><a href="#3-23-实现有序列表" class="headerlink" title="3.23.实现有序列表"></a>3.23.实现有序列表</h2><p>为了实现有序列表，我们必须记住项的相对位置是基于一些潜在的特性。上面给出的整数的有序列表<code>17,26,31,54,77</code> 和 <code>93</code> 可以由 Figure 15 所示的链接结构表示。节点和链接结构表示项的相对位置。</p>
+<p><img src="/assets/3.23.%E5%AE%9E%E7%8E%B0%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8.figure15.png" alt="3.23.实现有序列表.figure15"></p>
+<p><em>Figure 15</em></p>
+<p>为了实现 OrderedList 类，我们将使用与前面看到的无序列表相同的技术。再次，<code>head</code> 的引用为 <code>None</code> 表示为空链表（参见 Listing 8）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">OrderedList</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.head = <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+<p><em>Listing 8</em></p>
+<p>当我们考虑有序列表的操作时，我们应该注意，<code>isEmpty</code> 和<code>size</code> 方法可以与无序列表一样实现，因为它们只处理链表中的节点数量，而不考虑实际项值。同样，<code>remove</code> 方法将正常工作，因为我们仍然需要找到该项，然后删除它。剩下的两个方法，<code>search</code> 和 <code>add</code>，将需要一些修改。</p>
+<p>搜索无序列表需要我们一次遍历一个节点，直到找到我们正在寻找的节点或者没找到节点（None）。事实证明，相同的方法在有序列表也有效。然而，在项不在链表中的情况下，我们可以利用该顺序来尽快停止搜索。</p>
+<p>例如，Figure 16 展示了有序链表搜索值 45 。从链表的头部开始遍历，首先与 <code>17</code> 进行比较。由于 <code>17</code> 不是我们正在寻找的项，移动到下一个节点 <code>26</code> 。再次，这不是我们想要的，继续到 <code>31</code>，然后再到 <code>54</code> 。在这一点上，有一些不同。由于 <code>54</code> 不是我们正在寻找的项，我们以前的方法是继续向前迭代。然而，由于这是有序列表，一旦节点中的值变得大于我们正在搜索的项，搜索就可以停止并返回 False 。该项不可能存在于后面的链表中。</p>
+<p><img src="/assets/3.23.%E5%AE%9E%E7%8E%B0%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8.figure16.png" alt="3.23.实现有序列表.figure16"></p>
+<p><em>Figure 16</em></p>
+<p>Listing 9 展示了完整的搜索方法。通过添加另一个布尔变量 <code>stop</code> 并将其初始化为 <code>False</code>（第4行），很容易合并上述新条件。 当 <code>stop</code> 是<code>False</code>（不停止）时，我们可以继续在列表中前进（第5行）。如果发现任何节点包含大于我们正在寻找的项的数据，我们将 <code>stop</code> 设置为 <code>True</code>（第9-10行）。其余行与无序列表搜索相同。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">search</span>(<span class="params">self,item</span>):</span><br><span class="line">    current = self.head</span><br><span class="line">    found = <span class="literal">False</span></span><br><span class="line">    stop = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">while</span> current != <span class="literal">None</span> <span class="keyword">and</span> <span class="keyword">not</span> found <span class="keyword">and</span> <span class="keyword">not</span> stop:</span><br><span class="line">        <span class="keyword">if</span> current.getData() == item:</span><br><span class="line">            found = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> current.getData() &gt; item:</span><br><span class="line">                stop = <span class="literal">True</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                current = current.getNext()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> found</span><br></pre></td></tr></table></figure>
+
+<p><em>Listing 9</em></p>
+<p>最重要的需要修改的方法是 <code>add</code>。 回想一下，对于无序列表，<code>add</code> 方法可以简单地将新节点放置在链表的头部。 这是最简单的访问点。 不幸的是，这将不再适用于有序列表。需要在现有的有序列表中查找新项所属的特定位置。</p>
+<p>假设我们有由 <code>17,26,54,77</code> 和 <code>93</code> 组成的有序列表，并且我们要添加值<code>31</code> 。 <code>add</code> 方法必须确定新项属于 <code>26</code> 到 <code>54</code> 之间。Figure 17 展示了我们需要的设置。正如我们前面解释的，我们需要遍历链表，寻找添加新节点的地方。我们知道，当我们迭代完节点（ <code>current</code> 变为 None）或 <code>current</code> 节点的值变得大于我们希望添加的项时，我们就找到了该位置。在我们的例子中，看到值 <code>54</code> 我们停止迭代。</p>
+<p><img src="/assets/3.23.%E5%AE%9E%E7%8E%B0%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8.figure17.png" alt="3.23.实现有序列表.figure17"></p>
+<p><em>Figure 17</em></p>
+<p>正如我们看到的无序列表，有必要有一个额外的引用，再次称为 <code>previous</code>，因为 <code>current</code> 不会提供对修改的节点的访问。 Listing 10 展示了完整的<code>add</code> 方法。 行 2-3 设置两个外部引用，行 9-10 允许 <code>previous</code> 每次通过迭代跟随 <code>current</code> 节点后面 。 条件（行5）允许迭代继续，只要有更多的节点，并且当前节点中的值不大于该项。 在任一种情况下，当迭代失败时，我们找到了新节点的位置。</p>
+<p>该方法的其余部分完成 Figure17 所示的两步过程。一旦为该项创建了新节点，剩下的唯一问题是新节点是否将被添加在链表的开始处或某个中间位置。再次，<code>previous == None</code>（第13行）可以用来提供答案。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">self,item</span>):</span><br><span class="line">    current = self.head</span><br><span class="line">    previous = <span class="literal">None</span></span><br><span class="line">    stop = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">while</span> current != <span class="literal">None</span> <span class="keyword">and</span> <span class="keyword">not</span> stop:</span><br><span class="line">        <span class="keyword">if</span> current.getData() &gt; item:</span><br><span class="line">            stop = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            previous = current</span><br><span class="line">            current = current.getNext()</span><br><span class="line"></span><br><span class="line">    temp = Node(item)</span><br><span class="line">    <span class="keyword">if</span> previous == <span class="literal">None</span>:</span><br><span class="line">        temp.setNext(self.head)</span><br><span class="line">        self.head = temp</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        temp.setNext(current)</span><br><span class="line">        previous.setNext(temp)</span><br></pre></td></tr></table></figure>
+
+<p><em>Listing 10</em></p>
+<h3 id="3-23-1-链表分析"><a href="#3-23-1-链表分析" class="headerlink" title="3.23.1.链表分析"></a>3.23.1.链表分析</h3><p>为了分析链表操作的复杂性，我们需要考虑它们是否需要遍历。考虑具有 n 个节点的链表。 <code>isEmpty</code> 方法是 $$O(1)$$，因为它需要一个步骤来检查头的引用为 <code>None</code>。另一方面，<code>size</code> 将总是需要 n 个步骤，因为不从头到尾地移动没法知道有多少节点在链表中。因此，长度为 $$O(n)$$。将项添加到无序列表始终是 $$O(1)$$，因为我们只是将新节点放置在链表的头部。但是，搜索和删除，以及添加有序列表，都需要遍历过程。虽然平均他们可能只需要遍历节点的一半，这些方法都是 $$O(n)$$，因为在最坏的情况下，都将处理列表中的每个节点。</p>
+<p>你可能还注意到此实现的性能与早前针对 Python 列表给出的实际性能不同。这表明链表不是 Python 列表的实现方式。 Python 列表的实际实现基于数组的概念。我们在第 8 章中更详细地讨论这个问题。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.23.%E5%AE%9E%E7%8E%B0%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8/README/" data-id="clxzhp6js000w1s8jf265an7a" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/06/29/python-data-structure-cn/3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.24.%E6%80%BB%E7%BB%93/README/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/06/29/python-data-structure-cn/3.%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.22.%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/README/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.9.%E5%AE%9E%E7%8E%B0%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.8.%E6%9E%84%E5%BB%BA%E5%AD%97%E6%A2%AF%E5%9B%BE/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.7.%E5%AD%97%E6%A2%AF%E7%9A%84%E9%97%AE%E9%A2%98/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.6.%E5%AE%9E%E7%8E%B0/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.5.%E9%82%BB%E6%8E%A5%E8%A1%A8/README/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 FLITl<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

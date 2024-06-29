@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>FLITl的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="一些感想，一些技术，一些生活。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FLITl的博客">
+<meta property="og:url" content="http://jackfrued.top/page/6/index.html">
+<meta property="og:site_name" content="FLITl的博客">
+<meta property="og:description" content="一些感想，一些技术，一些生活。">
+<meta property="og:locale">
+<meta property="article:author" content="FLITl">
+<meta property="article:tag" content="反思，技术，生活">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="FLITl的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">FLITl的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">天命之谓性；率性之谓道；修道之谓教。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://jackfrued.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-python-data-structure-cn/5.排序和搜索/5.13.总结/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.13.%E6%80%BB%E7%BB%93/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.782Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="5-13-总结"><a href="#5-13-总结" class="headerlink" title="5.13.总结"></a>5.13.总结</h2><ul>
+<li>对于有序和无序列表，顺序搜索是 $$O(n)$$。</li>
+<li>在最坏的情况下，有序列表的二分查找是 $$O(logn)$$。</li>
+<li>哈希表可以提供恒定时间搜索。</li>
+<li>冒泡排序，选择排序和插入排序是 $$O(n^2)$$算法。</li>
+<li>希尔排序通过排序增量子列表来改进插入排序。它落在 $$O(n)$$ 和 $$O(n^2)$$ 之间。</li>
+<li>归并排序是 $$O(nlogn)$$，但是合并过程需要额外的空间。</li>
+<li>快速排序是 $$O(nlogn)$$，但如果分割点不在列表中间附近，可能会降级到$$O(n^2)$$ 。它不需要额外的空间。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.13.%E6%80%BB%E7%BB%93/README/" data-id="clxzhp6jy001r1s8j122n9tmh" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/5.排序和搜索/5.12.快速排序/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.12.%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.770Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="5-12-快速排序"><a href="#5-12-快速排序" class="headerlink" title="5.12.快速排序"></a>5.12.快速排序</h2><p>快速排序使用分而治之来获得与归并排序相同的优点，而不使用额外的存储。然而，作为权衡，有可能列表不能被分成两半。当这种情况发生时，我们将看到性能降低。</p>
+<p>快速排序首先选择一个值，该值称为 <code>枢轴值</code>。虽然有很多不同的方法来选择枢轴值，我们将使用列表中的第一项。枢轴值的作用是帮助拆分列表。枢轴值属于最终排序列表（通常称为拆分点）的实际位置，将用于将列表划分为快速排序的后续调用。</p>
+<p>Figure 12 展示 54 将作为我们的第一个枢纽值。由于我们已经看过这个例子几次，我们知道 54 最终将会在当前持有 31 的位置。接下来将发生分区过程。它将找到拆分点，同时将其他项移动到列表的适当侧，小于或大于枢轴值。</p>
+<p><img src="/assets/5.12.%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.figure12.png" alt="5.12.快速排序.figure12"></p>
+<p><em>Figure 12</em></p>
+<p>分区从通过在列表中剩余项目的开始和结束处定位两个位置标记（我们称为左标记和右标记）开始（Figure 13中的位置 1 和 8 ）。分区的目标是移动相对于枢轴值位于错误侧的项，同时也收敛于分裂点。 Figure13展示了我们定位54的位置的过程。</p>
+<p><img src="/assets/5.12.%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.figure13.png" alt="5.12.快速排序.figure13"></p>
+<p><em>Figure 13</em></p>
+<p>我们首先增加左标记，直到我们找到一个大于枢轴值的值。 然后我们递减右标，直到我们找到小于枢轴值的值。我们发现了两个相对于最终分裂点位置不适当的项。 对于我们的例子，这发生在 93 和 20。现在我们可以交换这两个项目，然后重复该过程。</p>
+<p>在右标变得小于左标记的点，我们停止。右标记的位置现在是分割点。枢轴值可以与拆分点的内容交换，枢轴值现在就位（Figure 14）。 此外，分割点左侧的所有项都小于枢轴值，分割点右侧的所有项都大于枢轴值。现在可以在分割点处划分列表，并且可以在两半上递归调用快速排序。</p>
+<p><img src="/assets/5.12.%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.figure14.png" alt="5.12.快速排序.figure14"></p>
+<p><em>Figure14</em></p>
+<p>ActiveCode 1中显示 <code>quickSort</code> 函数调用递归函数<code>quickSortHelper</code>。 <code>quickSortHelper</code> 以与合并排序相同的基本情况开始。如果列表的长度小于或等于一，它已经排序。 如果它更大，那么它可以被分区和递归排序。 分区函数实现前面描述的过程。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">quickSort</span>(<span class="params">alist</span>):</span><br><span class="line">   quickSortHelper(alist,<span class="number">0</span>,<span class="built_in">len</span>(alist)-<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">quickSortHelper</span>(<span class="params">alist,first,last</span>):</span><br><span class="line">   <span class="keyword">if</span> first&lt;last:</span><br><span class="line"></span><br><span class="line">       splitpoint = partition(alist,first,last)</span><br><span class="line"></span><br><span class="line">       quickSortHelper(alist,first,splitpoint-<span class="number">1</span>)</span><br><span class="line">       quickSortHelper(alist,splitpoint+<span class="number">1</span>,last)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">partition</span>(<span class="params">alist,first,last</span>):</span><br><span class="line">   pivotvalue = alist[first]</span><br><span class="line"></span><br><span class="line">   leftmark = first+<span class="number">1</span></span><br><span class="line">   rightmark = last</span><br><span class="line"></span><br><span class="line">   done = <span class="literal">False</span></span><br><span class="line">   <span class="keyword">while</span> <span class="keyword">not</span> done:</span><br><span class="line"></span><br><span class="line">       <span class="keyword">while</span> leftmark &lt;= rightmark <span class="keyword">and</span> alist[leftmark] &lt;= pivotvalue:</span><br><span class="line">           leftmark = leftmark + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">       <span class="keyword">while</span> alist[rightmark] &gt;= pivotvalue <span class="keyword">and</span> rightmark &gt;= leftmark:</span><br><span class="line">           rightmark = rightmark -<span class="number">1</span></span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span> rightmark &lt; leftmark:</span><br><span class="line">           done = <span class="literal">True</span></span><br><span class="line">       <span class="keyword">else</span>:</span><br><span class="line">           temp = alist[leftmark]</span><br><span class="line">           alist[leftmark] = alist[rightmark]</span><br><span class="line">           alist[rightmark] = temp</span><br><span class="line"></span><br><span class="line">   temp = alist[first]</span><br><span class="line">   alist[first] = alist[rightmark]</span><br><span class="line">   alist[rightmark] = temp</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> rightmark</span><br><span class="line"></span><br><span class="line">alist = [<span class="number">54</span>,<span class="number">26</span>,<span class="number">93</span>,<span class="number">17</span>,<span class="number">77</span>,<span class="number">31</span>,<span class="number">44</span>,<span class="number">55</span>,<span class="number">20</span>]</span><br><span class="line">quickSort(alist)</span><br><span class="line"><span class="built_in">print</span>(alist)</span><br></pre></td></tr></table></figure>
+
+<p>要分析 <code>quickSort</code> 函数，请注意，对于长度为 n 的列表，如果分区总是出现在列表中间，则会再次出现 log⁡n 分区。为了找到分割点，需要针对枢轴值检查 n 个项中的每一个。结果是 nlog⁡n。此外，在归并排序过程中不需要额外的存储器。</p>
+<p>不幸的是，在最坏的情况下，分裂点可能不在中间，并且可能非常偏向左边或右边，留下非常不均匀的分割。在这种情况下，对 n 个项的列表进行排序划分为对0 个项的列表和 n-1 个项目的列表进行排序。然后将 n-1 个划分的列表排序为大小为0的列表和大小为 n-2 的列表，以此类推。结果是具有递归所需的所有开销的 $$O(n^2)$$ 排序。</p>
+<p>我们之前提到过，有不同的方法来选择枢纽值。特别地，我们可以尝试通过使用称为中值三的技术来减轻一些不均匀分割的可能性。要选择枢轴值，我们将考虑列表中的第一个，中间和最后一个元素。在我们的示例中，这些是54,77和20.现在选择中值，在我们的示例中为54，并将其用于枢轴值（当然，这是我们最初使用的枢轴值）。想法是，在列表中的第一项不属于列表的中间的情况下，中值三将选择更好的“中间”值。当原始列表部分有序时，这将特别有用。我们将此枢轴值选择的实现作为练习。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.12.%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/README/" data-id="clxzhp6jy001p1s8j4f1cd4ui" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/5.排序和搜索/5.11.归并排序/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.11.%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.761Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="5-11-归并排序"><a href="#5-11-归并排序" class="headerlink" title="5.11.归并排序"></a>5.11.归并排序</h2><p>我们现在将注意力转向使用分而治之策略作为提高排序算法性能的一种方法。 我们将研究的第一个算法是归并排序。归并排序是一种递归算法，不断将列表拆分为一半。 如果列表为空或有一个项，则按定义（基本情况）进行排序。如果列表有多个项，我们分割列表，并递归调用两个半部分的合并排序。 一旦对这两半排序完成，就执行称为合并的基本操作。合并是获取两个较小的排序列表并将它们组合成单个排序的新列表的过程。 Figure 10 展示了我们熟悉的示例列表，它被mergeSort 分割。 Figure 11 展示了归并后的简单排序列表。</p>
+<p><img src="/assets/5.11.%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.figure10.png" alt="5.11.归并排序.figure10"></p>
+<p><em>Figure 10</em><br><img src="/assets/5.11.%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.figure11.png" alt="5.11.归并排序.figure11"></p>
+<p><em>Figure 11</em></p>
+<p>ActiveCode 1 中展示的 <code>mergeSort</code> 函数从询问基本情况开始。 如果列表的长度小于或等于1，则我们已经有有序的列表，并且不需要更多的处理。另一方面，长度大于 1，那么我们使用 Python 切片操作来提取左右两半。 重要的是要注意，列表可能没有偶数个项。这并不重要，因为长度最多相差一个。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">mergeSort</span>(<span class="params">alist</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Splitting &quot;</span>,alist)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(alist)&gt;<span class="number">1</span>:</span><br><span class="line">        mid = <span class="built_in">len</span>(alist)//<span class="number">2</span></span><br><span class="line">        lefthalf = alist[:mid]</span><br><span class="line">        righthalf = alist[mid:]</span><br><span class="line"></span><br><span class="line">        mergeSort(lefthalf)</span><br><span class="line">        mergeSort(righthalf)</span><br><span class="line"></span><br><span class="line">        i=<span class="number">0</span></span><br><span class="line">        j=<span class="number">0</span></span><br><span class="line">        k=<span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; <span class="built_in">len</span>(lefthalf) <span class="keyword">and</span> j &lt; <span class="built_in">len</span>(righthalf):</span><br><span class="line">            <span class="keyword">if</span> lefthalf[i] &lt; righthalf[j]:</span><br><span class="line">                alist[k]=lefthalf[i]</span><br><span class="line">                i=i+<span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                alist[k]=righthalf[j]</span><br><span class="line">                j=j+<span class="number">1</span></span><br><span class="line">            k=k+<span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> i &lt; <span class="built_in">len</span>(lefthalf):</span><br><span class="line">            alist[k]=lefthalf[i]</span><br><span class="line">            i=i+<span class="number">1</span></span><br><span class="line">            k=k+<span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> j &lt; <span class="built_in">len</span>(righthalf):</span><br><span class="line">            alist[k]=righthalf[j]</span><br><span class="line">            j=j+<span class="number">1</span></span><br><span class="line">            k=k+<span class="number">1</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Merging &quot;</span>,alist)</span><br><span class="line"></span><br><span class="line">alist = [<span class="number">54</span>,<span class="number">26</span>,<span class="number">93</span>,<span class="number">17</span>,<span class="number">77</span>,<span class="number">31</span>,<span class="number">44</span>,<span class="number">55</span>,<span class="number">20</span>]</span><br><span class="line">mergeSort(alist)</span><br><span class="line"><span class="built_in">print</span>(alist)</span><br></pre></td></tr></table></figure>
+
+<p><em>Activecode1</em></p>
+<p>一旦在左半部分和右半部分（行8-9）上调用 mergeSort 函数，就假定它们已被排序。函数的其余部分（行11-31）负责将两个较小的排序列表合并成一个较大的排序列表。请注意，合并操作通过重复从排序列表中取最小的项目，将项目逐个放回原始列表（alist）。</p>
+<p>mergeSort 函数已经增加了一个打印语句（行2），以显示在每次调用开始时排序的列表的内容。 还有一个打印语句（第32行）来显示合并过程。 脚本显示了在我们的示例列表中执行函数的结果。 请注意，<code>44,55</code> 和 <code>20 </code>的列表不会均匀分配。第一个分割出 [44]，第二个 [55,20]。 很容易看到分割过程最终产生可以立即与其他排序列表合并的列表。</p>
+<p>为了分析 mergeSort 函数，我们需要考虑组成其实现的两个不同的过程。首先，列表被分成两半。我们已经计算过（在二分查找中）将列表划分为一半需要 log^n 次，其中 n 是列表的长度。第二个过程是合并。列表中的每个项将最终被处理并放置在排序的列表上。因此，大小为 n 的列表的合并操作需要 n 个操作。此分析的结果是 $$logn$$ 的拆分，其中每个操作花费 n，总共 $$nlogn$$ 。归并排序是一种 $$O(nlogn)$$ 算法。</p>
+<p>回想切片 是 $$O(k)$$，其中 k 是切片的大小。为了保证 mergeSort 是 $$O(nlogn)$$，我们将需要删除 slice 运算符。这是可能的，如果当我们进行递归调用，我们简单地传递开始和结束索引与列表。我们把这作为一个练习。</p>
+<p>重要的是注意，mergeSort 函数需要额外的空间来保存两个半部分，因为它们是使用切片操作提取的。如果列表很大，这个额外的空间可能是一个关键因素，并且在处理大型数据集时可能会导致此类问题。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.11.%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/README/" data-id="clxzhp6jy001q1s8jekdvb1cb" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/5.排序和搜索/5.10.希尔排序/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.10.%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.750Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="5-10-希尔排序"><a href="#5-10-希尔排序" class="headerlink" title="5.10.希尔排序"></a>5.10.希尔排序</h2><p>希尔排序（有时称为“递减递增排序”）通过将原始列表分解为多个较小的子列表来改进插入排序，每个子列表使用插入排序进行排序。 选择这些子列表的方式是希尔排序的关键。不是将列表拆分为连续项的子列表，希尔排序使用增量i（有时称为 <code>gap</code>），通过选择 i 个项的所有项来创建子列表。</p>
+<p>这可以在 Figure 6 中看到。该列表有九个项。如果我们使用三的增量，有三个子列表，每个子列表可以通过插入排序进行排序。完成这些排序后，我们得到如 Figure 7 所示的列表。虽然这个列表没有完全排序，但发生了很有趣的事情。 通过排序子列表，我们已将项目移动到更接近他们实际所属的位置。</p>
+<p><img src="/assets/5.10.shell%E6%8E%92%E5%BA%8F.figure6.png" alt="5.10.希尔排序.figure6"></p>
+<p><em>Figure 6-7</em></p>
+<p>Figure 8 展示了使用增量为 1 的插入排序; 换句话说，标准插入排序。注意，通过执行之前的子列表排序，我们减少了将列表置于其最终顺序所需的移位操作的总数。对于这种情况，我们只需要四次移位完成该过程。</p>
+<p><img src="/assets/5.10.shell%E6%8E%92%E5%BA%8F.figure8.png" alt="5.10.希尔排序.figure8"></p>
+<p><em>Figure 8</em></p>
+<p><img src="/assets/5.10.shell%E6%8E%92%E5%BA%8F.figure9.png" alt="5.10.希尔排序.figure9"></p>
+<p><em>Figure 9</em></p>
+<p>我们之前说过，增量的选择方式是希尔排序的独特特征。 ActiveCode 1中展示的函数使用不同的增量集。在这种情况下，我们从 n&#x2F;2 子列表开始。下一次，n&#x2F;4 子列表排序。 最后，单个列表按照基本插入排序进行排序。 Figure 9 展示了我们使用此增量的示例的第一个子列表。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">shellSort</span>(<span class="params">alist</span>):</span><br><span class="line">    sublistcount = <span class="built_in">len</span>(alist)//<span class="number">2</span></span><br><span class="line">    <span class="keyword">while</span> sublistcount &gt; <span class="number">0</span>:</span><br><span class="line"></span><br><span class="line">      <span class="keyword">for</span> startposition <span class="keyword">in</span> <span class="built_in">range</span>(sublistcount):</span><br><span class="line">        gapInsertionSort(alist,startposition,sublistcount)</span><br><span class="line"></span><br><span class="line">      <span class="built_in">print</span>(<span class="string">&quot;After increments of size&quot;</span>,sublistcount,</span><br><span class="line">                                   <span class="string">&quot;The list is&quot;</span>,alist)</span><br><span class="line"></span><br><span class="line">      sublistcount = sublistcount // <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gapInsertionSort</span>(<span class="params">alist,start,gap</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(start+gap,<span class="built_in">len</span>(alist),gap):</span><br><span class="line"></span><br><span class="line">        currentvalue = alist[i]</span><br><span class="line">        position = i</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> position&gt;=gap <span class="keyword">and</span> alist[position-gap]&gt;currentvalue:</span><br><span class="line">            alist[position]=alist[position-gap]</span><br><span class="line">            position = position-gap</span><br><span class="line"></span><br><span class="line">        alist[position]=currentvalue</span><br><span class="line"></span><br><span class="line">alist = [<span class="number">54</span>,<span class="number">26</span>,<span class="number">93</span>,<span class="number">17</span>,<span class="number">77</span>,<span class="number">31</span>,<span class="number">44</span>,<span class="number">55</span>,<span class="number">20</span>]</span><br><span class="line">shellSort(alist)</span><br><span class="line"><span class="built_in">print</span>(alist)</span><br></pre></td></tr></table></figure>
+
+<p><em>Activecode 1</em></p>
+<p>乍一看，你可能认为希尔排序不会比插入排序更好，因为它最后一步执行了完整的插入排序。 然而，结果是，该最终插入排序不需要进行非常多的比较（或移位），因为如上所述，该列表已经被较早的增量插入排序预排序。 换句话说，每个遍历产生比前一个“更有序”的列表。 这使得最终遍历非常有效。</p>
+<p>虽然对希尔排序的一般分析远远超出了本文的范围，我们可以说，它倾向于落在 $$O(n)$$ 和 $$O(n^2)$$ 之间的某处，基于以上所描述的行为。对于 Listing 5中显示的增量，性能为 $$O(n^2)$$ 。 通过改变增量，例如使用<code>2^k -1（1,3,7,15,31等等）</code>，希尔排序可以在 $$O(n^{\frac{3}{2}})$$处执行。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.10.%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/README/" data-id="clxzhp6jx001o1s8ja4e21spw" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/5.排序和搜索/5.1.目标/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.1.%E7%9B%AE%E6%A0%87/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.745Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="5-1-目标"><a href="#5-1-目标" class="headerlink" title="5.1.目标"></a>5.1.目标</h2><ul>
+<li>能够解释和实现顺序查找和二分查找。</li>
+<li>能够解释和实现选择排序，冒泡排序，归并排序，快速排序，插入排序和希尔排序。</li>
+<li>理解哈希作为搜索技术的思想。</li>
+<li>引入映射抽象数据类型。</li>
+<li>使用哈希实现 Map 抽象数据类型。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/5.%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/5.1.%E7%9B%AE%E6%A0%87/README/" data-id="clxzhp6jx001n1s8jcd0q7x90" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/4.递归/4.9.复杂递归问题/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.9.%E5%A4%8D%E6%9D%82%E9%80%92%E5%BD%92%E9%97%AE%E9%A2%98/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.739Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="4-9。-复杂递归问题"><a href="#4-9。-复杂递归问题" class="headerlink" title="4.9。 复杂递归问题"></a>4.9。 复杂递归问题</h2><p>在前面的章节中，我们讨论了一些相对容易解决的问题，以及一些有趣的问题，可以帮助我们理解递归算法中运用到的模型以及发生了什么。在本节中，我们将看到一些使用迭代编程风格难以解决的问题，但是它们能非常优雅，并且很容易使用递归来解决。我们将通过查看一个欺骗性的问题，最初看起来好像有一个优雅的递归解决方案，但实际上没有。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.9.%E5%A4%8D%E6%9D%82%E9%80%92%E5%BD%92%E9%97%AE%E9%A2%98/README/" data-id="clxzhp6jw001j1s8j47aoahqi" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/4.递归/4.8.谢尔宾斯基三角形/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.8.%E8%B0%A2%E5%B0%94%E5%AE%BE%E6%96%AF%E5%9F%BA%E4%B8%89%E8%A7%92%E5%BD%A2/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.729Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="4-8-谢尔宾斯基三角形"><a href="#4-8-谢尔宾斯基三角形" class="headerlink" title="4.8.谢尔宾斯基三角形"></a>4.8.谢尔宾斯基三角形</h2><p>另一个展现自相似性的分形是谢尔宾斯基三角形。 Figure 3 是一个示例。谢尔宾斯基三角形阐明了三路递归算法。用手绘制谢尔宾斯基三角形的过程很简单。 从一个大三角形开始。通过连接每一边的中点，将这个大三角形分成四个新的三角形。忽略刚刚创建的中间三角形，对三个小三角形中的每一个应用相同的过程。 每次创建一组新的三角形时，都会将此过程递归应用于三个较小的角三角形。 如果你有足够的铅笔，你可以无限重复这个过程。在继续阅读之前，你可以尝试运用所描述的方法自己绘制谢尔宾斯基三角形。</p>
+<p><img src="/assets/4.8.%E8%B0%A2%E5%B0%94%E5%AE%BE%E6%96%AF%E5%9F%BA%E4%B8%89%E8%A7%92%E5%BD%A2.figure3.png" alt="4.8.谢尔宾斯基三角形.figure3"></p>
+<p><em>Figure 3</em></p>
+<p>因为我们可以无限地应用算法，什么是基本情况？ 我们将看到，基本情况被任意设置为我们想要将三角形划分成块的次数。有时我们把这个数字称为分形的“度”。 每次我们进行递归调用时，我们从度中减去 1，直到 0。当我们达到 0 度时，我们停止递归。在 Figure 3 中生成谢尔宾斯基三角形的代码见 ActiveCode 1。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> turtle</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">drawTriangle</span>(<span class="params">points,color,myTurtle</span>):</span><br><span class="line">    myTurtle.fillcolor(color)</span><br><span class="line">    myTurtle.up()</span><br><span class="line">    myTurtle.goto(points[<span class="number">0</span>][<span class="number">0</span>],points[<span class="number">0</span>][<span class="number">1</span>])</span><br><span class="line">    myTurtle.down()</span><br><span class="line">    myTurtle.begin_fill()</span><br><span class="line">    myTurtle.goto(points[<span class="number">1</span>][<span class="number">0</span>],points[<span class="number">1</span>][<span class="number">1</span>])</span><br><span class="line">    myTurtle.goto(points[<span class="number">2</span>][<span class="number">0</span>],points[<span class="number">2</span>][<span class="number">1</span>])</span><br><span class="line">    myTurtle.goto(points[<span class="number">0</span>][<span class="number">0</span>],points[<span class="number">0</span>][<span class="number">1</span>])</span><br><span class="line">    myTurtle.end_fill()</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getMid</span>(<span class="params">p1,p2</span>):</span><br><span class="line">    <span class="keyword">return</span> ( (p1[<span class="number">0</span>]+p2[<span class="number">0</span>]) / <span class="number">2</span>, (p1[<span class="number">1</span>] + p2[<span class="number">1</span>]) / <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sierpinski</span>(<span class="params">points,degree,myTurtle</span>):</span><br><span class="line">    colormap = [<span class="string">&#x27;blue&#x27;</span>,<span class="string">&#x27;red&#x27;</span>,<span class="string">&#x27;green&#x27;</span>,<span class="string">&#x27;white&#x27;</span>,<span class="string">&#x27;yellow&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;violet&#x27;</span>,<span class="string">&#x27;orange&#x27;</span>]</span><br><span class="line">    drawTriangle(points,colormap[degree],myTurtle)</span><br><span class="line">    <span class="keyword">if</span> degree &gt; <span class="number">0</span>:</span><br><span class="line">        sierpinski([points[<span class="number">0</span>],</span><br><span class="line">                        getMid(points[<span class="number">0</span>], points[<span class="number">1</span>]),</span><br><span class="line">                        getMid(points[<span class="number">0</span>], points[<span class="number">2</span>])],</span><br><span class="line">                   degree-<span class="number">1</span>, myTurtle)</span><br><span class="line">        sierpinski([points[<span class="number">1</span>],</span><br><span class="line">                        getMid(points[<span class="number">0</span>], points[<span class="number">1</span>]),</span><br><span class="line">                        getMid(points[<span class="number">1</span>], points[<span class="number">2</span>])],</span><br><span class="line">                   degree-<span class="number">1</span>, myTurtle)</span><br><span class="line">        sierpinski([points[<span class="number">2</span>],</span><br><span class="line">                        getMid(points[<span class="number">2</span>], points[<span class="number">1</span>]),</span><br><span class="line">                        getMid(points[<span class="number">0</span>], points[<span class="number">2</span>])],</span><br><span class="line">                   degree-<span class="number">1</span>, myTurtle)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">   myTurtle = turtle.Turtle()</span><br><span class="line">   myWin = turtle.Screen()</span><br><span class="line">   myPoints = [[-<span class="number">100</span>,-<span class="number">50</span>],[<span class="number">0</span>,<span class="number">100</span>],[<span class="number">100</span>,-<span class="number">50</span>]]</span><br><span class="line">   sierpinski(myPoints,<span class="number">3</span>,myTurtle)</span><br><span class="line">   myWin.exitonclick()</span><br><span class="line"></span><br><span class="line">main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><em>Activecode 1</em></p>
+<p>ActiveCode 1 中的程序遵循上述概念。谢尔宾斯基的第一件事是绘制外三角形。接下来，有三个递归调用，每个使我们在连接中点获得新的三角形。我们再次使用 Python 附带的 <code>turtle</code> 模块。你可以通过使用 <code>help(&#39;turtle&#39;)</code> 了解 <code>turtle</code> 可用方法的详细信息。</p>
+<p>看下代码，想想绘制三角形的顺序。虽然三角的确切顺序取决于如何指定初始集，我们假设三角按左下，上，右下顺序。由于谢尔宾斯基函数调用自身，谢尔宾斯基以它的方式递归到左下角最小的三角形，然后开始填充其余的三角形。填充左下角顶角中的小三角形。最后，它填充在左下角中右下角的最小三角形。</p>
+<p>有时，根据函数调用图来考虑递归算法是有帮助的。Figure 4 展示了递归调用总是向左移动。活动函数以黑色显示，非活动函数显示为灰色。向 Figure 4 底部越近，三角形越小。该功能一次完成一次绘制; 一旦它完成了绘制，它移动到左下方底部中间位置，然后继续这个过程。</p>
+<p><img src="/assets/4.8.%E8%B0%A2%E5%B0%94%E5%AE%BE%E6%96%AF%E5%9F%BA%E4%B8%89%E8%A7%92%E5%BD%A2.figure4.png" alt="4.8.谢尔宾斯基三角形.figure4"></p>
+<p><em>Figure 4</em></p>
+<p>谢尔宾斯基函数在很大程度上依赖于 <code>getMid</code> 函数。 <code>getMid</code> 接受两个端点作为参数，并返回它们之间的中点。 此外，ActiveCode 1 还有一个函数，使用 <code>begin_fill</code> 和 <code>end_fill</code> 方法绘制填充一个三角形。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.8.%E8%B0%A2%E5%B0%94%E5%AE%BE%E6%96%AF%E5%9F%BA%E4%B8%89%E8%A7%92%E5%BD%A2/README/" data-id="clxzhp6jv001e1s8jb7ts81fs" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/4.递归/4.7.介绍：可视化递归/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.7.%E4%BB%8B%E7%BB%8D%EF%BC%9A%E5%8F%AF%E8%A7%86%E5%8C%96%E9%80%92%E5%BD%92/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.718Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="4-7-介绍：可视化递归"><a href="#4-7-介绍：可视化递归" class="headerlink" title="4.7.介绍：可视化递归"></a>4.7.介绍：可视化递归</h2><p>在上一节中，我们讨论了一些使用递归很容易解决的问题; 然而，我们可能很难找到一个模型或一种可视化方法知道在递归函数中发生了什么。这使得递归难以让人掌握。在本节中，我们将看到几个使用递归绘制一些有趣图片的例子。当你看到这些图片的形状，你会对递归过程有新的认识，可能有助于巩固你对递归理解。</p>
+<p>我们使用的插图的工具是 Python 的 <code>turtle</code> 模块称为 <code>turtle</code>。<code>turtle</code> 是 Python 所有版本的标准库，并且非常易于使用。比喻很简单。你可以创建一只乌龟，乌龟能前进，后退，左转，右转等。乌龟可以让它的尾巴或上或下。当乌龟的尾巴向下，它移动时会画一条线。为了增加乌龟的艺术价值，你可以改变尾巴的宽度以及尾巴浸入的墨水的颜色。</p>
+<p>这里有一个简单的例子来说明龟图形基础。我们将使用 <code>turtle</code> 模块递归绘制螺旋。 见 ActiveCode 1。导入 <code>turtle</code> 模块后，我们创建一个乌龟。当乌龟被创建时，它也创建一个窗口来绘制。接下来我们定义 <code>drawSpir​​al</code> 函数。这个简单函数的基本情况是当我们想要绘制的线的长度（由 len 参数给出）减小到零或更小时。如果线的长度大于零，我们让乌龟以 len 单位前进，然后向右转 90 度。当我们再次调用 <code>drawSpir​​al</code> 并缩短长度时递归。在ActiveCode 1 结束时，你会注意到我们调用函数 <code>myWin.exitonclick()</code>，这是一个方便的缩小窗口的方法，使乌龟进入等待模式，直到你单击窗口，然后程序清理并退出。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> turtle</span><br><span class="line"></span><br><span class="line">myTurtle = turtle.Turtle()</span><br><span class="line">myWin = turtle.Screen()</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">drawSpiral</span>(<span class="params">myTurtle, lineLen</span>):</span><br><span class="line">    <span class="keyword">if</span> lineLen &gt; <span class="number">0</span>:</span><br><span class="line">        myTurtle.forward(lineLen)</span><br><span class="line">        myTurtle.right(<span class="number">90</span>)</span><br><span class="line">        drawSpiral(myTurtle,lineLen-<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">drawSpiral(myTurtle,<span class="number">100</span>)</span><br><span class="line">myWin.exitonclick()</span><br></pre></td></tr></table></figure>
+
+<p>这是关于你知道的所有龟图形，以制作一些令人印象深刻的涂鸦。我们的下一个程序，将绘制一个分形树。分形来自数学的一个分支，并且与递归有很多共同之处。分形的定义是，当你看着它时，无论你放大多少，分形有相同的基本形状。大自然的一些例子是大陆的海岸线，雪花，山脉，甚至树木或灌木。这些自然现象中的许多的分形性质使得程序员能够为计算机生成的电影生成非常逼真的风景。在我们的下一个例子中，将生成一个分形树。</p>
+<p>要理解这如何工作，需要想一想如何使用分形词汇来描述树。记住，我们上面说过，分形是在所有不同的放大倍率下看起来是一样的。如果我们将它翻译成树木和灌木，我们可能会说，即使一个小树枝也有一个整体树的相同的形状和特征。有了这个想法，我们可以说一棵树是树干，一棵较小的树向右走，另一棵较小的树向左走。如果你用递归的思想考虑这个定义，这意味着我们将树的递归定义应用到较小的左树和右树。</p>
+<p>让我们把这个想法转换成一些 Python 代码。Listing 1 展示了如何使用我们的乌龟来生成分形树。让我们更仔细地看一下代码。你会看到在第 5 行和第 7 行，我们正在进行递归调用。在第 5 行，我们在乌龟向右转 20 度之后立即进行递归调用;这是上面提到的右树。然后在第 7 行，乌龟进行另一个递归调用，但这一次后左转 40 度。乌龟必须向左转 40 度的原因是，它需要撤消原来的向右转 20 度，然后再向左转 20 度，以绘制左树。还要注意，每次我们对树进行递归调用时，我们从 <code>branchLen</code> 参数中减去一些量; 这是为了确保递归树越来越小。你还应该看到到第 2 行的初始 if 语句是检查 <code>branchLen</code> 的基本情况大小。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">tree</span>(<span class="params">branchLen,t</span>):</span><br><span class="line">    <span class="keyword">if</span> branchLen &gt; <span class="number">5</span>:</span><br><span class="line">        t.forward(branchLen)</span><br><span class="line">        t.right(<span class="number">20</span>)</span><br><span class="line">        tree(branchLen-<span class="number">15</span>,t)</span><br><span class="line">        t.left(<span class="number">40</span>)</span><br><span class="line">        tree(branchLen-<span class="number">10</span>,t)</span><br><span class="line">        t.right(<span class="number">20</span>)</span><br><span class="line">        t.backward(branchLen)</span><br></pre></td></tr></table></figure>
+
+<p><em>Listing 1</em></p>
+<p>此树示例的完整程序在 ActiveCode 2 中。在运行代码之前，请思考你希望看到的树形状。看着递归调用，并想想这棵树将如何展开。它会对称地绘制树的右半边和左半边吗？ 它会先绘制右侧然后左侧？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> turtle</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">tree</span>(<span class="params">branchLen,t</span>):</span><br><span class="line">    <span class="keyword">if</span> branchLen &gt; <span class="number">5</span>:</span><br><span class="line">        t.forward(branchLen)</span><br><span class="line">        t.right(<span class="number">20</span>)</span><br><span class="line">        tree(branchLen-<span class="number">15</span>,t)</span><br><span class="line">        t.left(<span class="number">40</span>)</span><br><span class="line">        tree(branchLen-<span class="number">15</span>,t)</span><br><span class="line">        t.right(<span class="number">20</span>)</span><br><span class="line">        t.backward(branchLen)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    t = turtle.Turtle()</span><br><span class="line">    myWin = turtle.Screen()</span><br><span class="line">    t.left(<span class="number">90</span>)</span><br><span class="line">    t.up()</span><br><span class="line">    t.backward(<span class="number">100</span>)</span><br><span class="line">    t.down()</span><br><span class="line">    t.color(<span class="string">&quot;green&quot;</span>)</span><br><span class="line">    tree(<span class="number">75</span>,t)</span><br><span class="line">    myWin.exitonclick()</span><br><span class="line"></span><br><span class="line">main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><em>Activecode 2</em></p>
+<p><img src="/assets/4.7.%E4%BB%8B%E7%BB%8D%EF%BC%9A%E5%8F%AF%E8%A7%86%E5%8C%96%E9%80%92%E5%BD%92.ac1.png" alt="4.7.介绍：可视化递归.a"></p>
+<p>注意树上的每个分支点如何对应于递归调用，并注意树的右半部分如何一直绘制到它的最短的树枝。你可以在 Figure 1 中看到这一点。现在，注意程序如何工作，它的方式是直到树的整个右侧绘制完成回到树干。你可以在 Figure 2 中看到树的右半部分。然后绘制树的左侧，但不是尽可能远地向左移动。相反，直到我们进入到左树最小的枝干，左树的右半部分才开始绘制。</p>
+<p><img src="/assets/4.7.%E4%BB%8B%E7%BB%8D%EF%BC%9A%E5%8F%AF%E8%A7%86%E5%8C%96%E9%80%92%E5%BD%92.figure1.png" alt="4.7.介绍：可视化递归.figure1"></p>
+<p><em>Figure 1</em></p>
+<p><img src="/assets/4.7.%E4%BB%8B%E7%BB%8D%EF%BC%9A%E5%8F%AF%E8%A7%86%E5%8C%96%E9%80%92%E5%BD%92.figure2.png" alt="4.7.介绍：可视化递归.figure2"><br><em>Figure 2</em></p>
+<p>这个简单的树程序只是一个起点，你会注意到树看起来不是特别现实，因为自然不像计算机程序那样对称。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.7.%E4%BB%8B%E7%BB%8D%EF%BC%9A%E5%8F%AF%E8%A7%86%E5%8C%96%E9%80%92%E5%BD%92/README/" data-id="clxzhp6jv001a1s8j2qzs22a1" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/4.递归/4.6.栈帧：实现递归/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.6.%E6%A0%88%E5%B8%A7%EF%BC%9A%E5%AE%9E%E7%8E%B0%E9%80%92%E5%BD%92/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.708Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="4-6-栈帧：实现递归"><a href="#4-6-栈帧：实现递归" class="headerlink" title="4.6.栈帧：实现递归"></a>4.6.栈帧：实现递归</h2><p>假设不是将递归调用的结果与来自 convertString 的字符串拼接到 toStr，我们修改了算法，以便在进行递归调用之前将字符串入栈。此修改的算法的代码展示在 ActiveCode 1 中。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pythonds.basic.stack <span class="keyword">import</span> Stack</span><br><span class="line"></span><br><span class="line">rStack = Stack()</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">toStr</span>(<span class="params">n,base</span>):</span><br><span class="line">    convertString = <span class="string">&quot;0123456789ABCDEF&quot;</span></span><br><span class="line">    <span class="keyword">while</span> n &gt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">if</span> n &lt; base:</span><br><span class="line">            rStack.push(convertString[n])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            rStack.push(convertString[n % base])</span><br><span class="line">        n = n // base</span><br><span class="line">    res = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> rStack.isEmpty():</span><br><span class="line">        res = res + <span class="built_in">str</span>(rStack.pop())</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(toStr(<span class="number">1453</span>,<span class="number">16</span>))</span><br></pre></td></tr></table></figure>
+
+<p><em>ActiveCode 1</em></p>
+<p>每次我们调用 toStr，我们在栈上推入一个字符。回到前面的例子，我们可以看到在第四次调用 toStr 之后，栈看起来像 Figure 5 。注意，现在我们可以简单地将字符从栈中弹出，并将它们连接成最终结果 “1010”。</p>
+<p><img src="/assets/4.6.%E6%A0%88%E5%B8%A7%EF%BC%9A%E5%AE%9E%E7%8E%B0%E9%80%92%E5%BD%92.figure5.png" alt="4.6.栈帧：实现递归.figure5"></p>
+<p><em>Figure 5</em></p>
+<p>前面的例子让我们了解了 Python 如何实现一个递归函数调用。 当在 Python 中调用函数时，会分配一个栈来处理函数的局部变量。当函数返回时，返回值留在栈的顶部，以供调用函数访问。 Figure 6 说明了第 4 行返回语句后的调用栈。</p>
+<p><img src="/assets/4.6.%E6%A0%88%E5%B8%A7%EF%BC%9A%E5%AE%9E%E7%8E%B0%E9%80%92%E5%BD%92.figure6.png" alt="4.6.栈帧：实现递归.figure6"></p>
+<p><em>Figure 6</em></p>
+<p>注意，对 <code>toStr(2//2,2)</code> 的调用在栈上返回值为 “1”。 然后，在表达式 <code>“1” + convertString[2％2]</code> 中使用此返回值替换函数调用<code>(toStr(1,2))</code>，这将在栈顶部留下字符串 “10”。 这样，Python 调用栈就代替了我们在 Listing 4 中明确使用的栈。在我们的列表求和示例中，你可以认为栈上的返回值取代了累加器变量。</p>
+<p>栈帧还为函数使用的变量提供了一个作用域。 即使我们重复地调用相同的函数，每次调用都会为函数本地的变量创建一个新的作用域。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.6.%E6%A0%88%E5%B8%A7%EF%BC%9A%E5%AE%9E%E7%8E%B0%E9%80%92%E5%BD%92/README/" data-id="clxzhp6jv001d1s8j7q8jalvd" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python-data-structure-cn/4.递归/4.5.整数转换为任意进制字符串/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.5.%E6%95%B4%E6%95%B0%E8%BD%AC%E6%8D%A2%E4%B8%BA%E4%BB%BB%E6%84%8F%E8%BF%9B%E5%88%B6%E5%AD%97%E7%AC%A6%E4%B8%B2/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.702Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="4-5-整数转换为任意进制字符串"><a href="#4-5-整数转换为任意进制字符串" class="headerlink" title="4.5.整数转换为任意进制字符串"></a>4.5.整数转换为任意进制字符串</h2><p>假设你想将一个整数转换为一个二进制和十六进制字符串。例如，将整数 <code>10</code> 转换为十进制字符串表示为 <code>10</code>，或将其字符串表示为二进制 <code>1010</code>。虽然有很多算法来解决这个问题，包括在栈部分讨论的算法，但递归的解决方法非常优雅。</p>
+<p>让我们看一个十进制数 <code>769</code> 的具体示例。假设我们有一个对应于前 <code>10</code> 位数的字符序列，例如 <code>convString =“0123456789”</code>。 通过在序列中查找，很容易将小于 <code>10</code> 的数字转换为其等效的字符串。例如，如果数字为 <code>9</code> ，则字符串为 convString[9] 或 “9”。如果我们将数字 <code>769</code> 分成三个单个位数字，<code>7</code>，<code>6</code> 和 <code>9</code>，那么将其转换为字符串很简单。数字小于 10 听起来像一个好的基本情况。</p>
+<p>知道我们的基本情况是什么意味着整个算法将分成三个部分：</p>
+<ol>
+<li>将原始数字减少为一系列单个位数字。</li>
+<li>使用查找将单个位数字数字转换为字符串。</li>
+<li>将单个位字符串连接在一起以形成最终结果。</li>
+</ol>
+<p>下一步是找到改变其状态的方法并向基本情况靠近。由于我们示例为整数，所以考虑什么数学运算可以减少一个数字。最可能的候选是除法和减法。虽然减法可能可以实现，但我们不清楚应该减去多少。使用余数的整数除法为我们提供了一个明确的方向。让我们看看如果我们将一个数字除以我们试图转换的基数，会发生什么。</p>
+<p>使用整数除法将 <code>769</code> 除以 <code>10</code> ，我们得到 <code>76</code>，余数为 <code>9</code>。这给了我们两个好的结果。首先，余数是小于我们的基数的数字，可以通过查找立即转换为字符串。第二，我们得到的商小于原始数字，并让我们靠近具有小于基数的单个数字的基本情况。现在我们的工作是将 <code>76</code> 转换为其字符串表示。再次，我们使用商和余数分别获得 <code>7</code> 和 <code>6</code> 的结果。最后，我们将问题减少到转换 <code>7</code>，我们可以很容易地做到，因为它满足 <code>n &lt; base</code> 的基本条件，其中 <code>base = 10</code>。我们刚刚执行的一系列操作如 Figure 3 所示。请注意，余数位于图右侧框中。</p>
+<p><img src="/assets/4.5.%E6%95%B4%E6%95%B0%E8%BD%AC%E6%8D%A2%E4%B8%BA%E4%BB%BB%E6%84%8F%E8%BF%9B%E5%88%B6%E5%AD%97%E7%AC%A6%E4%B8%B2.figure3.png" alt="4.5.整数转换为任意进制字符串.figure3"></p>
+<p><em>Figure 3</em></p>
+<p>ActiveCode 1 展示了实现上述算法的 Python 代码， 以 2 到 16 之间的任何基数为参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">toStr</span>(<span class="params">n,base</span>):</span><br><span class="line">   convertString = <span class="string">&quot;0123456789ABCDEF&quot;</span></span><br><span class="line">   <span class="keyword">if</span> n &lt; base:</span><br><span class="line">      <span class="keyword">return</span> convertString[n]</span><br><span class="line">   <span class="keyword">else</span>:</span><br><span class="line">      <span class="keyword">return</span> toStr(n//base,base) + convertString[n%base]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(toStr(<span class="number">1453</span>,<span class="number">16</span>))</span><br></pre></td></tr></table></figure>
+
+<p>请注意，在第 3 行中，我们检查基本情况，其中 n 小于我们要转换的基数。 当我们检测到基本情况时，我们停止递归，并简单地从 convertString 序列返回字符串。 在第 6 行中，我们满足第二和第三定律 - 递归调用和减少除法问题大小。</p>
+<p>让我们再次跟踪算法; 这次我们将数字 10 转换为其基数为 2 的字符串（“1010”）。</p>
+<p><img src="/assets/4.5.%E6%95%B4%E6%95%B0%E8%BD%AC%E6%8D%A2%E4%B8%BA%E4%BB%BB%E6%84%8F%E8%BF%9B%E5%88%B6%E5%AD%97%E7%AC%A6%E4%B8%B2.figure4.png" alt="4.5.整数转换为任意进制字符串.figure4"></p>
+<p><em>Figure 4</em></p>
+<p>Figure 4 显示我们得到的结果，但看起来数字是错误的顺序。该算法是正确的，因为我们首先在第 6 行进行递归调用，然后我们添加余数的字符串形式。 如果我们反向返回 <code>convertString</code> 查找并返回 <code>toStr</code> 调用，则生成的字符串将是反向的！通过延后连接操作直到递归调用返回，我们可以得到正确顺序的结果。这应该能使你想起你在上一章中讨论的栈。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.5.%E6%95%B4%E6%95%B0%E8%BD%AC%E6%8D%A2%E4%B8%BA%E4%BB%BB%E6%84%8F%E8%BF%9B%E5%88%B6%E5%AD%97%E7%AC%A6%E4%B8%B2/README/" data-id="clxzhp6jv001b1s8jh68l08pl" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.9.%E5%AE%9E%E7%8E%B0%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.8.%E6%9E%84%E5%BB%BA%E5%AD%97%E6%A2%AF%E5%9B%BE/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.7.%E5%AD%97%E6%A2%AF%E7%9A%84%E9%97%AE%E9%A2%98/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.6.%E5%AE%9E%E7%8E%B0/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.5.%E9%82%BB%E6%8E%A5%E8%A1%A8/README/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 FLITl<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

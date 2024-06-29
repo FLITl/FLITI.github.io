@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>FLITl的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="4.12.动态规划计算机科学中的许多程序是为了优化一些值而编写的; 例如，找到两个点之间的最短路径，找到最适合一组点的线，或找到满足某些标准的最小对象集。计算机科学家使用许多策略来解决这些问题。本书的目标之一是向你展示几种不同的解决问题的策略。动态规划 是这些类型的优化问题的一个策略。 优化问题的典型例子包括使用最少的硬币找零。假设你是一个自动售货机制造商的程序员。你的公司希望通过给每个交易最少硬">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FLITl的博客">
+<meta property="og:url" content="http://jackfrued.top/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.12.%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/README/index.html">
+<meta property="og:site_name" content="FLITl的博客">
+<meta property="og:description" content="4.12.动态规划计算机科学中的许多程序是为了优化一些值而编写的; 例如，找到两个点之间的最短路径，找到最适合一组点的线，或找到满足某些标准的最小对象集。计算机科学家使用许多策略来解决这些问题。本书的目标之一是向你展示几种不同的解决问题的策略。动态规划 是这些类型的优化问题的一个策略。 优化问题的典型例子包括使用最少的硬币找零。假设你是一个自动售货机制造商的程序员。你的公司希望通过给每个交易最少硬">
+<meta property="og:locale">
+<meta property="og:image" content="http://jackfrued.top/assets/4.12.%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.1.png">
+<meta property="og:image" content="http://jackfrued.top/assets/4.12.%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.figure5.png">
+<meta property="og:image" content="http://jackfrued.top/assets/4.12.%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.figure6.png">
+<meta property="article:published_time" content="2024-06-29T02:14:12.670Z">
+<meta property="article:modified_time" content="2024-05-15T03:24:19.060Z">
+<meta property="article:author" content="FLITl">
+<meta property="article:tag" content="反思，技术，生活">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://jackfrued.top/assets/4.12.%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="FLITl的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">FLITl的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">天命之谓性；率性之谓道；修道之谓教。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://jackfrued.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-python-data-structure-cn/4.递归/4.12.动态规划/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.12.%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/README/" class="article-date">
+  <time class="dt-published" datetime="2024-06-29T02:14:12.670Z" itemprop="datePublished">2024-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="4-12-动态规划"><a href="#4-12-动态规划" class="headerlink" title="4.12.动态规划"></a>4.12.动态规划</h2><p>计算机科学中的许多程序是为了优化一些值而编写的; 例如，找到两个点之间的最短路径，找到最适合一组点的线，或找到满足某些标准的最小对象集。计算机科学家使用许多策略来解决这些问题。本书的目标之一是向你展示几种不同的解决问题的策略。<code>动态规划</code> 是这些类型的优化问题的一个策略。</p>
+<p>优化问题的典型例子包括使用最少的硬币找零。假设你是一个自动售货机制造商的程序员。你的公司希望通过给每个交易最少硬币来简化工作。假设客户放入 1 美元的钞票并购买 37 美分的商品。你可以用来找零的最小数量的硬币是多少？答案是六个硬币：两个 25 美分，一个 10美分 和 三个一美分。我们如何得到六个硬币的答案？我们从最大的硬币（25 美分）开始，并尽可能多，然后我们去找下一个小点的硬币，并尽可能多的使用它们。这第一种方法被称为贪婪方法，因为我们试图尽快解决尽可能大的问题。</p>
+<p>当我们使用美国货币时，贪婪的方法工作正常，但是假设你的公司决定在埃尔博尼亚部署自动贩卖机，除了通常的 1，5，10 和 25 分硬币，他们还有一个 21 分硬币 。在这种情况下，我们的贪婪的方法找不到 63 美分的最佳解决方案。 随着加入 21分硬币，贪婪的方法仍然会找到解决方案是六个硬币。然而，最佳答案是三个 21 分。</p>
+<p>让我们看一个方法，我们可以确定会找到问题的最佳答案。由于这一节是关于递归的，你可能已经猜到我们将使用递归解决方案。让我们从基本情况开始，如果我们可以与我们硬币的价值相同的金额找零，答案很容易，一个硬币。</p>
+<p>如果金额不匹配，我们有几个选项。我们想要的是最低一个一分钱加上原始金额减去一分钱所需的硬币数量，或者一个 5 美分加上原始金额减去 5 美分所需的硬币数量，或者一个 10 美分加上原始金额减去 10 美分所需的硬币数量，等等。因此，需要对原始金额找零硬币数量可以根据下式计算：</p>
+<p><img src="/assets/4.12.%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.1.png" alt="4.12.动态规划.1"></p>
+<p>执行我们刚才描述的算法如 Listing 7 所示。在第 3 行，我们检查基本情况;也就是说，我们正试图支付硬币的确切金额。如果我们没有等于找零数量的硬币，我们递归调用每个小于找零额的不同的硬币值。第 6 行显示了我们如何使用列表推导将硬币列表过滤到小于当前找零的硬币列表。递归调用也减少了由所选硬币的值所需要的总找零量。递归调用在第 7 行。注意在同一行，我们将硬币数 <code>+1</code> ，以说明我们正在使用一个硬币的事实。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">recMC</span>(<span class="params">coinValueList,change</span>):</span><br><span class="line">   minCoins = change</span><br><span class="line">   <span class="keyword">if</span> change <span class="keyword">in</span> coinValueList:</span><br><span class="line">     <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">   <span class="keyword">else</span>:</span><br><span class="line">      <span class="keyword">for</span> i <span class="keyword">in</span> [c <span class="keyword">for</span> c <span class="keyword">in</span> coinValueList <span class="keyword">if</span> c &lt;= change]:</span><br><span class="line">         numCoins = <span class="number">1</span> + recMC(coinValueList,change-i)</span><br><span class="line">         <span class="keyword">if</span> numCoins &lt; minCoins:</span><br><span class="line">            minCoins = numCoins</span><br><span class="line">   <span class="keyword">return</span> minCoins</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(recMC([<span class="number">1</span>,<span class="number">5</span>,<span class="number">10</span>,<span class="number">25</span>],<span class="number">63</span>))</span><br></pre></td></tr></table></figure>
+
+<p><em>Listing 7</em></p>
+<p>Listing 7 中的算法是非常低效的。事实上，它需要 <code>67,716,925</code> 个递归调用来找到 4 个硬币的最佳解决 63 美分问题的方案。要理解我们方法中的致命缺陷，请参见 Figure 5，其中显示了 377 个函数调用所需的一小部分，找到支付 26 美分的最佳硬币。</p>
+<p>图中的每个节点对应于对 <code>recMC</code> 的调用。节点上的标签表示硬币数量的变化量。箭头上的标签表示我们刚刚使用的硬币。通过跟随图表，我们可以看到硬币的组合。主要的问题是我们重复做了太多的计算。例如，该图表示该算法重复计算了至少三次支付 15 美分。这些计算找到 15 美分的最佳硬币数量的步骤本身需要52个函数调用。显然，我们浪费了大量的时间和精力重新计算旧的结果。</p>
+<p><img src="/assets/4.12.%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.figure5.png" alt="4.12.动态规划.figure5"></p>
+<p><em>Figure 5</em></p>
+<p>减少我们工作量的关键是记住一些过去的结果，这样我们可以避免重新计算我们已经知道的结果。一个简单的解决方案是将最小数量的硬币的结果存储在表中。然后在计算新的最小值之前，我们首先检查表，看看结果是否已知。如果表中已有结果，我们使用表中的值，而不是重新计算。 ActiveCode 1 显示了一个修改的算法，以合并我们的表查找方案。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">recDC</span>(<span class="params">coinValueList,change,knownResults</span>):</span><br><span class="line">   minCoins = change</span><br><span class="line">   <span class="keyword">if</span> change <span class="keyword">in</span> coinValueList:</span><br><span class="line">      knownResults[change] = <span class="number">1</span></span><br><span class="line">      <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">   <span class="keyword">elif</span> knownResults[change] &gt; <span class="number">0</span>:</span><br><span class="line">      <span class="keyword">return</span> knownResults[change]</span><br><span class="line">   <span class="keyword">else</span>:</span><br><span class="line">       <span class="keyword">for</span> i <span class="keyword">in</span> [c <span class="keyword">for</span> c <span class="keyword">in</span> coinValueList <span class="keyword">if</span> c &lt;= change]:</span><br><span class="line">         numCoins = <span class="number">1</span> + recDC(coinValueList, change-i,</span><br><span class="line">                              knownResults)</span><br><span class="line">         <span class="keyword">if</span> numCoins &lt; minCoins:</span><br><span class="line">            minCoins = numCoins</span><br><span class="line">            knownResults[change] = minCoins</span><br><span class="line">   <span class="keyword">return</span> minCoins</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(recDC([<span class="number">1</span>,<span class="number">5</span>,<span class="number">10</span>,<span class="number">25</span>],<span class="number">63</span>,[<span class="number">0</span>]*<span class="number">64</span>))</span><br></pre></td></tr></table></figure>
+
+<p><em>ActiveCode 1</em></p>
+<p>注意，在第 6 行中，我们添加了一个测试，看看我们的列表是否包含此找零的最小硬币数量。如果没有，我们递归计算最小值，并将计算出的最小值存储在列表中。使用这个修改的算法减少了我们需要为四个硬币递归调用的数量，63美分问题只需 221 次调用！</p>
+<p>虽然 AcitveCode 1 中的算法是正确的。事实上，我们所做的不是动态规划，而是我们通过使用称为 <code>记忆化</code> 的技术来提高我们的程序的性能，或者更常见的叫做 <code>缓存</code>。</p>
+<p>一个真正的动态编程算法将采取更系统的方法来解决这个问题。我们的动态编程解决方案将从找零一分钱开始，并系统地找到我们需要的找零额。这保证我们在算法的每一步，已经知道为任何更小的数量进行找零所需的最小硬币数量。</p>
+<p>让我们看看如何找到 11 美分所需的最小找零数量。Figure 4 说明了该过程。我们从一分钱开始。唯一的解决方案是一个硬币（一分钱）。下一行显示一分和两分的最小值。再次，唯一的解决方案是两分钱。第五行事情变得有趣。现在我们有两个选择，五个一分钱或一个五分钱。我们如何决定哪个是最好的？我们查阅表，看到需要找零四美分的硬币数量是四，再加一个一分钱是五，等于五个硬币。或者我们可以尝试 0 分加一个五分，五分钱等于一个硬币。由于一和五最小的是一，我们在表中存储为一。再次快进到表的末尾，考虑 11 美分。Figure 5 展示了我们要考虑的三个选项：</p>
+<ol>
+<li>一个一分钱加上 <code>11-1 = 10分（1）</code> 的最小硬币数</li>
+<li>一个五分钱加上 <code>11-5 = 6分（2）</code>的最小硬币数</li>
+<li>一个十分钱加上 <code>11-10 = 1 分（1）</code>最小硬币数</li>
+</ol>
+<p>选项 1 或 3 总共需要两个硬币，这是 11 美分的最小硬币数。<br><img src="/assets/4.12.%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.figure6.png" alt="4.12.动态规划.figure6"></p>
+<p>Listing 8 用一个动态规划算法来解决我们的找零问题。 <code>dpMakeChange</code> 有三个参数：一个有效硬币值的列表，我们要求的找零额，以及一个包含每个值所需最小硬币数量的列表。 当函数完成时，<code>minCoins</code> 将包含从 0 到找零值的所有值的解。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">dpMakeChange</span>(<span class="params">coinValueList,change,minCoins</span>):</span><br><span class="line">   <span class="keyword">for</span> cents <span class="keyword">in</span> <span class="built_in">range</span>(change+<span class="number">1</span>):</span><br><span class="line">      coinCount = cents</span><br><span class="line">      <span class="keyword">for</span> j <span class="keyword">in</span> [c <span class="keyword">for</span> c <span class="keyword">in</span> coinValueList <span class="keyword">if</span> c &lt;= cents]:</span><br><span class="line">            <span class="keyword">if</span> minCoins[cents-j] + <span class="number">1</span> &lt; coinCount:</span><br><span class="line">               coinCount = minCoins[cents-j]+<span class="number">1</span></span><br><span class="line">      minCoins[cents] = coinCount</span><br><span class="line">   <span class="keyword">return</span> minCoins[change]</span><br></pre></td></tr></table></figure>
+
+<p><em>Listing 8</em></p>
+<p>注意，<code>dpMakeChange</code> 不是递归函数，即使我们开始使用递归解决这个问题。重要的是要意识到，你可以为问题写一个递归解决方案但并不意味着它是最好的或最有效的解决方案。在这个函数中的大部分工作是通过从第 4 行开始的循环来完成的。在这个循环中，我们考虑使用所有可能的硬币对指定的金额进行找零。就像我们上面的 11 分的例子，我们记住最小值，并将其存储在我们的 <code>minCoins</code> 列表。</p>
+<p>虽然我们的找零算法很好地找出最小数量的硬币，但它不帮助我们找零，因为我们不跟踪我们使用的硬币。我们可以轻松地扩展 <code>dpMakeChange</code> 来跟踪硬币使用，只需记住我们为每个条目添加的最后一个硬币到 <code>minCoins</code> 表。如果我们知道添加的最后一个硬币值，我们可以简单地减去硬币的值，在表中找到前一个条目，找到该金额的最后一个硬币。我们可以通过表继续跟踪，直到我们开始的位置。</p>
+<p>ActiveCode 2 展示了 <code>dpMakeChange</code> 算法修改为跟踪使用的硬币，以及一个函数 <code>printCoins</code> 通过表打印出使用的每个硬币的值。前两行主要设置要找零的金额，并创建使用的硬币列表。 接下来的两行创建了我们需要存储结果的列表。<code>coinsUsed</code> 是用于找零的硬币的列表，并且 <code>coinCount</code> 是与列表中的位置相对应进行找零的最小硬币数。</p>
+<p>注意，我们打印的硬币直接来自 <code>coinsUsed</code> 数组。对于第一次调用，我们从数组位置 <code>63</code> 开始，然后打印 <code>21</code>。然后我们取 <code>63-21 = 42</code>，看看列表的第 42 个元素。我们再次找到 21 存储在那里。 最后，数组第 21 个元素21 也包含 21，得到三个 21。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">dpMakeChange</span>(<span class="params">coinValueList,change,minCoins,coinsUsed</span>):</span><br><span class="line">   <span class="keyword">for</span> cents <span class="keyword">in</span> <span class="built_in">range</span>(change+<span class="number">1</span>):</span><br><span class="line">      coinCount = cents</span><br><span class="line">      newCoin = <span class="number">1</span></span><br><span class="line">      <span class="keyword">for</span> j <span class="keyword">in</span> [c <span class="keyword">for</span> c <span class="keyword">in</span> coinValueList <span class="keyword">if</span> c &lt;= cents]:</span><br><span class="line">            <span class="keyword">if</span> minCoins[cents-j] + <span class="number">1</span> &lt; coinCount:</span><br><span class="line">               coinCount = minCoins[cents-j]+<span class="number">1</span></span><br><span class="line">               newCoin = j</span><br><span class="line">      minCoins[cents] = coinCount</span><br><span class="line">      coinsUsed[cents] = newCoin</span><br><span class="line">   <span class="keyword">return</span> minCoins[change]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">printCoins</span>(<span class="params">coinsUsed,change</span>):</span><br><span class="line">   coin = change</span><br><span class="line">   <span class="keyword">while</span> coin &gt; <span class="number">0</span>:</span><br><span class="line">      thisCoin = coinsUsed[coin]</span><br><span class="line">      <span class="built_in">print</span>(thisCoin)</span><br><span class="line">      coin = coin - thisCoin</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    amnt = <span class="number">63</span></span><br><span class="line">    clist = [<span class="number">1</span>,<span class="number">5</span>,<span class="number">10</span>,<span class="number">21</span>,<span class="number">25</span>]</span><br><span class="line">    coinsUsed = [<span class="number">0</span>]*(amnt+<span class="number">1</span>)</span><br><span class="line">    coinCount = [<span class="number">0</span>]*(amnt+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Making change for&quot;</span>,amnt,<span class="string">&quot;requires&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(dpMakeChange(clist,amnt,coinCount,coinsUsed),<span class="string">&quot;coins&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;They are:&quot;</span>)</span><br><span class="line">    printCoins(coinsUsed,amnt)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;The used list is as follows:&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(coinsUsed)</span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
+
+<p><em>AcitveCode 2</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Making change <span class="keyword">for</span> <span class="number">63</span> requires</span><br><span class="line"><span class="number">3</span> coins</span><br><span class="line">They are:</span><br><span class="line"><span class="number">21</span></span><br><span class="line"><span class="number">21</span></span><br><span class="line"><span class="number">21</span></span><br><span class="line">The used <span class="built_in">list</span> <span class="keyword">is</span> <span class="keyword">as</span> follows:</span><br><span class="line">[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">10</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">10</span>, <span class="number">21</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">25</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">10</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">21</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">10</span>, <span class="number">21</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">25</span>, <span class="number">1</span>, <span class="number">10</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">10</span>, <span class="number">1</span>, <span class="number">10</span>, <span class="number">21</span>]</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.12.%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/README/" data-id="clxzhp6ju00161s8jb6i2bun0" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.13.%E6%80%BB%E7%BB%93/README/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/06/29/python-data-structure-cn/4.%E9%80%92%E5%BD%92/4.11.%E6%8E%A2%E7%B4%A2%E8%BF%B7%E5%AE%AB/README/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.9.%E5%AE%9E%E7%8E%B0%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.8.%E6%9E%84%E5%BB%BA%E5%AD%97%E6%A2%AF%E5%9B%BE/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.7.%E5%AD%97%E6%A2%AF%E7%9A%84%E9%97%AE%E9%A2%98/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.6.%E5%AE%9E%E7%8E%B0/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.5.%E9%82%BB%E6%8E%A5%E8%A1%A8/README/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 FLITl<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
