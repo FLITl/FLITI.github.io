@@ -68,10 +68,10 @@
         
           <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
         
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://jackfrued.top"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://jackfrued.top"></form>
       </div>
     </div>
   </div>
@@ -80,10 +80,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-python-data-structure-cn/7.图和图的算法/7.9.实现广度优先搜索/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-个人感受" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.9.%E5%AE%9E%E7%8E%B0%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/README/" class="article-date">
-  <time class="dt-published" datetime="2024-06-29T02:14:13.265Z" itemprop="datePublished">2024-06-29</time>
+    <a href="/2024/06/29/%E4%B8%AA%E4%BA%BA%E6%84%9F%E5%8F%97/" class="article-date">
+  <time class="dt-published" datetime="2024-06-28T23:03:13.351Z" itemprop="datePublished">2024-06-29</time>
 </a>
     
   </div>
@@ -92,380 +92,16 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="7-9-实现广度优先搜索"><a href="#7-9-实现广度优先搜索" class="headerlink" title="7.9.实现广度优先搜索"></a>7.9.实现广度优先搜索</h2><p>通过构建图，我们现在可以将注意力转向我们将使用的算法来找到字梯问题的最短解。我们将使用的图算法称为“宽度优先搜索”算法。宽度优先搜索（BFS）是用于搜索图的最简单的算法之一。它也作为几个其他重要的图算法的原型，我们将在以后研究。</p>
-<p>给定图 G 和起始顶点 s，广度优先搜索通过探索图中的边以找到 G 中的所有顶点，其中存在从 s 开始的路径。通过广度优先搜索，它找到和 s 相距 k 的所有顶点，然后找到距离为 k + 1 的所有顶点。可视化广度优先搜索算法一个好方法是想象它正在建一棵树，一次建一层。广度优先搜索先从其他起始顶点开始添加它的所有子节点，然后再添加其子节点的子节点。</p>
-<p>为了跟踪进度，BFS 将每个顶点着色为白色，灰色或黑色。当它们被构造时，所有顶点被初始化为白色。白色顶点是未发现的顶点。当一个顶点最初被发现时它变成灰色的，当 BFS 完全探索完一个顶点时，它被着色为黑色。这意味着一旦顶点变黑色，就没有与它相邻的白色顶点。另一方面，灰色节点可能有与其相邻的一些白色顶点，表示仍有额外的顶点要探索。</p>
-<p>下面 Listing 2 中所示的广度优先搜索算法使用我们先前开发的邻接表表示。此外，它使用一个 Queue，一个关键的地方，决定下一个探索的顶点。</p>
-<p>此外，BFS 算法使用 Vertex 类的扩展版本。这个新的顶点类添加了三个新的实例变量：<code>distance</code>，<code>predecessor</code>和 <code>color</code> 。这些实例变量中的每一个还具有适当的 <code>getter</code> 和 <code>setter</code> 方法。这个扩展的顶点类代码包含在<code>pythonds</code>包中，但我们不会在这里展示它，因为没有新的需要学习的点。</p>
-<p>BFS 从起始顶点开始，颜色从灰色开始，表明它正在被探索。另外两个值，即距离和前导，对于起始顶点分别初始化为 0 和 None 。最后，放到一个队列中。下一步是开始系统地检查队列前面的顶点。我们通过迭代它的邻接表来探索队列前面的每个新节点。当检查邻接表上的每个节点时，检查其颜色。如果它是白色的，顶点是未开发的，有四件事情发生：</p>
-<ol>
-<li>新的，未开发的顶点 nbr，被着色为灰色。</li>
-<li>nbr 的前导被设置为当前节点 <code>currentVert</code></li>
-<li>到 nbr 的距离设置为到 <code>currentVert + 1</code> 的距离</li>
-<li>nbr 被添加到队列的末尾。 将 nbr 添加到队列的末尾有效地调度此节点以进行进一步探索，但不是直到 <code>currentVert</code> 的邻接表上的所有其他顶点都被探索。</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pythonds.graphs <span class="keyword">import</span> Graph, Vertex</span><br><span class="line"><span class="keyword">from</span> pythonds.basic <span class="keyword">import</span> Queue</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">bfs</span>(<span class="params">g,start</span>):</span><br><span class="line">  start.setDistance(<span class="number">0</span>)</span><br><span class="line">  start.setPred(<span class="literal">None</span>)</span><br><span class="line">  vertQueue = Queue()</span><br><span class="line">  vertQueue.enqueue(start)</span><br><span class="line">  <span class="keyword">while</span> (vertQueue.size() &gt; <span class="number">0</span>):</span><br><span class="line">    currentVert = vertQueue.dequeue()</span><br><span class="line">    <span class="keyword">for</span> nbr <span class="keyword">in</span> currentVert.getConnections():</span><br><span class="line">      <span class="keyword">if</span> (nbr.getColor() == <span class="string">&#x27;white&#x27;</span>):</span><br><span class="line">        nbr.setColor(<span class="string">&#x27;gray&#x27;</span>)</span><br><span class="line">        nbr.setDistance(currentVert.getDistance() + <span class="number">1</span>)</span><br><span class="line">        nbr.setPred(currentVert)</span><br><span class="line">        vertQueue.enqueue(nbr)</span><br><span class="line">    currentVert.setColor(<span class="string">&#x27;black&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><em>Listing 2</em></p>
-<p>让我们看看 bfs 函数如何构造对应于 Figure 1 中的图的广度优先树。开始我们取所有与 <code>fool</code> 相邻的节点，并将它们添加到树中。 相邻节点包括 <code>pool</code>, <code>foil</code>, <code>foul</code>, <code>cool</code>。 这些节点被添加到新节点的队列以进行扩展。 Figure 3 展示了在此步骤之后树以及队列的状态。</p>
-<p><img src="/assets/7.9.%E5%AE%9E%E7%8E%B0%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2.figure3.png" alt="7.9.实现广度优先搜索.figure3"></p>
-<p><em>Figure 3</em></p>
-<p>在下一步骤中，bfs 从队列的前面删除下一个节点（<code>pool</code>），并对其所有相邻节点重复该过程。 然而，当 bfs 检查节点 <code>cool</code> 时，它发现 <code>cool</code> 的颜色已经改变为灰色。这表明有一条较短的路径到 <code>cool</code>，并且 <code>cool</code> 已经在队列上进一步扩展。在检查 <code>pool</code> 期间添加到队列的唯一新节点是 <code>poll</code>。 树和队列的新状态如 Figure 4所示。</p>
-<p><img src="/assets/7.9.%E5%AE%9E%E7%8E%B0%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2.figure4.png" alt="7.9.实现广度优先搜索.figure4"></p>
-<p><em>Figure 4</em></p>
-<p>队列上的下一个顶点是 <code>foil</code>。 <code>foil</code> 可以添加到树中的唯一新节点是 <code>fail</code>。 当 bfs 继续处理队列时，接下来的两个节点都不向队列或树添加新内容。 Figure 5 展示了在树的第二级上展开所有顶点之后的树和队列。</p>
-<p><img src="/assets/7.9.%E5%AE%9E%E7%8E%B0%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2.figure5.png" alt="7.9.实现广度优先搜索.figure5"></p>
-<p><em>Figure 5-6</em></p>
-<p>你应该自己继续完成算法，以便能够熟练使用它。Figure 6 展示了在 Figure 3 中的所有顶点都被扩展之后的最终广度优先搜索树。关于广度优先搜索解决方案的令人惊讶的事情是，我们不仅解决了我们开始的 <code>FOOL-SAGE</code> 问题，还解决了许多其他问题。 我们可以从广度优先搜索树中的任何顶点开始，并沿着前导箭头回到根，找到从任何字回到 <code>fool</code> 的最短的词梯。 下面的函数（Listing 3）展示了如何按前导链接打印出字梯。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">traverse</span>(<span class="params">y</span>):</span><br><span class="line">    x = y</span><br><span class="line">    <span class="keyword">while</span> (x.getPred()):</span><br><span class="line">        <span class="built_in">print</span>(x.getId())</span><br><span class="line">        x = x.getPred()</span><br><span class="line">    <span class="built_in">print</span>(x.getId())</span><br><span class="line"></span><br><span class="line">traverse(g.getVertex(<span class="string">&#x27;sage&#x27;</span>))</span><br></pre></td></tr></table></figure>
-
-<p><em>Listing 3</em></p>
+        <h1 id="观Google翻译新增110种语言有感"><a href="#观Google翻译新增110种语言有感" class="headerlink" title="观Google翻译新增110种语言有感"></a>观<a href="https://m.cnbeta.com.tw/view/1436298.htm">Google翻译新增110种语言</a>有感</h1><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>Google今天表示，它的翻译服务将增加对 110 种语言的支持。该公司利用其 PaLM 2 人工智能模型为翻译提供支持。这些语言包括阿法尔语、粤语、曼克斯语、尼科语、旁遮普语（Shahmukhi）、塔马齐特语（阿马齐格语）和托克皮辛语。该公司表示，这些新增语言的使用者超过 6.14 亿，约占总人口的 8%。</p>
+<h2 id="个人感想"><a href="#个人感想" class="headerlink" title="个人感想"></a>个人感想</h2><h3 id="对中国现在存在的现象进行不完全列举"><a href="#对中国现在存在的现象进行不完全列举" class="headerlink" title="对中国现在存在的现象进行不完全列举"></a>对中国现在存在的现象进行不完全列举</h3><p><a href="https://www.bilibili.com/video/BV1LU4y1i71Q/?spm_id_from=333.337.search-card.all.click&vd_source=27657830b9e9b31655a0f23fd04ec5e2">讨薪者不敢讨薪</a><br><a href="https://www.bilibili.com/video/BV11Q4y1d7Hu/?spm_id_from=333.337.search-card.all.click&vd_source=27657830b9e9b31655a0f23fd04ec5e2">是什么让公司争先恐后的逃税</a><br><a href="https://www.bilibili.com/video/BV1Kog1eZEZJ/?spm_id_from=333.337.search-card.all.click&vd_source=27657830b9e9b31655a0f23fd04ec5e2">特斯拉一开源万物生</a><br><a href="https://www.bilibili.com/video/BV1HT421Y76f/?spm_id_from=333.337.search-card.all.click&vd_source=27657830b9e9b31655a0f23fd04ec5e2">chatgpt一出又是万物生</a><br><a href="https://www.bilibili.com/video/BV1RfugeYEHH/?spm_id_from=333.337.search-card.all.click&vd_source=27657830b9e9b31655a0f23fd04ec5e2">胖猫事件(公信力)</a><br>[疫情期间产生的事端][]<br>我想了想这些已经很多了就不在列举了，每想到这些事情在这片土地上发生，我就同艾青诗中的鸟一样只有流干鲜血</p>
+<p>反观在以人民为基本盘的中国发展起的公司，输入法对少数民族的语言根本就不支持，apple的输入法支持藏文的输入却成了藏族同胞的购买理由，很魔幻。今又看到goole对少部分人民的需求的响应，这不仅是商业上的长远眼光，中国的产业为什么都做不大做不长，大抵来说，无非就是成功后的傲慢和胆怯，不敢用长远的眼光来决定开发目标，大公司缺少活力，小公司缺少实力。与小公司合作，怕的并不是其突然倒闭，而是怕其同宋江一样一心只想“诏安”。中国这个礼仪之邦可以说名存实亡，为何？我们看待一个组织，往往并不先看到其内在，而是其表面，虽说用表面来看待是有些许不严谨，但一个表面都烂了的苹果你会想吃下去吗？所以，就从表面看下礼仪之邦的虚伪吧，这种虚伪与日本并不相同，日本是表里如一的，是承认的，是可以接受失败的，是可以吸取经验的，当然我并非夸赞日本。中国的公司为何倒闭的这么快，与市场中的手有着托不清的关系。政府不重视版权、劳动、福利等各种对公司对劳动者有关的法律，何以见得，与劳动者高歌劳动的伟大的必要性，一边却是对公司对员工的过度剥削熟视无睹，劳动法在这个时候就消失或者是变得静默了，中国这个地方金钱并不是一切，应当为权力至高无上，不维护劳动者的利益，并非领导者大脑一热就决定了的，而是进行了利益权衡的，</p>
+<h3 id="分析内因"><a href="#分析内因" class="headerlink" title="分析内因"></a>分析内因</h3><p>一是这种现象是具有普遍性的，并非是孤立的某一件事，所以即便是再蠢再坏的领导人都会站在全国或者是全世界的角度来看待。  对于这种维护成本很大，甚至来说是一直都会有并不会随着意识形态的转变而消失， 就同刑法上的事人们明知会有严重后果却依然敢为先为的原因一样，人心的贪婪。光是这样看也没有那么大的冲击，中国对偷税漏税的处罚力度之轻简直是轻如毫毛。</p>
+<p>二是中国人并没有搞懂公民应有的权力和责任是什么样的，因其根本就没有见过，从一开始就埋下了不相信的种子，所以见别人说国外的主义是不好的也出声附和，这无疑是可悲的，这就是当代鲁迅笔下吃人血馒头的人，但毫不自知。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.9.%E5%AE%9E%E7%8E%B0%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/README/" data-id="clxzhp6k700361s8j42ww14t6" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-python-data-structure-cn/7.图和图的算法/7.8.构建字梯图/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.8.%E6%9E%84%E5%BB%BA%E5%AD%97%E6%A2%AF%E5%9B%BE/README/" class="article-date">
-  <time class="dt-published" datetime="2024-06-29T02:14:13.256Z" itemprop="datePublished">2024-06-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="7-8-构建字梯图"><a href="#7-8-构建字梯图" class="headerlink" title="7.8.构建字梯图"></a>7.8.构建字梯图</h2><p>我们的第一个问题是弄清楚如何将大量的单词集合转换为图。 如果两个词只有一个字母不同，我们就创建从一个词到另一个词的边。如果我们可以创建这样的图，则从一个词到另一个词的任意路径就是词梯子拼图的解决方案。 Figure 1展示了一些解决 <code>FOOL</code> 到 <code>SAGE</code> 字梯问题的单词的小图。 请注意，图是无向图，边未加权。</p>
-<p><img src="/assets/7.8.%E6%9E%84%E5%BB%BA%E5%AD%97%E6%A2%AF%E5%9B%BE.figure1.png" alt="7.8.构建字梯图.figure1"></p>
-<p><em>Figure 1</em></p>
-<p>我们可以使用几种不同的方法来创建解决这个问题的图。假设我们有一个长度相同的单词列表。作为起点，我们可以在图中为列表中的每个单词创建一个顶点。为了弄清楚如何连接单词，我们可以比较列表中的每个单词。比较时我们看有多少字母是不同的。如果所讨论的两个字只有一个字母不同，我们可以在图中创建它们之间的边。对于小的列表，这种方法会正常工作;然而假设我们有一个 <code>5,110</code> 词的列表。粗略地说，将一个字与列表上的每个其他词进行比较是 $$O(n^2)$$。对于5110 个词，$$n^2$$ 是超过2600万的比较。</p>
-<p>我们可以通过以下方法做得更好。假设我们有大量的桶，每个桶在外面有一个四个字母的单词，除了标签中的一个字母已经被下划线替代。例如，看 Figure 2，我们可能有一个标记为 “pop_” 的桶。当我们处理列表中的每个单词时，我们使用 “_” 作为通配符比较每个桶的单词，所以 “pope” 和 “pops “ 将匹配 ”pop_“。每次我们找到一个匹配的桶，我们就把单词放在那个桶。一旦我们把所有单词放到适当的桶中，就知道桶中的所有单词必须连接。</p>
-<p><img src="/assets/7.8.%E6%9E%84%E5%BB%BA%E5%AD%97%E6%A2%AF%E5%9B%BE.figure2.png" alt="7.8.构建字梯图.figure2"></p>
-<p><em>Figure 2</em></p>
-<p>在 Python 中，我们使用字典来实现我们刚才描述的方案。我们刚才描述的桶上的标签是我们字典中的键。该键存储的值是单词列表。 一旦我们建立了字典，我们可以创建图。 我们通过为图中的每个单词创建一个顶点来开始图。 然后，我们在字典中的相同键下找到的所有顶点创建边。 Listing 1 展示了构建图所需的 Python 代码。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pythonds.graphs <span class="keyword">import</span> Graph</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">buildGraph</span>(<span class="params">wordFile</span>):</span><br><span class="line">    d = &#123;&#125;</span><br><span class="line">    g = Graph()</span><br><span class="line">    wfile = <span class="built_in">open</span>(wordFile,<span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">    <span class="comment"># create buckets of words that differ by one letter</span></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> wfile:</span><br><span class="line">        word = line[:-<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(word)):</span><br><span class="line">            bucket = word[:i] + <span class="string">&#x27;_&#x27;</span> + word[i+<span class="number">1</span>:]</span><br><span class="line">            <span class="keyword">if</span> bucket <span class="keyword">in</span> d:</span><br><span class="line">                d[bucket].append(word)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                d[bucket] = [word]</span><br><span class="line">    <span class="comment"># add vertices and edges for words in the same bucket</span></span><br><span class="line">    <span class="keyword">for</span> bucket <span class="keyword">in</span> d.keys():</span><br><span class="line">        <span class="keyword">for</span> word1 <span class="keyword">in</span> d[bucket]:</span><br><span class="line">            <span class="keyword">for</span> word2 <span class="keyword">in</span> d[bucket]:</span><br><span class="line">                <span class="keyword">if</span> word1 != word2:</span><br><span class="line">                    g.addEdge(word1,word2)</span><br><span class="line">    <span class="keyword">return</span> g</span><br></pre></td></tr></table></figure>
-
-<p><em>Listing 1</em></p>
-<p>因为这是我们的第一个真实世界图问题，你可能想知道图是如何稀疏？这个问题的四个字母的单词列表是 <code>5,110</code> 字长。 如果我们使用邻接矩阵，则矩阵将具有<code>5,110 * 5,110 = 26,112,100</code> 个格。 由 <code>buildGraph</code> 函数构造的图正好有 <code>53,286</code> 个边，所以矩阵只有 0.20％ 的单元格填充！ 这是一个非常稀疏的矩阵。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.8.%E6%9E%84%E5%BB%BA%E5%AD%97%E6%A2%AF%E5%9B%BE/README/" data-id="clxzhp6k700341s8j9ire4vtn" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-python-data-structure-cn/7.图和图的算法/7.7.字梯的问题/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.7.%E5%AD%97%E6%A2%AF%E7%9A%84%E9%97%AE%E9%A2%98/README/" class="article-date">
-  <time class="dt-published" datetime="2024-06-29T02:14:13.252Z" itemprop="datePublished">2024-06-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="7-7-字梯的问题"><a href="#7-7-字梯的问题" class="headerlink" title="7.7.字梯的问题"></a>7.7.字梯的问题</h2><p>让我们从下面的叫字梯的难题开始图算法研究。将单词 “FOOL” 转换为单词 “SAGE”。 在字梯中你通过改变一个字母逐渐发生变化。 在每一步，你必须将一个字变换成另一个字。 字梯益智游戏是刘易斯卡罗尔 1878 年发明的，爱丽丝梦游仙境的作者。下面的单词序列示出了对上述问题的一种可能的解决方案。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">FOOL</span><br><span class="line">POOL</span><br><span class="line">POLL</span><br><span class="line">POLE</span><br><span class="line">PALE</span><br><span class="line">SALE</span><br><span class="line">SAGE</span><br></pre></td></tr></table></figure>
-
-<p>有许多关于字梯问题的变种。例如，可能附加了完成转换的特定数量的步骤，或者可能需要使用特定的词。在本节中，我们将计算起始字转换为结束字所需的最小转换次数。</p>
-<p>毫不奇怪，因为这一章是图，我们可以使用图算法解决这个问题。 这里是我们需要的步骤：</p>
-<ul>
-<li>将字之间的关系表示为图。</li>
-<li>使用称为广度优先搜索的图算法来找到从起始字到结束字的有效路径。</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.7.%E5%AD%97%E6%A2%AF%E7%9A%84%E9%97%AE%E9%A2%98/README/" data-id="clxzhp6k800371s8j048617lb" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-python-data-structure-cn/7.图和图的算法/7.6.实现/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.6.%E5%AE%9E%E7%8E%B0/README/" class="article-date">
-  <time class="dt-published" datetime="2024-06-29T02:14:13.248Z" itemprop="datePublished">2024-06-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="7-6-实现"><a href="#7-6-实现" class="headerlink" title="7.6.实现"></a>7.6.实现</h2><p>使用字典，很容易在 Python 中实现邻接表。在我们的 Graph 抽象数据类型的实现中，我们将创建两个类（见 Listing 1和 Listing 2），Graph（保存顶点的主列表）和 Vertex（将表示图中的每个顶点）。</p>
-<p>每个顶点使用字典来跟踪它连接的顶点和每个边的权重。这个字典称为<code>connectedTo</code> 。 下面的列表展示了 <code>Vertex</code> 类的代码。构造函数只是初始化 <code>id</code> ，通常是一个字符串和 <code>connectedTo</code> 字典。 <code>addNeighbor</code>方法用于从这个顶点添加一个连接到另一个。<code>getConnections</code> 方法返回邻接表中的所有顶点，如 <code>connectedTo</code> 实例变量所示。 <code>getWeight</code> 方法返回从这个顶点到作为参数传递的顶点的边的权重。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Vertex</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,key</span>):</span><br><span class="line">        self.<span class="built_in">id</span> = key</span><br><span class="line">        self.connectedTo = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">addNeighbor</span>(<span class="params">self,nbr,weight=<span class="number">0</span></span>):</span><br><span class="line">        self.connectedTo[nbr] = weight</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">str</span>(self.<span class="built_in">id</span>) + <span class="string">&#x27; connectedTo: &#x27;</span> + <span class="built_in">str</span>([x.<span class="built_in">id</span> <span class="keyword">for</span> x <span class="keyword">in</span> self.connectedTo])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getConnections</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.connectedTo.keys()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getId</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.<span class="built_in">id</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getWeight</span>(<span class="params">self,nbr</span>):</span><br><span class="line">        <span class="keyword">return</span> self.connectedTo[nbr]</span><br></pre></td></tr></table></figure>
-
-<p><em>Listing 1</em></p>
-<p>下一个列表中显示的 Graph 类包含将顶点名称映射到顶点对象的字典。在 Figure 4中，该字典对象由阴影灰色框表示。 <code>Graph</code> 还提供了将顶点添加到图并将一个顶点连接到另一个顶点的方法。<code>getVertices</code> 方法返回图中所有顶点的名称。此外，我们实现了 <code>__iter__</code> 方法，以便轻松地遍历特定图中的所有顶点对象。 这两种方法允许通过名称或对象本身在图形中的顶点上进行迭代。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Graph</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.vertList = &#123;&#125;</span><br><span class="line">        self.numVertices = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">addVertex</span>(<span class="params">self,key</span>):</span><br><span class="line">        self.numVertices = self.numVertices + <span class="number">1</span></span><br><span class="line">        newVertex = Vertex(key)</span><br><span class="line">        self.vertList[key] = newVertex</span><br><span class="line">        <span class="keyword">return</span> newVertex</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getVertex</span>(<span class="params">self,n</span>):</span><br><span class="line">        <span class="keyword">if</span> n <span class="keyword">in</span> self.vertList:</span><br><span class="line">            <span class="keyword">return</span> self.vertList[n]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__contains__</span>(<span class="params">self,n</span>):</span><br><span class="line">        <span class="keyword">return</span> n <span class="keyword">in</span> self.vertList</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">addEdge</span>(<span class="params">self,f,t,cost=<span class="number">0</span></span>):</span><br><span class="line">        <span class="keyword">if</span> f <span class="keyword">not</span> <span class="keyword">in</span> self.vertList:</span><br><span class="line">            nv = self.addVertex(f)</span><br><span class="line">        <span class="keyword">if</span> t <span class="keyword">not</span> <span class="keyword">in</span> self.vertList:</span><br><span class="line">            nv = self.addVertex(t)</span><br><span class="line">        self.vertList[f].addNeighbor(self.vertList[t], cost)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getVertices</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.vertList.keys()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__iter__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">iter</span>(self.vertList.values())</span><br></pre></td></tr></table></figure>
-
-<p><em>Listing 2</em></p>
-<p>使用刚才定义的 <code>Graph</code> 和 <code>Vertex</code> 类，下面的 Python 会话创建 Figure 2中的图。首先我们创建 6 个编号为 0 到 5 的顶点。然后我们展示顶点字典。 注意，对于每个键 0 到 5，我们创建了一个顶点的实例。接下来，我们添加将顶点连接在一起的边。 最后，嵌套循环验证图中的每个边缘是否正确存储。 你应该在本会话结束时根据 Figure 2检查边列表的输出是否正确。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; g = Graph()</span><br><span class="line">&gt;&gt;&gt; <span class="keyword">for</span> i <span class="keyword">in</span> range(6):</span><br><span class="line">...    g.addVertex(i)</span><br><span class="line">&gt;&gt;&gt; g.vertList</span><br><span class="line">&#123;0: &lt;adjGraph.Vertex instance at 0x41e18&gt;,</span><br><span class="line"> 1: &lt;adjGraph.Vertex instance at 0x7f2b0&gt;,</span><br><span class="line"> 2: &lt;adjGraph.Vertex instance at 0x7f288&gt;,</span><br><span class="line"> 3: &lt;adjGraph.Vertex instance at 0x7f350&gt;,</span><br><span class="line"> 4: &lt;adjGraph.Vertex instance at 0x7f328&gt;,</span><br><span class="line"> 5: &lt;adjGraph.Vertex instance at 0x7f300&gt;&#125;</span><br><span class="line">&gt;&gt;&gt; g.addEdge(0,1,5)</span><br><span class="line">&gt;&gt;&gt; g.addEdge(0,5,2)</span><br><span class="line">&gt;&gt;&gt; g.addEdge(1,2,4)</span><br><span class="line">&gt;&gt;&gt; g.addEdge(2,3,9)</span><br><span class="line">&gt;&gt;&gt; g.addEdge(3,4,7)</span><br><span class="line">&gt;&gt;&gt; g.addEdge(3,5,3)</span><br><span class="line">&gt;&gt;&gt; g.addEdge(4,0,1)</span><br><span class="line">&gt;&gt;&gt; g.addEdge(5,4,8)</span><br><span class="line">&gt;&gt;&gt; g.addEdge(5,2,1)</span><br><span class="line">&gt;&gt;&gt; <span class="keyword">for</span> v <span class="keyword">in</span> g:</span><br><span class="line">...    <span class="keyword">for</span> w <span class="keyword">in</span> v.getConnections():</span><br><span class="line">...        <span class="built_in">print</span>(<span class="string">&quot;( %s , %s )&quot;</span> % (v.getId(), w.getId()))</span><br><span class="line">...</span><br><span class="line">( 0 , 5 )</span><br><span class="line">( 0 , 1 )</span><br><span class="line">( 1 , 2 )</span><br><span class="line">( 2 , 3 )</span><br><span class="line">( 3 , 4 )</span><br><span class="line">( 3 , 5 )</span><br><span class="line">( 4 , 0 )</span><br><span class="line">( 5 , 4 )</span><br><span class="line">( 5 , 2 )</span><br></pre></td></tr></table></figure>
-
-<p><em>Figure 2</em></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.6.%E5%AE%9E%E7%8E%B0/README/" data-id="clxzhp6k700351s8j1fqkbokg" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-python-data-structure-cn/7.图和图的算法/7.5.邻接表/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.5.%E9%82%BB%E6%8E%A5%E8%A1%A8/README/" class="article-date">
-  <time class="dt-published" datetime="2024-06-29T02:14:13.240Z" itemprop="datePublished">2024-06-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="7-5-邻接表"><a href="#7-5-邻接表" class="headerlink" title="7.5.邻接表"></a>7.5.邻接表</h2><p>实现稀疏连接图的更空间高效的方法是使用邻接表。在邻接表实现中，我们保存Graph 对象中的所有顶点的主列表，然后图中的每个顶点对象维护连接到的其他顶点的列表。 在我们的顶点类的实现中，我们将使用字典而不是列表，其中字典键是顶点，值是权重。 Figure 4 展示了 Figure 2中的图的邻接列表示。<br><img src="/assets/7.5.%E9%82%BB%E6%8E%A5%E8%A1%A8.figure4.png" alt="7.5.邻接表.figure4"></p>
-<p><em>Figure 4</em></p>
-<p>邻接表实现的优点是它允许我们紧凑地表示稀疏图。 邻接表还允许我们容易找到直接连接到特定顶点的所有链接。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.5.%E9%82%BB%E6%8E%A5%E8%A1%A8/README/" data-id="clxzhp6k700331s8jfrk82082" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-python-data-structure-cn/7.图和图的算法/7.4.邻接矩阵/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.4.%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5/README/" class="article-date">
-  <time class="dt-published" datetime="2024-06-29T02:14:13.230Z" itemprop="datePublished">2024-06-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="7-4-邻接矩阵"><a href="#7-4-邻接矩阵" class="headerlink" title="7.4.邻接矩阵"></a>7.4.邻接矩阵</h2><p>实现图的最简单的方法之一是使用二维矩阵。在该矩阵实现中，每个行和列表示图中的顶点。存储在行 v 和列 w 的交叉点处的单元中的值表示是否存在从顶点 v 到顶点 w 的边。 当两个顶点通过边连接时，我们说它们是相邻的。 Figure 3 展示了 Figure 2 中的图的邻接矩阵。单元格中的值表示从顶点 v 到顶点 w 的边的权重。</p>
-<p><img src="/assets/7.4.%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5.figure3.png" alt="7.4.邻接矩阵.figure3"></p>
-<p><em>Figure 3</em></p>
-<p>邻接矩阵的优点是简单，对于小图，很容易看到哪些节点连接到其他节点。 然而，注意矩阵中的大多数单元格是空的。 因为大多数单元格是空的，我们说这个矩阵是“稀疏的”。矩阵不是一种非常有效的方式来存储稀疏数据。 事实上，在Python中，你甚至要创建一个如 Figure 3所示的矩阵结构。</p>
-<p>当边的数量大时，邻接矩阵是图的良好实现。但是什么是大？填充矩阵需要多少边？ 由于图中每个顶点有一行和一列，填充矩阵所需的边数为 $$|V|^2$$。 当每个顶点连接到每个其他顶点时，矩阵是满的。有几个真实的问题，接近这种连接。 我们在本章中讨论的问题都涉及稀疏连接的图。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.4.%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5/README/" data-id="clxzhp6k600301s8j7wf1ern2" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-python-data-structure-cn/7.图和图的算法/7.3.图抽象数据类型/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.3.%E5%9B%BE%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/README/" class="article-date">
-  <time class="dt-published" datetime="2024-06-29T02:14:13.225Z" itemprop="datePublished">2024-06-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="7-3-图抽象数据类型"><a href="#7-3-图抽象数据类型" class="headerlink" title="7.3.图抽象数据类型"></a>7.3.图抽象数据类型</h2><p>图抽象数据类型（ADT）定义如下：</p>
-<ul>
-<li>Graph() 创建一个新的空图。</li>
-<li>addVertex(vert) 向图中添加一个顶点实例。</li>
-<li>addEdge(fromVert, toVert) 向连接两个顶点的图添加一个新的有向边。</li>
-<li>addEdge(fromVert, toVert, weight) 向连接两个顶点的图添加一个新的加权的有向边。</li>
-<li>getVertex(vertKey) 在图中找到名为 <code>vertKey</code> 的顶点。</li>
-<li>getVertices() 返回图中所有顶点的列表。</li>
-<li>in 返回 True 如果 <code>vertex in graph</code> 里给定的顶点在图中，否则返回False。</li>
-</ul>
-<p>从图的正式定义开始，我们有几种方法可以在 Python 中实现图 ADT。 我们将看到在使用不同的表示来实现上述 ADT 时存在权衡。 有两个众所周知的图形、实现，<code>邻接矩阵</code> 和 <code>邻接表</code> 。 我们将解释这两个选项，然后实现一个作为 Python 类。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.3.%E5%9B%BE%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/README/" data-id="clxzhp6k6002z1s8j1hz384ag" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-python-data-structure-cn/7.图和图的算法/7.23.总结/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.23.%E6%80%BB%E7%BB%93/README/" class="article-date">
-  <time class="dt-published" datetime="2024-06-29T02:14:13.220Z" itemprop="datePublished">2024-06-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="7-23-总结"><a href="#7-23-总结" class="headerlink" title="7.23.总结"></a>7.23.总结</h2><p>在本章中，我们讨论了图抽象数据类型，以及图的一些实现。 图使我们能够解决许多问题，只要我们可以将原始问题转换为可以由图表示的东西。 特别是，我们已经看到，图有助于解决以下领域的问题。</p>
-<ul>
-<li>广度优先搜索找到未加权的最短路径。</li>
-<li>Dijkstra的加权最短路径算法。</li>
-<li>深度优先搜索图探索。</li>
-<li>强连通分量，用于简化图。</li>
-<li>排序任务的拓扑排序。</li>
-<li>广播消息的最小权重生成树。</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.23.%E6%80%BB%E7%BB%93/README/" data-id="clxzhp6k600311s8j0mkj3l2u" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-python-data-structure-cn/7.图和图的算法/7.22.Prim生成树算法/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.22.Prim%E7%94%9F%E6%88%90%E6%A0%91%E7%AE%97%E6%B3%95/README/" class="article-date">
-  <time class="dt-published" datetime="2024-06-29T02:14:13.205Z" itemprop="datePublished">2024-06-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="7-22-Prim生成树算法"><a href="#7-22-Prim生成树算法" class="headerlink" title="7.22.Prim生成树算法"></a>7.22.Prim生成树算法</h2><p>对于我们最后的图算法，让我们考虑一个在线游戏设计师和网络收音机提供商面临的问题。 问题是他们想有效地将一条信息传递给任何人和每个可能在听的人。 这在游戏中是重要的，使得所有玩家知道每个其他玩家的最新位置。 对于网络收音机是重要的，以便所有该调频的收听者获得他们需要的所有数据来刷新他们正在收听的歌曲。 Figure 9 说明了广播问题。</p>
-<p><img src="/assets/7.22.Prim%E7%94%9F%E6%88%90%E6%A0%91%E7%AE%97%E6%B3%95.figure9.png" alt="7.22.Prim生成树算法.figure9"></p>
-<p><em>Figure 9</em></p>
-<p>这个问题有一些强力的解决方案，所以先看看他们如何更好地理解广播问题。这也将帮助你理解我们最后提出的解决方案。首先，广播主机有一些收听者都需要接收的信息。最简单的解决方案是广播主机保存所有收听者的列表并向每个收听者发送单独的消息。在 Figure 9中，我们展示了有广播公司和一些收听者的小型网络。使用第一种方法，将发送每个消息的四个副本。假设使用最小成本路径，让我们看看每个路由器处理同一消息的次数。</p>
-<p>来自广播公司的所有消息都通过路由器 A ，所以 A 看到每个消息的所有四个副本。路由器 C 只接收到其收听者每个消息的一个副本。然而，路由器 B 和 D 将收到每个消息的三个副本，因为路由器 B 和 D 在收听者 1,2和3 的最短路径上。当广播主机必须每秒发送数百条消息用于无线电广播，这是很多额外的流量。</p>
-<p>暴力解决方案是广播主机发送广播消息的单个副本，并让路由器整理出来。在这种情况下，最简单的解决方案是称为 <code>不受控泛洪</code> 的策略。洪水策略工作如下。每个消息开始于将存活时间（ttl）值设置为大于或等于广播主机与其最远听者之间的边数量的某个数。每个路由器获得消息的副本，并将消息传递到其所有相邻路由器。当消息传递到 ttl 减少。每个路由器继续向其所有邻居发送消息的副本，直到 ttl 值达到 0。不受控制的洪泛比我们的第一个策略产生更多的不必要的消息。</p>
-<p>这个问题的解决方案在于建立最小权重 <code>生成树</code>。正式地，我们为图 $$G&#x3D;(V,E)$$定义最小生成树 T 如下。 T 是连接 V 中所有顶点的 E 的非循环子集。 T中的边的权重的和被最小化。</p>
-<p>Figure 10 展示了广播图的简化版本并突出了生成图的最小生成树的边。现在为了解决我们的广播问题，广播主机简单地将广播消息的单个副本发送到网络中。每个路由器将消息转发到作为生成树的一部分邻居，排除刚刚向其发送消息的邻居。在这个例子中 A 将消息转发到 B，B 将消息转发到 D 和 C。D 将消息转发到 E，E将它转发到 F，F 转发到 G。没有路由器看到任何消息的多个副本，所有感兴趣的收听者都会看到消息的副本。</p>
-<p><img src="/assets/7.22.Prim%E7%94%9F%E6%88%90%E6%A0%91%E7%AE%97%E6%B3%95.figure10.png" alt="7.22.Prim生成树算法.figure10"></p>
-<p><em>Figure 10</em></p>
-<p>我们将用来解决这个问题的算法称为 Prim 算法。 Prim 算法属于称为 “贪婪算法” 一系列算法，，因为在每个步骤，我们将选择最小权重的下一步。 在这种情况下，最小权重的下一步是以最小的权重跟随边。 我们的最后一步是开发 Prim 算法。</p>
-<p>构建生成树的基本思想如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">While T is not yet a spanning tree</span><br><span class="line">   Find an edge that is safe to add to the tree</span><br><span class="line">   Add the new edge to T</span><br></pre></td></tr></table></figure>
-
-<p>诀窍是指导我们 “找到一个安全的边”。我们定义一个安全边作为将生成树中的顶点连接到不在生成树中的顶点的任何边。这确保树将始终保持为树并且没有循环。</p>
-<p>用于实现 Prim 算法的 Python 代码如 Listing2 所示。Prim 算法类似于Dijkstra 算法，它们都使用优先级队列来选择要添加到图中的下一个顶点。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pythonds.graphs <span class="keyword">import</span> PriorityQueue, Graph, Vertex</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">prim</span>(<span class="params">G,start</span>):</span><br><span class="line">    pq = PriorityQueue()</span><br><span class="line">    <span class="keyword">for</span> v <span class="keyword">in</span> G:</span><br><span class="line">        v.setDistance(sys.maxsize)</span><br><span class="line">        v.setPred(<span class="literal">None</span>)</span><br><span class="line">    start.setDistance(<span class="number">0</span>)</span><br><span class="line">    pq.buildHeap([(v.getDistance(),v) <span class="keyword">for</span> v <span class="keyword">in</span> G])</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> pq.isEmpty():</span><br><span class="line">        currentVert = pq.delMin()</span><br><span class="line">        <span class="keyword">for</span> nextVert <span class="keyword">in</span> currentVert.getConnections():</span><br><span class="line">          newCost = currentVert.getWeight(nextVert)</span><br><span class="line">          <span class="keyword">if</span> nextVert <span class="keyword">in</span> pq <span class="keyword">and</span> newCost&lt;nextVert.getDistance():</span><br><span class="line">              nextVert.setPred(currentVert)</span><br><span class="line">              nextVert.setDistance(newCost)</span><br><span class="line">              pq.decreaseKey(nextVert,newCost)</span><br></pre></td></tr></table></figure>
-
-<p><em>Listing 2</em></p>
-<p>下面的图（Figure 11 到 Figure 17）展示了在我们的样本树上运行的算法。我们从起始顶点开始。到所有其他顶点的距离被初始化为无穷大。看看 A 的邻居，我们可以更新另外两个顶点 B 和 C 的距离，因为通过 A 到 B 和 C 的距离小于无限。这将 B 和 C 移动到优先级队列的前面。通过将 B 和 C 的前导链接设置为指向 A 来更新前导链接。重要的是要注意，我们还没有正式向生成树添加 B 或 C。在将节点从优先级队列中删除之前，不会将其视为生成树的一部分。</p>
-<p>因为 B 有最小的距离，我们看看 B。检查 B 的邻居，我们看到 D 和 E 可以更新。D 和 E 都获得新的距离值，并更新它们的前导链接。移动到优先级队列中的下一个节点，我们找到 C。只有仍在优先级队列中的节点是 F，因此我们可以更新到 F 的距离，并调整优先级队列中的 F 的位置。</p>
-<p>现在我们检查与节点 D 相邻的顶点。我们发现可以更新 E 并​​且将从距离 6 减小到 4。当我们这样做时，我们将 E 上的前趋链接改变为指向 D，从而准备移植到生成树中不同的位置。算法的其余部分按照预期进行，将每个新节点添加到树中。</p>
-<p><img src="/assets/7.22.Prim%E7%94%9F%E6%88%90%E6%A0%91%E7%AE%97%E6%B3%95-1.png" alt="7.22.Prim生成树算法-1"></p>
-<p><img src="/assets/7.22.Prim%E7%94%9F%E6%88%90%E6%A0%91%E7%AE%97%E6%B3%95-2.png" alt="7.22.Prim生成树算法-2"></p>
-<p><img src="/assets/7.22.Prim%E7%94%9F%E6%88%90%E6%A0%91%E7%AE%97%E6%B3%95-3.png" alt="7.22.Prim生成树算法-3"></p>
-<p><img src="/assets/7.22.Prim%E7%94%9F%E6%88%90%E6%A0%91%E7%AE%97%E6%B3%95-4.png" alt="7.22.Prim生成树算法-4"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.22.Prim%E7%94%9F%E6%88%90%E6%A0%91%E7%AE%97%E6%B3%95/README/" data-id="clxzhp6k6002x1s8j92me0y8h" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-python-data-structure-cn/7.图和图的算法/7.21.Dijkstra算法分析/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.21.Dijkstra%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/README/" class="article-date">
-  <time class="dt-published" datetime="2024-06-29T02:14:13.202Z" itemprop="datePublished">2024-06-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="7-21-Dijkstra算法分析"><a href="#7-21-Dijkstra算法分析" class="headerlink" title="7.21.Dijkstra算法分析"></a>7.21.Dijkstra算法分析</h2><p>最后，让我们看看 Dijkstra 算法的运行时间。我们首先注意到，构建优先级队列需要 $$O(V)$$ 时间，因为我们最初将图中的每个顶点添加到优先级队列。 一旦构造了队列，则对于每个顶点执行一次 <code>while</code> 循环，因为顶点都在开始处添加，并且在那之后才被移除。 在该循环中每次调用 <code>delMin</code>，需要 $$O(logV)$$时间。 将该部分循环和对 delMin 的调用取为 $$O(Vlog(V))$$。 for 循环对于图中的每个边执行一次，并且在 for 循环中，对 decreaseKey 的调用需要时间 $$O(Elog(V))$$ 。 因此，组合运行时间为 $$O((V + E)log(V))$$。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://jackfrued.top/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.21.Dijkstra%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/README/" data-id="clxzhp6k6002y1s8jd4wf29im" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://jackfrued.top/2024/06/29/%E4%B8%AA%E4%BA%BA%E6%84%9F%E5%8F%97/" data-id="clxzb1wss0000i08j5mge83nr" data-title="" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -478,11 +114,6 @@
 
   
 
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-  </nav>
 
 </section>
         
@@ -498,7 +129,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li></ul>
     </div>
@@ -508,28 +139,12 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.9.%E5%AE%9E%E7%8E%B0%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/README/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.8.%E6%9E%84%E5%BB%BA%E5%AD%97%E6%A2%AF%E5%9B%BE/README/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.7.%E5%AD%97%E6%A2%AF%E7%9A%84%E9%97%AE%E9%A2%98/README/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.6.%E5%AE%9E%E7%8E%B0/README/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2024/06/29/python-data-structure-cn/7.%E5%9B%BE%E5%92%8C%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/7.5.%E9%82%BB%E6%8E%A5%E8%A1%A8/README/">(no title)</a>
+            <a href="/2024/06/29/%E4%B8%AA%E4%BA%BA%E6%84%9F%E5%8F%97/">(no title)</a>
           </li>
         
       </ul>
